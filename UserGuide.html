@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>SErebros</code>      Since: <code>September 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,16 +13,20 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>/help</code></a></li>
+<li><a href="#loading-a-data-set-code-load-code">3.2. Loading a data set : <code>/load</code></a></li>
+<li><a href="#listing-all-data-sets-code-list-code">3.3. Listing all data sets : <code>/list</code></a></li>
+<li><a href="#viewing-a-data-set-s-content-code-view-code">3.4. Viewing a data set&#8217;s content : <code>/view</code></a></li>
+<li><a href="#editor-mode-code-editor-code">3.5. Editor mode : <code>/editor</code></a></li>
+<li><a href="#start-new-game-session-code-start-code">3.6. Start new game session : <code>/start</code></a></li>
+<li><a href="#stop-game-session-code-stop-code">3.7. Stop game session : <code>/stop</code></a></li>
+<li><a href="#viewing-statistics-code-stats-code">3.8. Viewing statistics : <code>/stats</code></a></li>
+<li><a href="#changing-settings-code-settings-code">3.9. Changing settings : <code>/settings</code></a></li>
+<li><a href="#navigating-back-code-back-code">3.10. Navigating back : <code>/back</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>/exit</code></a></li>
+<li><a href="#saving-the-data">3.12. Saving the data</a></li>
+<li><a href="#leaderboard-code-coming-in-v2-0-code">3.13. Leaderboard <code>[coming in v2.0]</code></a></li>
+<li><a href="#user-profiles-code-coming-in-v2-0-code">3.14. User profiles <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -34,7 +38,32 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Our project is a game that requires the user to match a keyword to a given description. This game aims to aid students who are trying to revise concepts and definitions in their schoolwork.</p>
+</div>
+<div class="paragraph">
+<p>The general flow of the program is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select and Edit Dataset</p>
+</li>
+<li>
+<p>Configure Settings</p>
+</li>
+<li>
+<p>Start and Play Game</p>
+</li>
+<li>
+<p>End Game</p>
+</li>
+<li>
+<p>Display Statistics</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The user manually stores definitions / vocabulary into a word dataset. He can also pre-load a word dataset given to him from a file. During the game, you will be tasked to type the correct word given the description. Depending on the game mode, there may also be time restrictions. Answer correctly as quickly as possible and to score as much as you can! You can view your statistics afterwards to review your performance!</p>
 </div>
 </div>
 </div>
@@ -47,7 +76,7 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>dukemon.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -62,23 +91,23 @@
 </li>
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+e.g. typing <strong><code>/help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>/list</code></strong> : lists all data sets.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>/start</code></strong> : starts the quiz.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>/stop</code></strong> : stops the quiz</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app</p>
+<p><strong><code>/exit</code></strong> : exits the app</p>
 </li>
 </ul>
 </div>
@@ -101,6 +130,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
+<p>All commands are typed with <code>/</code> in front of them to differentiate them from answers that the user puts in. <code>~</code> will be used as an escape character in case <code>/</code> is used as part of the answer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Eg, <code>~/help</code> will be intepreted by the computer as a string "/help" instead of the command <code>/help</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
@@ -117,16 +156,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>/help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>/help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="loading-a-data-set-code-load-code"><a class="link" href="#loading-a-data-set-code-load-code">3.2. Loading a data set : <code>/load</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Loads a data set from storage.<br>
+Format: <code>/load DATASET_NAME</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -135,7 +174,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+Use <code>/list</code> to get all data sets currently in your storage.
 </td>
 </tr>
 </table>
@@ -146,49 +185,52 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>/load List of animals</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>/load All gen 1 pokemon</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-data-sets-code-list-code"><a class="link" href="#listing-all-data-sets-code-list-code">3.3. Listing all data sets : <code>/list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all data sets currently in storage.<br>
+Format: <code>/list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="viewing-a-data-set-s-content-code-view-code"><a class="link" href="#viewing-a-data-set-s-content-code-view-code">3.4. Viewing a data set&#8217;s content : <code>/view</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Views the content of a data set.<br>
+Format: <code>/view DATASET_NAME</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="paragraph">
+<p>Examples :</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><code>/view Anatomy of the guitar</code></p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p><code>/view Steps in the krebs cycle</code></p>
 </li>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="editor-mode-code-editor-code"><a class="link" href="#editor-mode-code-editor-code">3.5. Editor mode : <code>/editor</code></a></h3>
+<div class="paragraph">
+<p>Opens the in-app editor for managing data sets. All changes made in editor is automatically saved in storage.<br>
+Format: <code>/editor</code></p>
+</div>
+<div class="sect3">
+<h4 id="create-new-data-set-code-new-code"><a class="link" href="#create-new-data-set-code-new-code">3.5.1. Create new data set : <code>/new</code></a></h4>
+<div class="paragraph">
+<p>Creates a new data set with specified name. Will automatically be set in edit mode for that data set.<br>
+Format: <code>/new DATASET_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -196,21 +238,73 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>/new Parts of the arm</code></p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>/new All amino acids</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-data-set-s-content-code-edit-code"><a class="link" href="#editing-a-data-set-s-content-code-edit-code">3.5.2. Editing a data set&#8217;s content : <code>/edit</code></a></h4>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Enters edit mode for selected data set.<br>
+Format: <code>/edit DATASET_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/edit List of animals</code></p>
+</li>
+<li>
+<p><code>/edit Teeth</code></p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="adding-a-word-code-add-code"><a class="link" href="#adding-a-word-code-add-code">Adding a word : <code>/add</code></a></h5>
+<div class="paragraph">
+<p>Adds a new word-description pair to the data set.<br>
+Format: <code>/add /w WORD /d DESCRIPTION</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Word can be more than just 1 word. Can consist of multiple words if term to remember requires it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/add /w Elephant /d Has a long nose</code></p>
+</li>
+<li>
+<p><code>/add /w Newton&#8217;s third law of motion /d Every action will produce and equal and opposite reaction</code></p>
+</li>
+<li>
+<p><code>/add /w Kopi Luwak /d Coffee produced from the coffee beans found in the faeces of a civet cat</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">Locating a word/description: <code>/find</code></a></h5>
+<div class="paragraph">
+<p>Finds entry whose word or description contain any of the given keywords.<br>
+Format: <code>/find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -223,7 +317,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Both word and description will be searched</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
@@ -241,28 +335,28 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>find long</code><br>
+Returns entries containing elephant and giraffe.</p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find mammal fish bird</code><br>
+Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>bird</code> in its descriptions or words.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<div class="sect4">
+<h5 id="deleting-a-word-code-delete-code"><a class="link" href="#deleting-a-word-code-delete-code">Deleting a word : <code>/delete</code></a></h5>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Deletes the specified word from the data set.<br>
+Format: <code>/delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the word at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
@@ -280,43 +374,177 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p><code>/list</code><br>
+<code>/delete 2</code><br>
+Deletes the 2nd word in the data set.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>/find elephant</code><br>
 <code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st word in the results of the <code>/find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-new-game-session-code-start-code"><a class="link" href="#start-new-game-session-code-start-code">3.6. Start new game session : <code>/start</code></a></h3>
+<div class="paragraph">
+<p>Starts a game session with the desired data set.<br>
+Format: <code>/start List of animals</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stop-game-session-code-stop-code"><a class="link" href="#stop-game-session-code-stop-code">3.7. Stop game session : <code>/stop</code></a></h3>
+<div class="paragraph">
+<p>Stops current game session (all progress will be lost) and returns to the home page.<br>
+Format: <code>/stop</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-statistics-code-stats-code"><a class="link" href="#viewing-statistics-code-stats-code">3.8. Viewing statistics : <code>/stats</code></a></h3>
+<div class="paragraph">
+<p>Views and compares statistics. Can be specified to view stats for specific data sets.<br>
+Format: <code>/stats [DATASET_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/stats</code><br>
+Returns overall statistics for the whole app.</p>
+</li>
+<li>
+<p><code>/stats List of animals</code><br>
+Returns statistics for the data set <code>List of animals</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="changing-settings-code-settings-code"><a class="link" href="#changing-settings-code-settings-code">3.9. Changing settings : <code>/settings</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Goes into the settings menu.<br>
+Format: <code>/settings</code></p>
+</div>
+<div class="sect3">
+<h4 id="changing-the-theme-code-theme-code"><a class="link" href="#changing-the-theme-code-theme-code">3.9.1. Changing the theme : <code>/theme</code></a></h4>
+<div class="paragraph">
+<p>Changes the theme of the UI.<br>
+Format: <code>/theme dark/light</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/theme dark</code><br>
+Changes the UI theme to dark.</p>
+</li>
+<li>
+<p><code>/theme light</code><br>
+Changes the UI theme to light.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="turning-hints-on-off-code-hints-code"><a class="link" href="#turning-hints-on-off-code-hints-code">3.9.2. Turning hints on/off : <code>/hints</code></a></h4>
+<div class="paragraph">
+<p>Turns hints on or off.<br>
+Format: <code>/hints on/off</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/hints on</code><br>
+Turns hints on.</p>
+</li>
+<li>
+<p><code>/hints off</code><br>
+Turns hints off.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="changing-difficulty-code-difficulty-code"><a class="link" href="#changing-difficulty-code-difficulty-code">3.9.3. Changing difficulty : <code>/difficulty</code></a></h4>
+<div class="paragraph">
+<p>Changes the difficulty of the game.<br>
+Format: <code>/difficulty low/medium/high</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/difficulty low</code><br>
+Changes the difficulty to low. (Timer = 30 seconds)</p>
+</li>
+<li>
+<p><code>/difficulty medium</code><br>
+Changes the difficulty to medium. (Timer = 20 seconds)</p>
+</li>
+<li>
+<p><code>/difficulty high</code><br>
+Changes the difficulty to high. (Timer = 10 seconds)</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="navigating-back-code-back-code"><a class="link" href="#navigating-back-code-back-code">3.10. Navigating back : <code>/back</code></a></h3>
+<div class="paragraph">
+<p>At any point in time, if there is a previous screen, navigates back to that screen. add home to navigate back to the home page.<br>
+Format: <code>/back [home]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/back</code></p>
+</li>
+<li>
+<p><code>/back home</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>/exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Dukemon data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">3.13. Leaderboard <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>View and compare your statistics with peers on the internet.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">3.14. User profiles <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Have more than one account to monitor statistics on the same computer</p>
 </div>
 </div>
 </div>
@@ -328,6 +556,10 @@ There is no need to save manually.</p>
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I pronounce your name?<br>
+<strong>A</strong>: Think Pokemon.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -336,31 +568,86 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Help</strong> : <code>/help</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Load</strong> : <code>/load DATASET_NAME</code><br>
+e.g. <code>/load List of animals</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>List</strong> : <code>/list</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>View</strong> : <code>/view DATASET_NAME</code><br>
+e.g. <code>/view List of animals</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Editor</strong> : <code>/editor</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>New</strong> : <code>/new DATASET_NAME</code><br>
+e.g. <code>/new Car brands</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Edit</strong> : <code>/edit DATASET_NAME</code><br>
+e.g. <code>/edit List of animals</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <code>/add /w WORD /d DESCRIPTION</code><br>
+e.g. <code>/add /w Elephant /d Has a long nose</code><br>
+e.g. <code>/add /w Giraffe /d Has a long neck</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Find</strong> : <code>/find WORD [WORDS]&#8230;&#8203;</code><br>
+e.g. <code>/find long</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>/delete INDEX</code><br>
+e.g. <code>/delete 1</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Start</strong> : <code>/start DATASET_NAME</code><br>
+e.g. <code>/start List of animals</code></p>
+</li>
+<li>
+<p><strong>Stop</strong> : <code>/stop</code></p>
+</li>
+<li>
+<p><strong>Stats</strong> : <code>/stats [DATASET_NAME]</code><br>
+e.g. <code>/stats</code><br>
+e.g. <code>/stats List of animals</code></p>
+</li>
+<li>
+<p><strong>Settings</strong> : <code>/settings</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Theme</strong> : <code>/theme dark/light</code></p>
+</li>
+<li>
+<p><strong>Hints</strong> : <code>/hints on/off</code></p>
+</li>
+<li>
+<p><strong>Difficulty</strong> : <code>/difficulty low/medium/high</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Back</strong> : <code>/back [home]</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>/exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-29 15:15:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 04:36:28 UTC</div></div></div></body></html>
