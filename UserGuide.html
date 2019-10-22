@@ -13,20 +13,19 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>/help</code></a></li>
-<li><a href="#loading-a-data-set-code-load-code">3.2. Loading a data set : <code>/load</code></a></li>
-<li><a href="#listing-all-data-sets-code-list-code">3.3. Listing all data sets : <code>/list</code></a></li>
-<li><a href="#viewing-a-data-set-s-content-code-view-code">3.4. Viewing a data set&#8217;s content : <code>/view</code></a></li>
-<li><a href="#editor-mode-code-editor-code">3.5. Editor mode : <code>/editor</code></a></li>
-<li><a href="#start-new-game-session-code-start-code">3.6. Start new game session : <code>/start</code></a></li>
-<li><a href="#stop-game-session-code-stop-code">3.7. Stop game session : <code>/stop</code></a></li>
-<li><a href="#viewing-statistics-code-stats-code">3.8. Viewing statistics : <code>/stats</code></a></li>
-<li><a href="#changing-settings-code-settings-code">3.9. Changing settings : <code>/settings</code></a></li>
-<li><a href="#navigating-back-code-back-code">3.10. Navigating back : <code>/back</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>/exit</code></a></li>
-<li><a href="#saving-the-data">3.12. Saving the data</a></li>
-<li><a href="#leaderboard-code-coming-in-v2-0-code">3.13. Leaderboard <code>[coming in v2.0]</code></a></li>
-<li><a href="#user-profiles-code-coming-in-v2-0-code">3.14. User profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#loading-a-data-set-code-bank-code">3.2. Loading a data set : <code>bank</code></a></li>
+<li><a href="#listing-all-data-sets-code-load-code">3.3. Listing all data sets : <code>load</code></a></li>
+<li><a href="#viewing-a-data-set-s-content-code-list-code">3.4. Viewing a data set&#8217;s content : <code>list</code></a></li>
+<li><a href="#start-new-game-session-code-start-code">3.5. Start new game session : <code>start</code></a></li>
+<li><a href="#stop-game-session-code-stop-code">3.6. Stop game session : <code>stop</code></a></li>
+<li><a href="#viewing-statistics-code-stats-code">3.7. Viewing statistics : <code>stats</code></a></li>
+<li><a href="#changing-settings-code-settings-code">3.8. Changing settings : <code>settings</code></a></li>
+<li><a href="#navigating-back-code-back-code">3.9. Navigating back : <code>/back</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.11. Saving the data</a></li>
+<li><a href="#leaderboard-code-coming-in-v2-0-code">3.12. Leaderboard <code>[coming in v2.0]</code></a></li>
+<li><a href="#user-profiles-code-coming-in-v2-0-code">3.13. User profiles <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -91,23 +90,23 @@
 </li>
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>/help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>/list</code></strong> : lists all data sets.</p>
+<p><strong><code>list</code></strong> : lists all cards in a word bank.</p>
 </li>
 <li>
-<p><strong><code>/start</code></strong> : starts the quiz.</p>
+<p><strong><code>start</code></strong> : starts the game.</p>
 </li>
 <li>
-<p><strong><code>/stop</code></strong> : stops the quiz</p>
+<p><strong><code>stop</code></strong> : stops the game.</p>
 </li>
 <li>
-<p><strong><code>/exit</code></strong> : exits the app</p>
+<p><strong><code>exit</code></strong> : exits the app.</p>
 </li>
 </ul>
 </div>
@@ -130,42 +129,32 @@ e.g. typing <strong><code>/help</code></strong> and pressing <kbd>Enter</kbd> wi
 <div class="ulist">
 <ul>
 <li>
-<p>All commands are typed with <code>/</code> in front of them to differentiate them from answers that the user puts in. <code>~</code> will be used as an escape character in case <code>/</code> is used as part of the answer.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Eg, <code>~/help</code> will be intepreted by the computer as a string "/help" instead of the command <code>/help</code>.</p>
-</li>
-</ul>
-</div>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add w/WORD</code>, <code>WORD</code> is a parameter which can be used as <code>add w/Charmander m/Fire starter pokemon</code>.</p>
 </li>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
-</li>
-<li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>w/WORD [t/TAG]</code> can be used as <code>w/Squirtle t/Water type</code> or as <code>w/Squirtle</code>.</p>
 </li>
 <li>
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>w/WORD m/MEANING</code>, <code>m/MEANING w/WORD</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>/help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>/help</code></p>
+<p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="loading-a-data-set-code-load-code"><a class="link" href="#loading-a-data-set-code-load-code">3.2. Loading a data set : <code>/load</code></a></h3>
+<h3 id="loading-a-data-set-code-bank-code"><a class="link" href="#loading-a-data-set-code-bank-code">3.2. Loading a data set : <code>bank</code></a></h3>
 <div class="paragraph">
-<p>Loads a data set from storage.<br>
-Format: <code>/load DATASET_NAME</code></p>
+<p>Initialise a word bank data set from storage.<br>
+Format: <code>bank word_bank_name</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -174,7 +163,7 @@ Format: <code>/load DATASET_NAME</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Use <code>/list</code> to get all data sets currently in your storage.
+Use <code>list</code> to get all word banks currently in your storage.
 </td>
 </tr>
 </table>
@@ -185,52 +174,32 @@ Use <code>/list</code> to get all data sets currently in your storage.
 <div class="ulist">
 <ul>
 <li>
-<p><code>/load List of animals</code></p>
+<p><code>bank List of animals</code></p>
 </li>
 <li>
-<p><code>/load All gen 1 pokemon</code></p>
+<p><code>bank All gen 1 pokemon</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-data-sets-code-list-code"><a class="link" href="#listing-all-data-sets-code-list-code">3.3. Listing all data sets : <code>/list</code></a></h3>
+<h3 id="listing-all-data-sets-code-load-code"><a class="link" href="#listing-all-data-sets-code-load-code">3.3. Listing all data sets : <code>load</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all data sets currently in storage.<br>
-Format: <code>/list</code></p>
+Format: <code>load</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-data-set-s-content-code-view-code"><a class="link" href="#viewing-a-data-set-s-content-code-view-code">3.4. Viewing a data set&#8217;s content : <code>/view</code></a></h3>
+<h3 id="viewing-a-data-set-s-content-code-list-code"><a class="link" href="#viewing-a-data-set-s-content-code-list-code">3.4. Viewing a data set&#8217;s content : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Views the content of a data set.<br>
-Format: <code>/view DATASET_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Examples :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/view Anatomy of the guitar</code></p>
-</li>
-<li>
-<p><code>/view Steps in the krebs cycle</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editor-mode-code-editor-code"><a class="link" href="#editor-mode-code-editor-code">3.5. Editor mode : <code>/editor</code></a></h3>
-<div class="paragraph">
-<p>Opens the in-app editor for managing data sets. All changes made in editor is automatically saved in storage.<br>
-Format: <code>/editor</code></p>
+Format: <code>list</code></p>
 </div>
 <div class="sect3">
-<h4 id="create-new-data-set-code-new-code"><a class="link" href="#create-new-data-set-code-new-code">3.5.1. Create new data set : <code>/new</code></a></h4>
+<h4 id="create-new-data-set-code-create-code"><a class="link" href="#create-new-data-set-code-create-code">3.4.1. Create new data set : <code>create</code></a></h4>
 <div class="paragraph">
-<p>Creates a new data set with specified name. Will automatically be set in edit mode for that data set.<br>
-Format: <code>/new DATASET_NAME</code></p>
+<p>Creates a new word bank with specified name. Will automatically be set in edit mode for that data set.<br>
+Format: <code>create DATASET_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -238,19 +207,19 @@ Format: <code>/new DATASET_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/new Parts of the arm</code></p>
+<p><code>create CS2040</code></p>
 </li>
 <li>
-<p><code>/new All amino acids</code></p>
+<p><code>create Biology</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-data-set-s-content-code-edit-code"><a class="link" href="#editing-a-data-set-s-content-code-edit-code">3.5.2. Editing a data set&#8217;s content : <code>/edit</code></a></h4>
+<h4 id="editing-a-data-set-s-content-code-edit-code"><a class="link" href="#editing-a-data-set-s-content-code-edit-code">3.4.2. Editing a data set&#8217;s content : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Enters edit mode for selected data set.<br>
-Format: <code>/edit DATASET_NAME</code></p>
+Format: <code>edit DATASET_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -258,18 +227,18 @@ Format: <code>/edit DATASET_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/edit List of animals</code></p>
+<p><code>edit List of animals</code></p>
 </li>
 <li>
-<p><code>/edit Teeth</code></p>
+<p><code>edit Teeth</code></p>
 </li>
 </ul>
 </div>
 <div class="sect4">
-<h5 id="adding-a-word-code-add-code"><a class="link" href="#adding-a-word-code-add-code">Adding a word : <code>/add</code></a></h5>
+<h5 id="adding-a-word-code-add-code"><a class="link" href="#adding-a-word-code-add-code">Adding a word : <code>add</code></a></h5>
 <div class="paragraph">
 <p>Adds a new word-description pair to the data set.<br>
-Format: <code>/add /w WORD /d DESCRIPTION</code></p>
+Format: <code>add w/word m/meaning</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -289,19 +258,19 @@ Word can be more than just 1 word. Can consist of multiple words if term to reme
 <div class="ulist">
 <ul>
 <li>
-<p><code>/add /w Elephant /d Has a long nose</code></p>
+<p><code>add w/ Elephant m/ Has a long nose</code></p>
 </li>
 <li>
-<p><code>/add /w Newton&#8217;s third law of motion /d Every action will produce and equal and opposite reaction</code></p>
+<p><code>add w/ Newton&#8217;s third law of motion m/ Every action will produce and equal and opposite reaction</code></p>
 </li>
 <li>
-<p><code>/add /w Kopi Luwak /d Coffee produced from the coffee beans found in the faeces of a civet cat</code></p>
+<p><code>add w/ Kopi Luwak m/ Coffee produced from the coffee beans found in the faeces of a civet cat</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">Locating a word/description: <code>/find</code></a></h5>
+<h5 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">Locating a word/description: <code>find</code></a></h5>
 <div class="paragraph">
 <p>Finds entry whose word or description contain any of the given keywords.<br>
 Format: <code>/find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -346,10 +315,10 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </div>
 </div>
 <div class="sect4">
-<h5 id="deleting-a-word-code-delete-code"><a class="link" href="#deleting-a-word-code-delete-code">Deleting a word : <code>/delete</code></a></h5>
+<h5 id="deleting-a-word-code-delete-code"><a class="link" href="#deleting-a-word-code-delete-code">Deleting a word : <code>delete</code></a></h5>
 <div class="paragraph">
 <p>Deletes the specified word from the data set.<br>
-Format: <code>/delete INDEX</code></p>
+Format: <code>delete w/card</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -374,12 +343,12 @@ Format: <code>/delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/list</code><br>
-<code>/delete 2</code><br>
+<p><code>list</code><br>
+<code>delete 2</code><br>
 Deletes the 2nd word in the data set.</p>
 </li>
 <li>
-<p><code>/find elephant</code><br>
+<p><code>find elephant</code><br>
 <code>delete 1</code><br>
 Deletes the 1st word in the results of the <code>/find</code> command.</p>
 </li>
@@ -389,21 +358,21 @@ Deletes the 1st word in the results of the <code>/find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-new-game-session-code-start-code"><a class="link" href="#start-new-game-session-code-start-code">3.6. Start new game session : <code>/start</code></a></h3>
+<h3 id="start-new-game-session-code-start-code"><a class="link" href="#start-new-game-session-code-start-code">3.5. Start new game session : <code>start</code></a></h3>
 <div class="paragraph">
 <p>Starts a game session with the desired data set.<br>
 Format: <code>/start List of animals</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-game-session-code-stop-code"><a class="link" href="#stop-game-session-code-stop-code">3.7. Stop game session : <code>/stop</code></a></h3>
+<h3 id="stop-game-session-code-stop-code"><a class="link" href="#stop-game-session-code-stop-code">3.6. Stop game session : <code>stop</code></a></h3>
 <div class="paragraph">
 <p>Stops current game session (all progress will be lost) and returns to the home page.<br>
 Format: <code>/stop</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-statistics-code-stats-code"><a class="link" href="#viewing-statistics-code-stats-code">3.8. Viewing statistics : <code>/stats</code></a></h3>
+<h3 id="viewing-statistics-code-stats-code"><a class="link" href="#viewing-statistics-code-stats-code">3.7. Viewing statistics : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Views and compares statistics. Can be specified to view stats for specific data sets.<br>
 Format: <code>/stats [DATASET_NAME]</code></p>
@@ -425,13 +394,13 @@ Returns statistics for the data set <code>List of animals</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-settings-code-settings-code"><a class="link" href="#changing-settings-code-settings-code">3.9. Changing settings : <code>/settings</code></a></h3>
+<h3 id="changing-settings-code-settings-code"><a class="link" href="#changing-settings-code-settings-code">3.8. Changing settings : <code>settings</code></a></h3>
 <div class="paragraph">
 <p>Goes into the settings menu.<br>
 Format: <code>/settings</code></p>
 </div>
 <div class="sect3">
-<h4 id="changing-the-theme-code-theme-code"><a class="link" href="#changing-the-theme-code-theme-code">3.9.1. Changing the theme : <code>/theme</code></a></h4>
+<h4 id="changing-the-theme-code-theme-code"><a class="link" href="#changing-the-theme-code-theme-code">3.8.1. Changing the theme : <code>/theme</code></a></h4>
 <div class="paragraph">
 <p>Changes the theme of the UI.<br>
 Format: <code>/theme dark/light</code></p>
@@ -453,7 +422,7 @@ Changes the UI theme to light.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="turning-hints-on-off-code-hints-code"><a class="link" href="#turning-hints-on-off-code-hints-code">3.9.2. Turning hints on/off : <code>/hints</code></a></h4>
+<h4 id="turning-hints-on-off-code-hints-code"><a class="link" href="#turning-hints-on-off-code-hints-code">3.8.2. Turning hints on/off : <code>/hints</code></a></h4>
 <div class="paragraph">
 <p>Turns hints on or off.<br>
 Format: <code>/hints on/off</code></p>
@@ -475,7 +444,7 @@ Turns hints off.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-difficulty-code-difficulty-code"><a class="link" href="#changing-difficulty-code-difficulty-code">3.9.3. Changing difficulty : <code>/difficulty</code></a></h4>
+<h4 id="changing-difficulty-code-difficulty-code"><a class="link" href="#changing-difficulty-code-difficulty-code">3.8.3. Changing difficulty : <code>/difficulty</code></a></h4>
 <div class="paragraph">
 <p>Changes the difficulty of the game.<br>
 Format: <code>/difficulty low/medium/high</code></p>
@@ -502,7 +471,7 @@ Changes the difficulty to high. (Timer = 10 seconds)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="navigating-back-code-back-code"><a class="link" href="#navigating-back-code-back-code">3.10. Navigating back : <code>/back</code></a></h3>
+<h3 id="navigating-back-code-back-code"><a class="link" href="#navigating-back-code-back-code">3.9. Navigating back : <code>/back</code></a></h3>
 <div class="paragraph">
 <p>At any point in time, if there is a previous screen, navigates back to that screen. add home to navigate back to the home page.<br>
 Format: <code>/back [home]</code></p>
@@ -522,27 +491,27 @@ Format: <code>/back [home]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>/exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
 <div class="paragraph">
 <p>Dukemon data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">3.13. Leaderboard <code>[coming in v2.0]</code></a></h3>
+<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">3.12. Leaderboard <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>View and compare your statistics with peers on the internet.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">3.14. User profiles <code>[coming in v2.0]</code></a></h3>
+<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">3.13. User profiles <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Have more than one account to monitor statistics on the same computer</p>
 </div>
@@ -568,44 +537,44 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong> : <code>/help</code></p>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Load</strong> : <code>/load DATASET_NAME</code><br>
-e.g. <code>/load List of animals</code></p>
+<p><strong>Load</strong> : <code>load DATASET_NAME</code><br>
+e.g. <code>load List of animals</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>/list</code></p>
+<p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>View</strong> : <code>/view DATASET_NAME</code><br>
-e.g. <code>/view List of animals</code></p>
+<p><strong>View</strong> : <code>view DATASET_NAME</code><br>
+e.g. <code>view List of animals</code></p>
 </li>
 <li>
-<p><strong>Editor</strong> : <code>/editor</code><br></p>
+<p><strong>Editor</strong> : <code>editor</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>New</strong> : <code>/new DATASET_NAME</code><br>
-e.g. <code>/new Car brands</code></p>
+<p><strong>New</strong> : <code>new DATASET_NAME</code><br>
+e.g. <code>new Car brands</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>/edit DATASET_NAME</code><br>
-e.g. <code>/edit List of animals</code></p>
+<p><strong>Edit</strong> : <code>edit DATASET_NAME</code><br>
+e.g. <code>edit List of animals</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>/add /w WORD /d DESCRIPTION</code><br>
-e.g. <code>/add /w Elephant /d Has a long nose</code><br>
-e.g. <code>/add /w Giraffe /d Has a long neck</code></p>
+<p><strong>Add</strong> : <code>add w/ WORD m/ MEANING</code><br>
+e.g. <code>add w/ Elephant m/ Has a long nose</code><br>
+e.g. <code>add w/ Giraffe m/ Has a long neck</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>/find WORD [WORDS]&#8230;&#8203;</code><br>
-e.g. <code>/find long</code></p>
+<p><strong>Find</strong> : <code>find WORD [WORDS]&#8230;&#8203;</code><br>
+e.g. <code>find long</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>/delete INDEX</code><br>
-e.g. <code>/delete 1</code></p>
+<p><strong>Delete</strong> : <code>delete BANKNAME</code><br>
+e.g. <code>delete BANKNAME</code></p>
 </li>
 </ul>
 </div>
@@ -614,19 +583,14 @@ e.g. <code>/delete 1</code></p>
 </div>
 </li>
 <li>
-<p><strong>Start</strong> : <code>/start DATASET_NAME</code><br>
-e.g. <code>/start List of animals</code></p>
+<p><strong>Start</strong> : <code>start [DIFFICULTY]</code><br>
+e.g. <code>start easy</code></p>
 </li>
 <li>
-<p><strong>Stop</strong> : <code>/stop</code></p>
+<p><strong>Stop</strong> : <code>stop</code></p>
 </li>
 <li>
-<p><strong>Stats</strong> : <code>/stats [DATASET_NAME]</code><br>
-e.g. <code>/stats</code><br>
-e.g. <code>/stats List of animals</code></p>
-</li>
-<li>
-<p><strong>Settings</strong> : <code>/settings</code></p>
+<p><strong>Settings</strong> : <code>settings</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -642,12 +606,12 @@ e.g. <code>/stats List of animals</code></p>
 </div>
 </li>
 <li>
-<p><strong>Back</strong> : <code>/back [home]</code></p>
+<p><strong>Back</strong> : <code>back [home]</code></p>
 </li>
 <li>
-<p><strong>Exit</strong> : <code>/exit</code></p>
+<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 18:27:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 19:56:08 UTC</div></div></div></body></html>
