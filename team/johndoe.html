@@ -213,31 +213,11 @@ It dynamically changes parser depending on current mode the game is at. When upd
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
+<img src="../images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user types a keystroke:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -326,4 +306,4 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 09:23:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 10:15:29 UTC</div></div></div></body></html>
