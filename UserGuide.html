@@ -615,11 +615,11 @@ Statistics are also stored automatically.</p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Dukemon folder.</p>
+<p><strong>Q</strong>: How do I transfer my word bank to my friend?<br>
+<strong>A</strong>: Export your word bank to your computer, then transfer him the file. He can then import the file into his Dukemon.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I pronounce your name?<br>
+<p><strong>Q</strong>: How do I pronounce your app name?<br>
 <strong>A</strong>: Think Pokemon.</p>
 </div>
 </div>
@@ -627,84 +627,146 @@ Statistics are also stored automatically.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Load</strong> : <code>load DATASET_NAME</code><br>
-e.g. <code>load List of animals</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>View</strong> : <code>view DATASET_NAME</code><br>
-e.g. <code>view List of animals</code></p>
-</li>
-<li>
-<p><strong>Editor</strong> : <code>editor</code><br></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>New</strong> : <code>new WORD_BANK</code><br>
-e.g. <code>new Car WORD_BANK</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit WORD_BANK</code><br>
-e.g. <code>edit List of animals</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> : <code>add w/WORD m/MEANING</code><br>
-e.g. <code>add w/Elephant m/Has a long nose</code><br>
-e.g. <code>add w/Giraffe m/Has a long neck</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find WORD [WORDS]&#8230;&#8203;</code><br>
-e.g. <code>find long</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete WORD_BANK</code><br>
-e.g. <code>delete WORD_BANK</code></p>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type of command</th>
+<th class="tableblock halign-left valign-top">Command name</th>
+<th class="tableblock halign-left valign-top">Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Home Command</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>help</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bank</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock">Card Command</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK m/meaning [t/TAG]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT w/WORD_BANK m/meaning [t/TAG]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>find</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exit</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Game Command</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>guess</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANSWER</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>skip</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>stop</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Settings Command</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>difficulty</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EASY/NORMAL/HARD</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>theme</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DARK/LIGHT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hints</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ON/OFF</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>avartar</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Switch Command</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>home</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>open</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>start</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[DIFFICULTY]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>setting</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Start</strong> : <code>start [DIFFICULTY]</code><br>
-e.g. <code>start easy</code></p>
-</li>
-<li>
-<p><strong>Stop</strong> : <code>stop</code></p>
-</li>
-<li>
-<p><strong>Settings</strong> : <code>settings</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Theme</strong> : <code>theme dark/light</code></p>
-</li>
-<li>
-<p><strong>Hints</strong> : <code>hints on/off</code></p>
-</li>
-<li>
-<p><strong>Difficulty</strong> : <code>difficulty low/medium/high</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Back</strong> : <code>back [home]</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 06:33:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 08:35:07 UTC</div></div></div></body></html>
