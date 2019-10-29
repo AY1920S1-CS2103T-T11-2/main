@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Dukemon - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Dukemon - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1><span class="image"><img src="images/address_book_32.png" alt="address book 32" width="30"></span> Dukemon - User Guide  <span class="image"><img src="images/address_book_32.png" alt="address book 32" width="30"></span></h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>SErebros</code>      Since: <code>September 2019</code>      Licence: <code>MIT</code></p>
@@ -9,13 +9,18 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#introduction-what-is-dukemon">1. Introduction - What is Dukemon?</a></li>
+<li><a href="#getting-started">2. Getting Started</a>
+<ul class="sectlevel2">
+<li><a href="#installation">2.1. Installation</a></li>
+<li><a href="#basic-interface-and-usage">2.2. Basic Interface and Usage</a></li>
+</ul>
+</li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#load-commands">3.1. Load commands</a></li>
 <li><a href="#flash-card-commands">3.2. Flash card commands</a></li>
-<li><a href="#game-commands">3.3. Game commands</a></li>
+<li><a href="#game-mode-and-commands">3.3. Game Mode and Commands</a></li>
 <li><a href="#changing-settings-code-settings-code">3.4. Changing settings : <code>settings</code></a></li>
 <li><a href="#navigating-back-code-back-code">3.5. Navigating back : <code>back</code></a></li>
 <li><a href="#saving-the-data">3.6. Saving the data</a></li>
@@ -29,101 +34,143 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<h2 id="introduction-what-is-dukemon"><a class="link" href="#introduction-what-is-dukemon">1. Introduction - What is Dukemon?</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>We aim to streamline and gamify the process of learning words or definitions through the use of self-created flash cards.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 1. Home screen of Dukemon.</div>
 </div>
 <div class="paragraph">
-<p>The general flow of the program is as follows:</p>
+<p><strong><em>Welcome to Dukemon</em></strong> <em>, the Flashcard app of the future!</em></p>
+</div>
+<div class="paragraph">
+<p><em>Dukemon</em> aims to streamline and gamify the process of learning words or definitions through
+the use of self-created digital flashcards. <strong>Supercharge your learning with Dukemon!</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideFlowOverview.png" alt="UserGuideFlowOverview" width="790">
+</div>
+<div class="title">Figure 2. General program flow of Dukemon, showing how the different parts work together.</div>
+</div>
+<div class="paragraph">
+<p>The general flow of the <strong><em>Dukemon</em></strong> is as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create your word bank.</p>
+<p>Create/Choose a <em>Wordbank</em>.</p>
 </li>
 <li>
-<p>Add flash cards, each containing a word and a meaning, into your word bank.</p>
+<p>Create/Add/Modify <em>Cards</em> of your <em>WordBank</em>. (Each <em>Card</em> contains a <em>Word</em> and <em>Meaning</em>).</p>
 </li>
 <li>
-<p>Configure settings, or modify word bank as you wish.</p>
+<p>Configure your preferred <em>Settings</em>. (change <em>Difficulty</em>, <em>Theme</em> etc.)</p>
 </li>
 <li>
-<p>Start the game.</p>
+<p>Start the <em>Game</em>!</p>
 </li>
 <li>
-<p>The meaning of the card will appear and you will have to key in the answer in a given time.</p>
+<p>Guess  <em>Words</em> based on each <em>Meaning</em> that appear- as quickly as possible!</p>
 </li>
 <li>
-<p>At the end of the game, statistics of your game session appears, so you can know how well you did.</p>
+<p>Finish the <em>Game</em> and  view the <em>Statistics</em> for your game session.</p>
 </li>
 <li>
-<p>Revisit the word bank to beat your previous high score.</p>
+<p>Evaluate your performance, and revisit <em>WordBanks</em> to beat your  high score.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>You write your own words and meaning into a word bank. You can also import a word bank given to him from a file.<br>
-During the game, you are prompted with a meaning and you have to answer with a word. Depending on the game mode, there may also be time restrictions and hints given. Answer correctly as quickly as possible and to score as much as you can!<br>
-You can view your statistics afterwards to review your performance! Revisit word banks which you scored badly.</p>
+<p>Create and design your own <em>WordBanks</em> and <em>Cards</em> to practice and test yourself! You can also import <em>WordBanks</em> directly,
+enable <em>Hints</em> and do other cool stuff, which are explained in the following sections.<br></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="getting-started"><a class="link" href="#getting-started">2. Getting Started</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="installation"><a class="link" href="#installation">2.1. Installation</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+<p>Ensure you have Java <code>11</code> or above installed on your system.</p>
 </li>
 <li>
 <p>Download the latest <code>Dukemon.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Dukemon.</p>
+<p>Copy the file to the folder you want to use as the home directory of <em>Dukemon</em> (this is where your
+data will be stored).</p>
 </li>
 <li>
-<p>Double-click the file to start the app. Enjoy learning!</p>
+<p>Double-click the <code>Dukemon.jar</code> to run the app. Enjoy learning!</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="basic-interface-and-usage"><a class="link" href="#basic-interface-and-usage">2.2. Basic Interface and Usage</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/UserGuideCommandBox.png" alt="UserGuideCommandBox" width="790">
 </div>
+<div class="title">Figure 3. Regions of the UI where commands are entered (via CLI) and feedback from Dukemon is shown.</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <em>CommandBox</em> as shown above (region in yellow box) and type commands in.</p>
+</li>
+<li>
+<p>Use <kbd>Enter</kbd> to execute commands.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>e.g. Typing <strong><code>help</code></strong> into the <em>CommandBox</em> and pressing <kbd>Enter</kbd> will open the <em>Help</em> window.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Text-based feedback for each command entered is shown in the <em>ResultDisplay</em> (region in red box).</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>+
-.  Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.
-.  Some example commands you can try to get familiar with the app :</p>
+<p><em>Some typical commands  to get familiar with are:</em></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>create WORD_BANK</code></strong> : Create an empty word bank.</p>
+<p><strong><code>create &lt;NAME&gt;</code></strong> : Create an empty <em>WordBank</em> with specified name.</p>
 </li>
 <li>
-<p><strong><code>bank WORD_BANK</code></strong> : Select this particular bank.</p>
+<p><strong><code>bank &lt;NAME&gt;</code></strong> : Select and switch to <em>WordBank</em> with the specified name.</p>
 </li>
 <li>
-<p><strong><code>add w/WORD m/MEANING</code></strong> : Add a flash card into the word bank.</p>
+<p><strong><code>add w/&lt;WORD&gt; m/&lt;MEANING&gt;</code></strong> : Adds a new <em>Card</em> with specified <em>Word</em> and <em>Meaning</em> into the current <em>WordBank</em>.</p>
 </li>
 <li>
-<p><strong><code>list</code></strong> : List all cards in the word bank.</p>
+<p><strong><code>list</code></strong> : List all <em>Cards</em> in the current <em>WordBank</em>.</p>
 </li>
 <li>
-<p><strong><code>start [DIFFICULTY]</code></strong> : Starts the game with a selected difficulty. Default difficulty will be selected if none is keyed in.</p>
+<p><strong><code>start &lt;EASY/MEDIUM/HARD&gt;</code></strong> : Starts a <em>Game</em> session with the specified <em>Difficulty</em>. Default difficulty in
+<em>Settings</em>
+will be used if not
+specified.</p>
 </li>
 <li>
-<p><strong><code>guess ANSWER</code></strong> : Input your answer according to the meaning given.</p>
+<p><strong><code>guess &lt;YOUR_ANSWER&gt;</code></strong> : Make a <em>Guess</em> for the current <em>Word</em> whose <em>Meaning</em> is shown on the UI.</p>
 </li>
 <li>
-<p><strong><code>stop</code></strong> : Stops the game.</p>
+<p><strong><code>stop</code></strong> : Stops the current <em>Game</em> session.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : Exits the app.</p>
+<p><strong><code>exit</code></strong> : Exit <em>Dukemon</em>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -133,6 +180,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -452,7 +500,30 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-commands"><a class="link" href="#game-commands">3.3. Game commands</a></h3>
+<h3 id="game-mode-and-commands"><a class="link" href="#game-mode-and-commands">3.3. Game Mode and Commands</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="790">
+</div>
+<div class="title">Figure 4. UI regions that are relevant when a Game session is in progress.</div>
+</div>
+<div class="paragraph">
+<p>The general layout of the UI when a <em>Game</em> is in session is as seen above.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The timer will be activated reflects the time left before the <em>Game</em> skips over to the next card. (region in yellow box)</p>
+</li>
+<li>
+<p>The <em>Meaning</em> of the current <em>Card</em> is shown in the region contained by the red box. Based on this <em>Meaning</em> you will need to make a <em>Guess</em> for the <em>Word</em> it is describing.</p>
+</li>
+<li>
+<p><em>Hints</em> will be periodically shown (if enabled) as time passes (region in the blue box) in a Hangman-style. The number of hints given
+differs across each <em>Difficulty</em>.</p>
+</li>
+</ol>
+</div>
 <div class="sect3">
 <h4 id="start-new-game-session-code-start-code"><a class="link" href="#start-new-game-session-code-start-code">3.3.1. Start new game session : <code>start</code></a></h4>
 <div class="paragraph">
@@ -769,4 +840,4 @@ Statistics are also stored automatically.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 16:16:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 20:04:41 UTC</div></div></div></body></html>
