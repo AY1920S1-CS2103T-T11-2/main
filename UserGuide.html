@@ -14,6 +14,8 @@
 <ul class="sectlevel2">
 <li><a href="#installation">2.1. Installation</a></li>
 <li><a href="#basic-interface-and-usage">2.2. Basic Interface and Usage</a></li>
+<li><a href="#quickstart">2.3. QuickStart</a></li>
+<li><a href="#switching-modes">2.4. Switching Modes</a></li>
 </ul>
 </li>
 <li><a href="#Features">3. Features</a>
@@ -29,7 +31,8 @@
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#overview-of-modes-for-advanced-users">5. Overview of Modes for Advanced Users</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -139,6 +142,87 @@ data will be stored).</p>
 <p>Text-based feedback for each command entered is shown in the <em>ResultDisplay</em> (region in red box).</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quickstart"><a class="link" href="#quickstart">2.3. QuickStart</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>bank sample</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>open</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>start</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>guess &lt;your_guess&gt;</code> <kbd>Enter</kbd></p>
+<div class="ulist">
+<ul>
+<li>
+<p>keep guessing till the statistics screen appears</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>home</code> <kbd>Enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You have just played the sample wordbank</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switching-modes"><a class="link" href="#switching-modes">2.4. Switching Modes</a></h3>
+<div class="paragraph">
+<p>There are 4 application modes. Namely, <code>home</code>, <code>open</code>, <code>settings</code> and <code>game</code>.</p>
+</div>
+<div class="paragraph">
+<p>To transition betwwen them you have to enter the <code>SwitchCommand</code> that represent each mode.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>open</code><br>
+to enter <code>open</code> mode</p>
+</li>
+<li>
+<p><code>start</code><br>
+to enter <code>game</code> mode</p>
+</li>
+<li>
+<p><code>settings</code><br>
+to enter <code>settings</code> mode</p>
+</li>
+<li>
+<p><code>home</code><br>
+to enter <code>home</code> mode</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Requirements before changing mode</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A bank should be loaded</p>
+</li>
+<li>
+<p>No game should be running</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Yes, it feels like a steep learning curve &gt;_&lt; But do not worry as we have the AutoComplete Bar that auto completes the available commands whichever mode you are in.</p>
 </div>
 <div class="paragraph">
 <p><em>Some typical commands  to get familiar with are:</em></p>
@@ -696,7 +780,18 @@ Statistics are also stored automatically.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="overview-of-modes-for-advanced-users"><a class="link" href="#overview-of-modes-for-advanced-users">5. Overview of Modes for Advanced Users</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
+</div>
+<div class="title">Figure 5. All possible application modes</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -840,4 +935,4 @@ Statistics are also stored automatically.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 20:04:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 03:34:51 UTC</div></div></div></body></html>
