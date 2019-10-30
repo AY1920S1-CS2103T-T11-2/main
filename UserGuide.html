@@ -13,26 +13,30 @@
 <li><a href="#getting-started">2. Getting Started</a>
 <ul class="sectlevel2">
 <li><a href="#installation">2.1. Installation</a></li>
-<li><a href="#basic-interface-and-usage">2.2. Basic Interface and Usage</a></li>
-<li><a href="#quickstart">2.3. QuickStart</a></li>
-<li><a href="#switching-modes">2.4. Switching Modes</a></li>
+<li><a href="#user-interface">2.2. User Interface</a></li>
+<li><a href="#switching-modes">2.3. Switching Modes</a></li>
+<li><a href="#autocomplete-bar">2.4. AutoComplete Bar</a></li>
+<li><a href="#quickstart">2.5. QuickStart</a></li>
+<li><a href="#purposes-of-each-mode">2.6. Purposes of each mode</a></li>
 </ul>
 </li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#Commands">3. Commands</a>
 <ul class="sectlevel2">
-<li><a href="#load-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Load commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></li>
-<li><a href="#flashcard-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. FlashCard commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></li>
+<li><a href="#home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Home Mode &amp; Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></li>
+<li><a href="#open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. Open Mode &amp; Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></li>
 <li><a href="#game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3. Game Mode &amp; Commands <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></li>
 <li><a href="#settings-mode-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.4. Settings Mode &amp; Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></li>
-<li><a href="#navigating-back-code-back-code">3.5. Navigating back : <code>back</code></a></li>
-<li><a href="#saving-the-data">3.6. Saving the data</a></li>
-<li><a href="#leaderboard-code-coming-in-v2-0-code">3.7. Leaderboard <code>[coming in v2.0]</code></a></li>
-<li><a href="#user-profiles-code-coming-in-v2-0-code">3.8. User profiles <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#overview-of-modes-for-advanced-users">5. Overview of Modes for Advanced Users</a></li>
 <li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#upcoming-features">7. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#leaderboard-code-coming-in-v2-0-code">7.1. Leaderboard <code>[coming in v2.0]</code></a></li>
+<li><a href="#user-profiles-code-coming-in-v2-0-code">7.2. User profiles <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -51,44 +55,6 @@
 <div class="paragraph">
 <p><em>Dukemon</em> aims to streamline and gamify the process of learning words or definitions through
 the use of self-created digital flashcards. <strong>Supercharge your learning with Dukemon!</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UserGuideFlowOverview.png" alt="UserGuideFlowOverview" width="790">
-</div>
-<div class="title">Figure 2. General program flow of Dukemon, showing how the different parts work together.</div>
-</div>
-<div class="paragraph">
-<p>The general flow of the <strong><em>Dukemon</em></strong> is as follows:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create/Choose a <em>Wordbank</em>.</p>
-</li>
-<li>
-<p>Create/Add/Modify <em>Cards</em> of your <em>WordBank</em>. (Each <em>Card</em> contains a <em>Word</em> and <em>Meaning</em>).</p>
-</li>
-<li>
-<p>Configure your preferred <em>Settings</em>. (change <em>Difficulty</em>, <em>Theme</em> etc.)</p>
-</li>
-<li>
-<p>Start the <em>Game</em>!</p>
-</li>
-<li>
-<p>Guess  <em>Words</em> based on each <em>Meaning</em> that appear- as quickly as possible!</p>
-</li>
-<li>
-<p>Finish the <em>Game</em> and  view the <em>Statistics</em> for your game session.</p>
-</li>
-<li>
-<p>Evaluate your performance, and revisit <em>WordBanks</em> to beat your  high score.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Create and design your own <em>WordBanks</em> and <em>Cards</em> to practice and test yourself! You can also import <em>WordBanks</em> directly,
-enable <em>Hints</em> and do other cool stuff, which are explained in the following sections.<br></p>
 </div>
 </div>
 </div>
@@ -110,18 +76,21 @@ enable <em>Hints</em> and do other cool stuff, which are explained in the follow
 data will be stored).</p>
 </li>
 <li>
-<p>Double-click the <code>Dukemon.jar</code> to run the app. Enjoy learning!</p>
+<p>Double-click the <code>Dukemon.jar</code> to run the app.</p>
+</li>
+<li>
+<p>Before getting to the quick start instructions, get familiar with our interface and appication modes.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="basic-interface-and-usage"><a class="link" href="#basic-interface-and-usage">2.2. Basic Interface and Usage</a></h3>
+<h3 id="user-interface"><a class="link" href="#user-interface">2.2. User Interface</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideCommandBox.png" alt="UserGuideCommandBox" width="790">
 </div>
-<div class="title">Figure 3. Regions of the UI where commands are entered (via CLI) and feedback from Dukemon is shown.</div>
+<div class="title">Figure 2. Regions of the UI where commands are entered (via CLI) and feedback from Dukemon is shown.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -145,61 +114,44 @@ data will be stored).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="quickstart"><a class="link" href="#quickstart">2.3. QuickStart</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>bank sample</code> <kbd>Enter</kbd></p>
-</li>
-<li>
-<p><code>open</code> <kbd>Enter</kbd></p>
-</li>
-<li>
-<p><code>start</code> <kbd>Enter</kbd></p>
-</li>
-<li>
-<p><code>guess &lt;your_guess&gt;</code> <kbd>Enter</kbd></p>
-<div class="ulist">
-<ul>
-<li>
-<p>keep guessing till the statistics screen appears</p>
-</li>
-</ul>
+<h3 id="switching-modes"><a class="link" href="#switching-modes">2.3. Switching Modes</a></h3>
+<div class="paragraph">
+<p>There are 4 application modes.</p>
 </div>
-</li>
-<li>
-<p><code>home</code> <kbd>Enter</kbd></p>
-</li>
-</ol>
+<div class="imageblock">
+<div class="content">
+<img src="images/UGModes.PNG" alt="UGModes" width="790">
+</div>
+<div class="title">Figure 3. Application modes</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RestrictedHomeMode.PNG" alt="RestrictedHomeMode" width="790">
+</div>
+<div class="title">Figure 4. Mode Display</div>
 </div>
 <div class="paragraph">
-<p>You have just played the sample wordbank</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="switching-modes"><a class="link" href="#switching-modes">2.4. Switching Modes</a></h3>
-<div class="paragraph">
-<p>There are 4 application modes. Namely, <code>home</code>, <code>open</code>, <code>settings</code> and <code>game</code>.</p>
+<p>In the highlighed section above, you can see the current mode you are in and the available modes.</p>
 </div>
 <div class="paragraph">
-<p>To transition betwwen them you have to enter the <code>SwitchCommand</code> that represent each mode.</p>
+<p>To transition between them you have to enter the <code>SwitchCommand</code> that represents each mode.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>open</code><br>
+<p><code>open</code> <kbd>Enter</kbd><br>
 to enter <code>open</code> mode</p>
 </li>
 <li>
-<p><code>start</code><br>
+<p><code>start</code> <kbd>Enter</kbd><br>
 to enter <code>game</code> mode</p>
 </li>
 <li>
-<p><code>settings</code><br>
+<p><code>settings</code> <kbd>Enter</kbd><br>
 to enter <code>settings</code> mode</p>
 </li>
 <li>
-<p><code>home</code><br>
+<p><code>home</code> <kbd>Enter</kbd><br>
 to enter <code>home</code> mode</p>
 </li>
 </ul>
@@ -219,10 +171,82 @@ to enter <code>home</code> mode</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModesAvailable.PNG" alt="ModesAvailable" width="300">
+</div>
+<div class="title">Figure 5. If other modes are available, they would be displayed beside the Command Box</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>Yes, it feels like a steep learning curve &gt;_&lt; But do not worry as we have the AutoComplete Bar that auto completes the available commands whichever mode you are in.</p>
+<p>Yes, it feels like a steep learning curve &gt;_&lt;</p>
+</div>
+<div class="paragraph">
+<p>But do not worry as we have the AutoComplete Bar that auto completes the available commands whichever mode you are in.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-bar"><a class="link" href="#autocomplete-bar">2.4. AutoComplete Bar</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteBar.PNG" alt="AutoCompleteBar" width="790">
+</div>
+<div class="title">Figure 6. AutoComplete Bar</div>
+</div>
+<div class="paragraph">
+<p>The highlighted section shows, what commands are currently available. You can click them to automatically fill it in for you. Each of your keystroke will dynamically update the AutoComplete bar, just like the keyboard on your smartphone.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quickstart"><a class="link" href="#quickstart">2.5. QuickStart</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideFlowOverview.png" alt="UserGuideFlowOverview" width="790">
+</div>
+<div class="title">Figure 7. General program flow of Dukemon, showing how the different parts work together.</div>
+</div>
+<div class="paragraph">
+<p>Lets load the sample wordbank and play a game to get familiar.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>bank sample</code> <kbd>Enter</kbd></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This would allow you to switch modes</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>open</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>start</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>guess &lt;your_guess&gt;</code> <kbd>Enter</kbd></p>
+<div class="ulist">
+<ul>
+<li>
+<p>keep guessing till the statistics screen appears</p>
+</li>
+<li>
+<p>you can switch modes now</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>home</code> <kbd>Enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Getting comfortable? Ready to master the application commands?</p>
 </div>
 <div class="paragraph">
 <p><em>Some typical commands  to get familiar with are:</em></p>
@@ -258,7 +282,7 @@ specified.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">[Features]</a> for details of each command.</p>
 </li>
 </ol>
 </div>
@@ -266,10 +290,73 @@ specified.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="purposes-of-each-mode"><a class="link" href="#purposes-of-each-mode">2.6. Purposes of each mode</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeMode.PNG" alt="HomeMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create/Choose a <em>Wordbank</em></p>
+</li>
+<li>
+<p>View Global Statistics</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OpenMode.PNG" alt="OpenMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create/Add/Modify <em>Cards</em> of your <em>WordBank</em>. (Each <em>Card</em> contains a <em>Word</em> and <em>Meaning</em>).</p>
+</li>
+<li>
+<p>View Statistics belonging to a specific <em>WordBank</em></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GameMode.PNG" alt="GameMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Guess  <em>Words</em> based on each <em>Meaning</em> that appear as quickly as possible!</p>
+</li>
+<li>
+<p>Finish the <em>Game</em> and  view the <em>Statistics</em> for your game session.</p>
+</li>
+<li>
+<p>Evaluate your performance</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SettingsMode.PNG" alt="SettingsMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure your preferred <em>Settings</em>. (change <em>Difficulty</em>, <em>Theme</em> etc.)</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="Commands"><a class="link" href="#Commands">3. Commands</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -299,7 +386,7 @@ specified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="load-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span"><a class="link" href="#load-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Load commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></h3>
+<h3 id="home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span"><a class="link" href="#home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Home Mode &amp; Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></h3>
 <div class="sect3">
 <h4 id="to-enter-loading-page-code-load-code"><a class="link" href="#to-enter-loading-page-code-load-code">3.1.1. To enter loading page : <code>load</code></a></h4>
 <div class="paragraph">
@@ -409,7 +496,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="flashcard-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span"><a class="link" href="#flashcard-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. FlashCard commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></h3>
+<h3 id="open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span"><a class="link" href="#open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. Open Mode &amp; Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></h3>
 <div class="sect3">
 <h4 id="help-code-help-code"><a class="link" href="#help-code-help-code">3.2.1. Help : <code>help</code></a></h4>
 <div class="paragraph">
@@ -589,7 +676,7 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="790">
 </div>
-<div class="title">Figure 4. UI regions that are relevant when a Game session is in progress.</div>
+<div class="title">Figure 8. UI regions that are relevant when a Game session is in progress.</div>
 </div>
 <div class="paragraph">
 <p>This section covers the actions and feedback that are relevant to the <em>Game</em> mode.  The general layout of the UI when a <em>Game</em> is in progress is as seen above.</p>
@@ -642,7 +729,7 @@ will be used.</p>
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="][height="850"">
 </div>
-<div class="title">Figure 5. UI regions that show feedback during a Game session.</div>
+<div class="title">Figure 9. UI regions that show feedback during a Game session.</div>
 </div>
 <div class="paragraph">
 <p>During a <em>Game</em>, the <em>Timer</em> will change colour according to the time left (region in green box). Feedback for each <em>Guess</em> is shown via the <em>ResultDisplay</em> (region in the red box).<br>
@@ -686,13 +773,13 @@ The relevant command(s) are:</p>
 <div class="content">
 <img src="images/UserGuideGameOverDiagram.png" alt="UserGuideGameOverDiagram" width="][height="850"">
 </div>
-<div class="title">Figure 6. UI regions showing Statistics and results after a Game session has completed.</div>
+<div class="title">Figure 10. UI regions showing Statistics and results after a Game session has completed.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideGameStopDiagram.png" alt="UserGuideGameStopDiagram" width="][height="850"">
 </div>
-<div class="title">Figure 7. UI regions showing feedback when a Game is forcibly stopped.</div>
+<div class="title">Figure 11. UI regions showing feedback when a Game is forcibly stopped.</div>
 </div>
 <div class="paragraph">
 <p>A <em>Game</em> finishes when <strong>all <em>Cards</em> have been attempted</strong>. <em>Statistics</em> are
@@ -800,47 +887,6 @@ Changes the difficulty to high. (Timer = 10 seconds)</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="navigating-back-code-back-code"><a class="link" href="#navigating-back-code-back-code">3.5. Navigating back : <code>back</code></a></h3>
-<div class="paragraph">
-<p>At any point in time, if there is a previous screen, navigates back to that screen. add home to navigate back to the home page.<br>
-Format: <code>back [home]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>back</code></p>
-</li>
-<li>
-<p><code>back home</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.6. Saving the data</a></h3>
-<div class="paragraph">
-<p>Dukemon data are saved in the hard disk automatically after any command that changes the data.<br>
-These commands are generally load commands.
-There is no need to save manually.
-Statistics are also stored automatically.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">3.7. Leaderboard <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>View and compare your statistics with peers on the internet.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">3.8. User profiles <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Have more than one account to monitor statistics on the same computer</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -854,6 +900,13 @@ Statistics are also stored automatically.</p>
 <p><strong>Q</strong>: How do I pronounce your app name?<br>
 <strong>A</strong>: Think Pokemon.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: Do I have to save data?<br>
+<strong>A</strong>: Dukemon data are saved in the hard disk automatically after any command that changes the data.
+These commands are generally load commands.
+There is no need to save manually.
+Statistics are also stored automatically.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -863,7 +916,7 @@ Statistics are also stored automatically.</p>
 <div class="content">
 <img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
 </div>
-<div class="title">Figure 8. All possible application modes</div>
+<div class="title">Figure 12. All possible application modes</div>
 </div>
 </div>
 </div>
@@ -1012,4 +1065,21 @@ Statistics are also stored automatically.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:46:17 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">7. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">7.1. Leaderboard <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>View and compare your statistics with peers on the internet.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">7.2. User profiles <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Have more than one account to monitor statistics on the same computer</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:08:06 UTC</div></div></div></body></html>
