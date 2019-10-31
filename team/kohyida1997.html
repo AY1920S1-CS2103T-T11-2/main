@@ -43,15 +43,21 @@ learning in a fun and exciting way. The main program flow of <strong><em>Dukemon
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions-span-class-image-img-src-images-work-icon-png-alt-work-icon-width-50-span"><a class="link" href="#summary-of-contributions-span-class-image-img-src-images-work-icon-png-alt-work-icon-width-50-span">Summary of contributions <span class="image"><img src="../images/work-icon.png" alt="work icon" width="50"></span></a></h2>
+<h2 id="contributions-summary-span-class-image-img-src-images-work-icon-png-alt-work-icon-width-50-span"><a class="link" href="#contributions-summary-span-class-image-img-src-images-work-icon-png-alt-work-icon-width-50-span">Contributions - Summary <span class="image"><img src="../images/work-icon.png" alt="work icon" width="50"></span></a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="major-enhancements-span-class-image-img-src-images-game_timer_icon-png-alt-game-timer-icon-width-25-span"><a class="link" href="#major-enhancements-span-class-image-img-src-images-game_timer_icon-png-alt-game-timer-icon-width-25-span">Major Enhancements <span class="image"><img src="../images/game_timer_icon.png" alt="game timer icon" width="25"></span></a></h3>
+<h3 id="major-enhancements-timer-and-hints-span-class-image-img-src-images-game_timer_icon-png-alt-game-timer-icon-width-25-span"><a class="link" href="#major-enhancements-timer-and-hints-span-class-image-img-src-images-game_timer_icon-png-alt-game-timer-icon-width-25-span">Major Enhancements - Timer and Hints <span class="image"><img src="../images/game_timer_icon.png" alt="game timer icon" width="25"></span></a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="720">
+<img src="../images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="650">
 </div>
 <div class="title">Figure 2. UI Display of Dukemon in Game Mode, showing the different features I implemented.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="650">
+</div>
+<div class="title">Figure 3. UI Display of Dukemon in Game Mode, showing how Timer and Hint components are updated dynamically in real time.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -84,6 +90,10 @@ The User is also thus able to access his own performance and capability in a fun
 <li>
 <p>The Hints also aids in learning, especially for weaker students or when trying out unfamiliar words.</p>
 </li>
+<li>
+<p>Introducing Hints incrementally is also a conscious design as it is gives the User time to think,
+as opposed to one-shot hints that risk making the game too easy with hints.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -106,7 +116,7 @@ quality and structural integrity of the existing code base.</p>
 </div>
 </li>
 <li>
-<p><span class="underline"><em>Credits (Framework/Libraries used)</em></span>:</p>
+<p><span class="underline"><em>Credits</em></span> <em>(Framework/Libraries used)</em>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -124,25 +134,56 @@ quality and structural integrity of the existing code base.</p>
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Code contributed</strong>:<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/tree/master/src/main/java/seedu/address/appmanager">Functional code (Timer)</a>]<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/model/card/FormattedHint.java">Function code (Hints)</a>]<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/tree/master/src/test/java/seedu/address/appmanager">Test code (Timer)</a>]<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/test/java/seedu/address/model/card/FormattedHintTest.java">Test code (Hints)</a>]<br></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="minor-enhancement-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-50-span"><a class="link" href="#minor-enhancement-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-50-span">Minor Enhancement <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="50"></span></a></h3>
+<h3 id="minor-enhancements-game-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-50-span"><a class="link" href="#minor-enhancements-game-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-50-span">Minor Enhancements - Game <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="50"></span></a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Minor enhancement</strong>: Implemented the <em>Game</em> logic and design,</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Implemented and designed the <em>Game</em> logic, UI and Difficulty.</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p><span class="underline">Project management</span>:</p>
+<p><span class="underline"><em>Brief Description</em></span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The primary feature of <em>Dukemon</em> is the <em>Game</em> where the User makes guesses for <em>Words</em> based on a <em>Meaning</em> shown.</p>
+</li>
+<li>
+<p>Different <em>Difficulty</em> modes are available that changes the time allowed per question, and also the number of <em>Hints</em> displayed.
+are also automatically generated and shown to the user (region in blue box above).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/tree/master/src/main/java/seedu/address/model/game">Functional code (Game Logic)</a>]<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/model/appsettings/DifficultyEnum.java">Functional code (Game Difficulty)</a>]<br>
+[<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/tree/master/src/test/java/seedu/address/model/game">Test code (Game)</a>]<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions-span-class-image-img-src-images-documents_icon-png-alt-documents-icon-width-30-span"><a class="link" href="#other-contributions-span-class-image-img-src-images-documents_icon-png-alt-documents-icon-width-30-span">Other contributions <span class="image"><img src="../images/documents_icon.png" alt="documents icon" width="30"></span></a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="underline"><em>Project management</em></span>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -152,49 +193,46 @@ quality and structural integrity of the existing code base.</p>
 </div>
 </li>
 <li>
-<p><span class="underline">Enhancements to existing features</span>:</p>
+<p><span class="underline"><em>Enhancements to existing features</em></span>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
 </li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
 </ul>
 </div>
 </li>
 <li>
-<p><span class="underline">Documentation</span>:</p>
+<p><span class="underline"><em>Documentation</em></span>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Added icons and diagrams to <strong>User Guide</strong> to aid in reading: <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/137">#137</a></p>
+</li>
+<li>
+<p>Added upon <em>Dukemon</em> Introduction, Installation process and Quickstart in <strong>User Guide</strong>: <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/149">#149</a></p>
+</li>
+<li>
+<p>Drew and explained overall architecture of <em>Dukemon</em> in <strong>Developer Guide</strong> <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/94/files">#94</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><span class="underline">Community</span>:</p>
+<p><span class="underline"><em>Community</em></span>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/49">#49</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/71">#71</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/49">#49</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/71">#71</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/154">1</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><span class="underline">Tools</span>:</p>
+<p><span class="underline"><em>Tools</em></span>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -208,17 +246,11 @@ quality and structural integrity of the existing code base.</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-user-guide-span-class-image-img-src-images-user-manual-icon-png-alt-user-manual-icon-width-45-span"><a class="link" href="#contributions-user-guide-span-class-image-img-src-images-user-manual-icon-png-alt-user-manual-icon-width-45-span">Contributions - User Guide <span class="image"><img src="../images/user-manual-icon.png" alt="user manual icon" width="45"></span></a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -230,22 +262,237 @@ quality and structural integrity of the existing code base.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">Leaderboard <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>View and compare your statistics with peers on the internet.</p>
+<p>By: <code>SErebros</code>      Since: <code>September 2019</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-what-is-dukemon"><a class="link" href="#introduction-what-is-dukemon">Introduction - What is Dukemon?</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 4. Home screen of Dukemon.</div>
+</div>
+<div class="paragraph">
+<p><strong><em>Welcome to Dukemon</em></strong> <em>, the Flashcard app of the future!</em></p>
+</div>
+<div class="paragraph">
+<p><em>Dukemon</em> aims to streamline and gamify the process of learning words or definitions through
+the use of self-created digital flashcards. <strong>Supercharge your learning with Dukemon!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started"><a class="link" href="#getting-started">Getting Started</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="installation"><a class="link" href="#installation">Installation</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java <code>11</code> or above installed on your system.</p>
+</li>
+<li>
+<p>Download the latest <code>Dukemon.jar</code> <a href="{repoURL}/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home directory of <em>Dukemon</em> (this is where your
+data will be stored).</p>
+</li>
+<li>
+<p>Double-click the <code>Dukemon.jar</code> to run the app.</p>
+</li>
+<li>
+<p>Before getting to the quick start instructions, get familiar with our interface and appication modes.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">User profiles <code>[coming in v2.0]</code></a></h3>
+<h3 id="user-interface"><a class="link" href="#user-interface">User Interface</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideCommandBox.png" alt="UserGuideCommandBox" width="790">
+</div>
+<div class="title">Figure 5. Regions of the UI where commands are entered (via CLI) and feedback from Dukemon is shown.</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <em>CommandBox</em> as shown above (region in yellow box) and type commands in.</p>
+</li>
+<li>
+<p>Use <kbd>Enter</kbd> to execute commands.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>e.g. Typing <strong><code>help</code></strong> into the <em>CommandBox</em> and pressing <kbd>Enter</kbd> will open the <em>Help</em> window.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Text-based feedback for each command entered is shown in the <em>ResultDisplay</em> (region in red box).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quickstart"><a class="link" href="#quickstart">QuickStart</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideFlowOverview.png" alt="UserGuideFlowOverview" width="790">
+</div>
+<div class="title">Figure 6. General program flow of Dukemon, showing how the different parts work together.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">Game Mode &amp; Commands <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="790">
+</div>
+<div class="title">Figure 7. UI regions that are relevant when a Game session is in progress.</div>
+</div>
 <div class="paragraph">
-<p>Have more than one account to monitor statistics on the same computer</p>
+<p>This section covers the actions and feedback that are relevant to the <em>Game</em> mode.  The general layout of the UI when a <em>Game</em> is in progress is as seen above.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The timer will be activated to reflect the time left before the <em>Game</em> skips over to the next card. (region in yellow box)</p>
+</li>
+<li>
+<p>The <em>Meaning</em> of the current <em>Card</em> is shown in the region contained by the red box. Based on this <em>Meaning</em> you will  make a <em>Guess</em> for the <em>Word</em> it is describing.</p>
+</li>
+<li>
+<p><em>Hints</em> (if enabled) will be periodically shown as time passes (region in the blue box) in a Hangman-style. The number of hints given
+differs across each <em>Difficulty</em>.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">Game Mode - <span class="underline">Starting</span> <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<div class="paragraph">
+<p>The relevant command(s) are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Starting new game session:</strong></p>
+<div class="paragraph">
+<p>Format: <code>start [EASY/MEDIUM/HARD]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Starts a game session with the currently selected <em>WordBank</em> and specified <em>Difficulty</em>.
+(<em>WorkBank</em> selection is done in <em>Home</em> mode.)</p>
+</li>
+<li>
+<p>If no <em>Difficuty</em> is specfied, the default <em>Difficulty</em> in <em>Settings</em>
+will be used.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">Game Mode - <span class="underline">Playing</span> <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="][height="850"">
+</div>
+<div class="title">Figure 8. UI regions that show feedback during a Game session.</div>
+</div>
+<div class="paragraph">
+<p>During a <em>Game</em>, the <em>Timer</em> will change colour according to the time left (region in green box). Feedback for each <em>Guess</em> is shown via the <em>ResultDisplay</em> (region in the red box).<br>
+<br>
+The relevant command(s) are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Making a <em>Guess</em> for a <em>Word</em></strong>:<br></p>
+<div class="paragraph">
+<p>Format: <code>guess WORD</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Makes a guess for the <em>Word</em> described by the currently shown <em>Meaning</em>. (<strong>non case-sensitive</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Skipping over a <em>Word</em>:</strong></p>
+<div class="paragraph">
+<p>Format: <code>skip</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Skips over the current <em>Word</em>. (<strong>is counted as a wrong answer</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">Game Mode - <span class="underline">Terminating &amp; Statistics</span> <span class="image"><img src="../images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideGameOverDiagram.png" alt="UserGuideGameOverDiagram" width="][height="850"">
+</div>
+<div class="title">Figure 9. UI regions showing Statistics and results after a Game session has completed.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideGameStopDiagram.png" alt="UserGuideGameStopDiagram" width="][height="850"">
+</div>
+<div class="title">Figure 10. UI regions showing feedback when a Game is forcibly stopped.</div>
+</div>
+<div class="paragraph">
+<p>A <em>Game</em> finishes when <strong>all <em>Cards</em> have been attempted</strong>. <em>Statistics</em> are
+<strong>automatically shown</strong> upon completion of a <em>Game</em> (see Fig. 6 above).<br>
+<br>
+The user can choose to <code>stop</code> a <em>Game</em> before it has finished. This will result in all current <em>Game</em> progress being lost, and
+no <em>Statistics</em> being collected or generated (see Fig. 7 above).<br>
+<br>
+The relevant command(s) are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Stopping a <em>Game</em> (before it has finished)</strong>:<br></p>
+<div class="paragraph">
+<p>Format: <code>stop</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Forcibly terminates the current active <em>Game</em> session (<strong>all progress will be lost, and no <em>Statistics</em> will
+be reported.</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-developer-guide-span-class-image-img-src-images-source-code-icon-png-alt-source-code-icon-width-40-span"><a class="link" href="#contributions-developer-guide-span-class-image-img-src-images-source-code-icon-png-alt-source-code-icon-width-40-span">Contributions - Developer Guide <span class="image"><img src="../images/source-code-icon.png" alt="source code icon" width="40"></span></a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -258,19 +505,276 @@ quality and structural integrity of the existing code base.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">Architecture</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
+</div>
+<div class="title">Figure 11. Dukemon Architecture Diagram</div>
+</div>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of Dukemon. Given below is a quick overview of each component.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="{repoURL}/docs/diagrams/">diagrams</a> folder.
+Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has two classes called <a href="{repoURL}/blob/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="{repoURL}/blob/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+</li>
+<li>
+<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+The following class plays an important role at the architecture level:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The rest of <strong>Dukemon</strong> contains <em>seven</em> componenets.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>:<br>
+The Graphical UI of Dukemon that interacts with the user.</p>
+</li>
+<li>
+<p><a href="#Design-AppManager"><strong><code>AppManager</code></strong></a>:<br>
+The buffer between the User and Dukemon&#8217;s internal components.</p>
+</li>
+<li>
+<p><a href="#Design-Timer"><strong><code>Timer</code></strong></a>:<br>
+The internal Timer that triggers events based on time elapsed.</p>
+</li>
+<li>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>:<br>
+The main command executor and performer of operations.</p>
+</li>
+<li>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>:<br>
+Holds the non-game data in-memory.</p>
+</li>
+<li>
+<p><a href="#Design-Game"><strong><code>Game</code></strong></a>:<br>
+Holds the data of live game sessions in-memory.</p>
+</li>
+<li>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>:<br>
+Reads data from, and writes data to, the local hard disk.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the components UI, Logic, Model, Timer and Game:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+</li>
+<li>
+<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Game"><a class="link" href="#Design-Game">Game component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GameClassDiagram.png" alt="GameClassDiagram">
+</div>
+<div class="title">Figure 12. Structure of the Game Component</div>
+</div>
+<div class="paragraph">
+<p>The <code>Game</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <em>shuffled</em> <code>List&lt;Card&gt;</code> that is cloned/copied from a <code>ReadOnlyWordBank</code>.</p>
+</li>
+<li>
+<p>maintains an <code>Index</code> to keep track of the state of the game.</p>
+</li>
+<li>
+<p>has an associated <code>DifficultyEnum</code> that dictates the time allowed for each question.</p>
+</li>
+<li>
+<p>verifies <code>Guess</code> that are sent by <code>Logic</code> (User&#8217;s guesses)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-timer-feature-span"><a class="link" href="#span-class-underline-timer-feature-span"><span class="underline">Timer Feature</span></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TimerDGScreenshot.png" alt="TimerDGScreenshot">
+</div>
+<div class="title">Figure 13. Screenshot of the <code>Timer</code> component in action as seen through the <code>UI</code>.</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-overview"><a class="link" href="#implementation-overview">Implementation Overview</a></h4>
+<div class="paragraph">
+<p>The <code>Timer</code> component utilizes the <code>java.util.Timer</code> API to simulate a stopwatch during a <code>Game</code>. It also relies on
+using <em>Functional Interfaces</em> as <em>callbacks</em> to periodically notify other components in the system. Using <em>callbacks</em>
+allows the <code>Timer</code> to enact changes in other components of the system without directly holding a reference to those
+components.</p>
+</div>
+<div class="paragraph">
+<p>Internally, the <code>Timer</code>
+works by using the method <code>java.util.Timer.schedule()</code> that will schedule <code>java.util.TimerTasks</code> at a fixed rate.</p>
+</div>
+<div class="paragraph">
+<p>An <em>Observer Pattern</em> is loosly followed between the <code>Timer</code> and the other components. As opposed to defining an
+<em>Observable</em> interface, the <code>AppManager</code> simply passes in <em>method pointers</em> into the <code>Timer</code> to <em>callback</em> when an
+event is triggered. The <code>AppManager</code> thus works closely with the <code>Timer</code> as the main hub to enact changes based on
+signals given by the <code>Timer</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To avoid
+synchronization issues with the <code>UI</code> component, all
+<code>TimerTasks</code> (such as requesting to refresh a component of the <code>UI</code>) are forced to run on the <strong>JavaFX Application Thread</strong> using
+<code>Platform.runLater()</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TimerClassDiagramCallbacks.png" alt="TimerClassDiagramCallbacks">
+</div>
+<div class="title">Figure 14. Class diagram reflecting how the callback-functions are organized in the Timer component.</div>
+</div>
+<div class="paragraph">
+<p>The three main events that are currently triggered by the <code>Timer</code> component which require a <em>callback</em> are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Time has elapsed, <em>callback</em> to <code>AppManager</code> to update and display the new timestamp on the <code>UI</code>.</p>
+</li>
+<li>
+<p>Time has run out (<em>reached zero</em>), <em>callback</em> to <code>AppManager</code> to skip over to next <code>Card</code>.</p>
+</li>
+<li>
+<p>Time has reached a point where <code>Hints</code> are to be given to the User, <em>callback</em> to <code>AppManager</code> to retrieve a hint
+and display accordingly on the <code>UI</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The call-backs for each of these events are implemented as nested <em>Functional Interfaces</em>
+within the  <code>GameTimer</code> interface, which is concretized via the <code>GameTimerManager</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="flow-of-events"><a class="link" href="#flow-of-events">Flow of Events</a></h4>
+<div class="paragraph">
+<p>This section describes the sequential flow of events in the life cycle of a <code>GameTimer</code> object.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TimerSequenceDiagram1.png" alt="TimerSequenceDiagram1">
+</div>
+<div class="title">Figure 15. Sequence diagram describing the flow of registering and executing callbacks between the different components</div>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component first registers callbacks with the <code>AppManager</code>, who then registers callbacks with
+the <code>Timer</code> component. Periodically, the <code>Timer</code> will notify the <code>AppManager</code> to perform tasks to notify
+the <code>UI</code> component. This is to provide better abstraction between the <code>UI</code> and <code>Timer</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>GameTimer</code> instance is created by the <code>AppManager</code> for every <code>Card</code> of a <code>Game</code>.
+The <code>AppManager</code> provides information regarding the duration in which the <code>Timer</code> should run for, and whether
+to trigger <code>Hints</code> at the point when a <code>GameTimer</code> instance is created.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>There were a few considerations for designing the <code>Timer</code> this way.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
+Where and How to effect changes to the <code>Ui</code> and other components when the <code>Timer</code> triggers an event.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Holding a reference to <code>Ui</code> and other components directly inside <code>GameTimer</code> itself</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Straightforward and direct, can perform many different tasks on the dependent components. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Poor abstraction and high potential for cyclic dependencies, resulting in high coupling.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Using <em>Functional Interfaces</em> as Call-backs to notify components indirectly.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Maintains abstraction and minimal coupling between <code>Timer</code> and other components <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Relies on developer to register correct call-back methods with the <code>Timer</code>. Different actions need to be
+implemented as different call-backs separately. Possible overhead in performing few levels of call-backs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
+To ensure better extendability of our code for future expansion, we felt it was important to maintain as much
+abstraction between components. This is also to make life easier when there comes a need to
+debug and resolve problems in the code.
+<br></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="more-information-about-my-works"><a class="link" href="#more-information-about-my-works">More information about my Works:</a></h2>
 <div class="sectionbody">
 <hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://www.linkedin.com/in/koh-yi-da-b28887189/">Linked-in Profile</a>]</p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 18:51:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 19:34:55 UTC</div></div></div></body></html>
