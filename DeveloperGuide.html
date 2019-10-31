@@ -28,10 +28,11 @@
 <li><a href="#span-class-underline-autocomplete-feature-span-for-command-execution">3.1. <span class="underline">AutoComplete Feature</span> (for command execution)</a></li>
 <li><a href="#span-class-underline-settings-feature-span">3.2. <span class="underline">Settings Feature</span></a></li>
 <li><a href="#span-class-underline-timer-feature-span">3.3. <span class="underline">Timer Feature</span></a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-user-profiles">3.5. [Proposed] User Profiles</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#span-class-underline-word-bank-features-span">3.4. <span class="underline">Word Bank features</span></a></li>
+<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-user-profiles">3.6. [Proposed] User Profiles</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -318,10 +319,10 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Word Bank data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -867,29 +868,447 @@ debug and resolve problems in the code.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="span-class-underline-word-bank-features-span"><a class="link" href="#span-class-underline-word-bank-features-span">3.4. <span class="underline">Word Bank features</span></a></h3>
+<div class="paragraph">
+<p>Dukemon, a flashcard app, requires a non-trivial implementation of a data structure to contain it&#8217;s information.<br>
+It comes along with a set of commands that either modifies it&#8217;s data, or modify the view.<br>
+These commands will then synchronise the data in storage, or update the model for viewing.<br>
+Lastly, there is a cool drag and drop feature for word banks, to transfer the files into and out of your computer.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s begin by explaining some key terms:</p>
+</div>
+<div class="paragraph">
+<p>A <code>Card</code> contains a word and a unique meaning. (May contain tags)<br>
+<code>CardCommands</code> work on <code>Cards</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>A <code>WordBank</code> contains multiple <code>Cards</code>. (May contain tags)<br>
+<code>HomeCommands</code> work on <code>WordBanks</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>WordBankList</code> contains multiple <code>WordBanks</code>.</p>
+</div>
+<div class="paragraph">
+<p>Each time a <code>CardCommand</code> or <code>HomeCommand</code> is executed, <code>Storage</code> data is synchronised and
+<code>Model</code> gets updated automatically for <code>UI</code> to retrieve updated information for user viewing.</p>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>A quick look at <code>Card</code> and <code>WordBank</code> as it is displayed through the <code>UI</code>.</p>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CardCommands.png" alt="CardCommands">
+</div>
+<div class="title">Figure 22. <code>CardCommands</code></div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Cards.png" alt="Cards">
+</div>
+<div class="title">Figure 23. <code>Cards</code></div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeCommands.png" alt="HomeCommands">
+</div>
+<div class="title">Figure 24. <code>HomeCommands</code></div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WordBanks.png" alt="WordBanks">
+</div>
+<div class="title">Figure 25. <code>WordBanks</code></div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="data-structure-overview"><a class="link" href="#data-structure-overview">3.4.1. Data Structure Overview</a></h4>
+<div class="paragraph">
+<p>We start from the lowest level - <code>Card</code>.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CardDiagram.png" alt="CardDiagram">
+</div>
+<div class="title">Figure 26. Class diagram of <code>Card</code>.</div>
+</div>
+<div class="paragraph">
+<p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
+</div>
+<div class="paragraph">
+<p><code>id</code> : for statistical tracking<br>
+<code>word</code>: answer to the question<br>
+<code>meaning</code>: the question that will appear in the game<br>
+<code>tags</code>: optional tag to classify cards</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cards with the same meaning are duplicates, and is disallowed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Now the second level - <code>WordBank</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WordBankDiagram.png" alt="WordBankDiagram">
+</div>
+<div class="title">Figure 27. Class diagram of <code>Word Bank</code>.</div>
+</div>
+<div class="paragraph">
+<p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
+</div>
+<div class="paragraph">
+<p><code>UniqueCardList</code> : prevent duplicate cards<br>
+<code>name</code>: unique name of the word bank<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Internally, the <code>UniqueCardList</code> contains an observable list of <code>Card</code>.
+This is so any changes to the cards gets updated in the <code>Model</code> and thus the <code>UI</code> automatically.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Now the third level - <code>WordBankList</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WordBankListDiagram.png" alt="WordBankListDiagram">
+</div>
+<div class="title">Figure 28. Class diagram of <code>WordBankList</code>.</div>
+</div>
+<div class="paragraph">
+<p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>UniqueWordBankList</code> : prevent duplicate word banks</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Internally, the <code>UniqueWordBankList</code> contains an observable list of <code>WordBank</code>.
+This is so any changes to the word banks gets updated in the <code>Model</code> and thus the <code>UI</code> automatically.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In Dukemon, there is should only be one <code>WordBankList</code>, which is created upon <code>Storage</code> initialisation.<br>
+<code>Model</code> holds a reference to that specific <code>WordBankList</code>.</p>
+</div>
+<hr>
+<div class="imageblock">
+<div class="content">
+<img src="images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
+</div>
+<div class="title">Figure 29. Entire overview <code>WordBankList</code>.</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>Now the integration - How these data structures are stored in <code>Model</code> and <code>Storage</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WBStorage.png" alt="WBStorage">
+</div>
+<div class="title">Figure 30. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-cardcommands-and-homecommands"><a class="link" href="#implementation-of-cardcommands-and-homecommands">3.4.2. Implementation of CardCommands and HomeCommands</a></h4>
+<div class="paragraph">
+<p>A card command edits the cards within a particular word bank. Therefore it needs to make function calls through the
+WordBank data structure.<br>
+A home command edits the word bank within that particular word bank list. Therefore it needs to make function calls through
+the WordBankList data structure.</p>
+</div>
+<div class="paragraph">
+<p>To have a better understanding of how these commands work, I will show you how these commands are structured in <code>Logic</code>
+and then walk you through a Sequence Diagram of executing a particular command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
+</div>
+<div class="title">Figure 31. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+</div>
+<div class="paragraph">
+<p>With the understanding of <code>WordBankList</code> data structure, and how the <code>Commands</code> are structured within <code>Logic</code>,
+I will now take you through what happens when a <code>Command</code> is called.<br>
+For instance, <code>CreateCommand</code>:<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CreateCommandSequenceDiagram.png" alt="CreateCommandSequenceDiagram">
+</div>
+<div class="title">Figure 32. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
+</div>
+<div class="paragraph">
+<p>We will see the case where the input: "create bank1" is valid.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>It gets parsed by the ParserManager. Depending on the input, a specific <code>Command</code> is returned.
+In this case, a <code>CreateCommand</code> object is instantiated.</p>
+</li>
+<li>
+<p>Depending on the type of Command object, execute() performs slightly different tasks.
+In this case, the execute method of <code>CreateCommand</code> checks in <code>Model</code> to see if the <code>WordBank</code> currently already exist.</p>
+</li>
+<li>
+<p>Relevant information is stored in <code>CreateCommandResult</code> and is returned back to <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>With the retrieved information and type of <code>CommandResult</code>, commandResult updates the storage through it&#8217;s method.</p>
+</li>
+<li>
+<p>The <code>Storage</code> abstracts away details and contains well-written methods, each to handle different cases of <code>CommandResult</code>.
+In this case, createWordBank is called.</p>
+</li>
+<li>
+<p><code>JsonWordBankListStorage</code> contains the abstracted details of how a commandResult should be handled.
+For a <code>CreateCommandResult</code>, addWordBank and saveWordBank is called.</p>
+</li>
+<li>
+<p>In addWordBank method, it simply adds to the only WordBankList in the entire app. This <code>WordBankList</code> is the
+same instance as referenced by <code>Model</code>.</p>
+</li>
+<li>
+<p>In saveWordBank method, an even lower level saveJsonFile function is called to write to the disk.
+This is performed through the common class: <code>JsonUtil</code>.</p>
+</li>
+<li>
+<p>In addWordBank method, it simply adds to the only WordBankList in the entire app. This <code>WordBankList</code> is the
+same instance as referenced by <code>Model</code>.</p>
+</li>
+<li>
+<p>It returns void all the way back to <code>LogicManager</code>, and then success message is then passed back to <code>AppManager</code>,
+then to the <code>UI</code> to notify the user.</p>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="drag-and-drop-feature-and-it-s-implementation"><a class="link" href="#drag-and-drop-feature-and-it-s-implementation">3.4.3. Drag and drop feature and it&#8217;s implementation.</a></h4>
+<div class="paragraph">
+<p>As much as a pro CLI user would love to type all the commands, I figured a good old drag and drop feature will save
+the user lots of time.<br>
+It aims to streamline the process of sharing word banks with friends.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
+</div>
+<div class="title">Figure 33. Screenshot showing drag and drop steps</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
+</div>
+<div class="title">Figure 34. Screenshot showing drag and drop steps</div>
+</div>
+<div class="paragraph">
+<p>From <code>HOME</code> mode, you can view <code>WordBank</code>, then simply drag and drop a <code>WordBank</code>, out of the application, into say,
+your desktop, or chat applications.<br>
+From your computer, simply drag and drop a <code>WordBank</code> json file into Dukemon&#8217;s <code>HOME</code> page.</p>
+</div>
+<div class="paragraph">
+<p>With the well designed <code>WordBankList</code> data structure and it&#8217;s functions, drag and drop feature is simply an import and export
+function call, linked by the JavaFX&#8217;s UI drag detection and drag dropped methods.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.4. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
+Data structure for WordBankList.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Although WordBankList and WordBank have very similar structures, I made classes for each of them they
+each contain a unique list</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+User&#8217;s modification to their word banks and cards requires very different methods. These two data structure
+requires different access to the storage as well.<br>
+With two different classes, implementation of the Commands that work on these data becomes more distinct.
+This ensures methods within <code>WordBankList</code> are written for <code>WordBankCommands</code> and methods within <code>WordBank</code> are
+written for <code>CardCommands</code>, thereby increasing cohesion of individual components and decreasing coupling between the
+two classes.</p>
+<p class="tableblock"><em>Cons:</em><br>
+Implementation requires much more effort.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create a generic data structure class, and let both WordBankList and WordBank extend it.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Code that are reusable in WordBank can now be reused for WordBankList.</p>
+<p class="tableblock"><em>Cons:</em><br>
+This couples WordBank with WordBankList. Does not follow the Open-Closed principle.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
+Following the spirit of software engineering principles, it is better to have the basic data structure implemented well.
+Commands that depend on it becomes much easier to implement. (This can be seen in the drag and drop feature.)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2</strong>:<br>
+Storage system for Word Banks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>One single large json file with word bank names as keys and it&#8217;s word bank data as values</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Always save a snapshot of the data to the same file, regardless of what commands are executed.</p>
+<p class="tableblock"><em>Cons:</em><br>
+Unable to share word banks with friends, because one file contains all the word banks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>In the default data folder, each word bank is stored as a json file.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Enables sharing of word bank files to friends.</p>
+<p class="tableblock"><em>Cons:</em><br>
+Require more consideration to deal with different type of commands which affects the storage dynamically.
+Harder to read from multiple files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
+This choice was based largely from the user&#8217;s perspective.<br>
+As our app is designed to streamline learning, I figured that easy sharing of word banks file with friends is an important
+aspect in our app, and cannot be compromised.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 3</strong>:<br>
+Command implementation.<br>
+(Same goes for Command Result implementation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>All types of commands extends a single abstract class <code>Command</code></strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+A rather simple implementation which does not break any software engineering principles.</p>
+<p class="tableblock"><em>Cons:</em><br>
+Can be further improved, as in Alternative 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Distinguishing <code>WordBankCommand</code> and <code>CardCommand</code> specifically -<br>
+Commands that work on Cards extends the abstract
+<code>CardCommand</code> class and commands that work on <code>WordBank</code> extends the abstract <code>WordBankCommand</code> class.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+As I have created distinct data structure for <code>WordBankList</code> and <code>WordBank</code>, distinguished commands now
+work solely on their respective data structure. It follows the Single Responsibility Principle
+and the Separation of Concerns Principle more closely, and decreases the coupling between the two component.</p>
+<p class="tableblock"><em>Cons:</em><br>
+Requires tedious implementation to follow the principles.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
+Alternative 2 allows for easy extension of the app&#8217;s functionality. Implementation of the drag and
+drop feature is just a function call away, as all data structure and functions are well written.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-user-profiles"><a class="link" href="#proposed-user-profiles">3.5. [Proposed] User Profiles</a></h3>
+<h3 id="proposed-user-profiles"><a class="link" href="#proposed-user-profiles">3.6. [Proposed] User Profiles</a></h3>
 <div class="paragraph">
 <p><em>The user profiles could allow multiple users to use the same app and have different statistics tracked. This feature is a work in progress and will be delayed to v2.0.</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -920,7 +1339,7 @@ debug and resolve problems in the code.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1408,4 +1827,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 19:34:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 23:28:35 UTC</div></div></div></body></html>
