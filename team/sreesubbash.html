@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Sree Subbash - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Sree Subbash - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-dukemon"><a class="link" href="#project-dukemon">PROJECT: Dukemon</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Dukemon is a desktop flashcard application used to reinforce memory techniques. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
 </div>
 </div>
@@ -20,26 +20,20 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>AutoComplete with Dynamic Command Parsers for each Mode</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allows user to be visually cued on the commands available that updates as he types.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: It alleviates the drawback of being clueless and disoriented in a new command line interface</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: The parser logic for autocomplete was designed from ground up to cater for the application&#8217;s unique needs.  After in-depth analysis of alternatives, java reflections was utilised.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,30 +47,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Coordinated devlopment and master branch workflow for rapid prototyping in early weeks.</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Suggested username-number-reason branching workflow period closer to deployment for stability and accountability in changes without too much restriction.</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Managed product release <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/releases/tag/">v1.3.5</a> on GitHub</p>
 </li>
 </ul>
 </div>
@@ -88,28 +65,6 @@
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
 </ul>
 </div>
 </li>
@@ -117,9 +72,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -137,15 +89,237 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="leaderboard-code-coming-in-v2-0-code"><a class="link" href="#leaderboard-code-coming-in-v2-0-code">Leaderboard <code>[coming in v2.0]</code></a></h3>
+<h3 id="switching-modes"><a class="link" href="#switching-modes">Switching Modes</a></h3>
 <div class="paragraph">
-<p>View and compare your statistics with peers on the internet.</p>
+<p>There are 4 application modes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGModes.png" alt="UGModes" width="790">
+</div>
+<div class="title">Figure 1. Application modes</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RestrictedHomeMode.png" alt="RestrictedHomeMode" width="790">
+</div>
+<div class="title">Figure 2. Mode Display</div>
+</div>
+<div class="paragraph">
+<p>In the highlighed section above, you can see the current mode you are in and the available modes.</p>
+</div>
+<div class="paragraph">
+<p>To transition between them you have to enter the <code>SwitchCommand</code> that represents each mode.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>open</code> <kbd>Enter</kbd><br>
+to enter <code>open</code> mode</p>
+</li>
+<li>
+<p><code>start</code> <kbd>Enter</kbd><br>
+to enter <code>game</code> mode</p>
+</li>
+<li>
+<p><code>settings</code> <kbd>Enter</kbd><br>
+to enter <code>settings</code> mode</p>
+</li>
+<li>
+<p><code>home</code> <kbd>Enter</kbd><br>
+to enter <code>home</code> mode</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Requirements before changing mode</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A bank should be loaded</p>
+</li>
+<li>
+<p>No game should be running</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModesAvailable.png" alt="ModesAvailable" width="300">
+</div>
+<div class="title">Figure 3. If other modes are available, they would be displayed beside the Command Box</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Yes, it feels like a steep learning curve &gt;_&lt;</p>
+</div>
+<div class="paragraph">
+<p>But do not worry as we have the AutoComplete Bar that auto completes the available commands whichever mode you are in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">User profiles <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-bar"><a class="link" href="#autocomplete-bar">AutoComplete Bar</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteBar.png" alt="AutoCompleteBar" width="790">
+</div>
+<div class="title">Figure 4. AutoComplete Bar</div>
+</div>
 <div class="paragraph">
-<p>Have more than one account to monitor statistics on the same computer</p>
+<p>The highlighted section shows, what commands are currently available. You can click them to automatically fill it in for you. Each of your keystroke will dynamically update the AutoComplete bar, just like the keyboard on your smartphone.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quickstart"><a class="link" href="#quickstart">QuickStart</a></h3>
+<div class="paragraph">
+<p>Lets load the sample wordbank and play a game to get familiar.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>bank sample</code> <kbd>Enter</kbd></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This would allow you to switch modes</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>open</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>start</code> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><code>guess &lt;your_guess&gt;</code> <kbd>Enter</kbd></p>
+<div class="ulist">
+<ul>
+<li>
+<p>keep guessing till the statistics screen appears</p>
+</li>
+<li>
+<p>you can switch modes now</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>home</code> <kbd>Enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Getting comfortable? Ready to master the application commands?</p>
+</div>
+<div class="paragraph">
+<p><em>Some typical commands  to get familiar with are:</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>create &lt;NAME&gt;</code></strong> : Create an empty <em>WordBank</em> with specified name.</p>
+</li>
+<li>
+<p><strong><code>bank &lt;NAME&gt;</code></strong> : Select and switch to <em>WordBank</em> with the specified name.</p>
+</li>
+<li>
+<p><strong><code>add w/&lt;WORD&gt; m/&lt;MEANING&gt;</code></strong> : Adds a new <em>Card</em> with specified <em>Word</em> and <em>Meaning</em> into the current <em>WordBank</em>.</p>
+</li>
+<li>
+<p><strong><code>list</code></strong> : List all <em>Cards</em> in the current <em>WordBank</em>.</p>
+</li>
+<li>
+<p><strong><code>start &lt;EASY/MEDIUM/HARD&gt;</code></strong> : Starts a <em>Game</em> session with the specified <em>Difficulty</em>. Default difficulty in
+<em>Settings</em>
+will be used if not
+specified.</p>
+</li>
+<li>
+<p><strong><code>guess &lt;YOUR_ANSWER&gt;</code></strong> : Make a <em>Guess</em> for the current <em>Word</em> whose <em>Meaning</em> is shown on the UI.</p>
+</li>
+<li>
+<p><strong><code>stop</code></strong> : Stops the current <em>Game</em> session.</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong> : Exit <em>Dukemon</em>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Refer to <a href="#Features">[Features]</a> for details of each command.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="purposes-of-each-mode"><a class="link" href="#purposes-of-each-mode">Purposes of each mode</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/HomeMode.png" alt="HomeMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create/Choose a <em>Wordbank</em></p>
+</li>
+<li>
+<p>View Global Statistics</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/OpenMode.png" alt="OpenMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create/Add/Modify <em>Cards</em> of your <em>WordBank</em>. (Each <em>Card</em> contains a <em>Word</em> and <em>Meaning</em>).</p>
+</li>
+<li>
+<p>View Statistics belonging to a specific <em>WordBank</em></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GameMode.png" alt="GameMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Guess  <em>Words</em> based on each <em>Meaning</em> that appear as quickly as possible!</p>
+</li>
+<li>
+<p>Finish the <em>Game</em> and  view the <em>Statistics</em> for your game session.</p>
+</li>
+<li>
+<p>Evaluate your performance</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SettingsMode.png" alt="SettingsMode" width="450">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure your preferred <em>Settings</em>. (change <em>Difficulty</em>, <em>Theme</em> etc.)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -163,6 +337,50 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>ParserManager</code> class to parse the user command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> and <code>AppManager</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+</li>
+<li>
+<p>Furthermore, through the UiLogicHelper Interface, it updates the AutoComplete suggestions for every keystroke.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the Activity Diagram that shows the workflows that change state of <code>ParserManager</code> that produce different outcomes for commands entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
+</div>
+<div class="title">Figure 6. Activity diagram of Application flow</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="span-class-underline-autocomplete-feature-span-for-command-execution"><a class="link" href="#span-class-underline-autocomplete-feature-span-for-command-execution"><span class="underline">AutoComplete Feature</span> (for command execution)</a></h3>
 <div class="sect3">
@@ -305,20 +523,14 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="other-projects"><a class="link" href="#other-projects">Other Projects</a></h2>
 <div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p><a href="https://subbash.com" class="bare">https://subbash.com</a></p>
 </div>
+<hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 08:22:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 13:31:06 UTC</div></div></div></body></html>
