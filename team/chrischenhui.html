@@ -65,12 +65,12 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>Lets load the sample wordbank and play a game to get familiar.</p>
+<p>Lets select the sample word bank and play a game to get familiar.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>bank sample</code> <kbd>Enter</kbd></p>
+<p><code>select sample</code> <kbd>Enter</kbd></p>
 <div class="ulist">
 <ul>
 <li>
@@ -115,7 +115,7 @@
 <p><strong><code>create &lt;NAME&gt;</code></strong> : Create an empty <em>WordBank</em> with specified name.</p>
 </li>
 <li>
-<p><strong><code>bank &lt;NAME&gt;</code></strong> : Select and switch to <em>WordBank</em> with the specified name.</p>
+<p><strong><code>select &lt;NAME&gt;</code></strong> : Select and switch to <em>WordBank</em> with the specified name.</p>
 </li>
 <li>
 <p><strong><code>add w/&lt;WORD&gt; m/&lt;MEANING&gt;</code></strong> : Adds a new <em>Card</em> with specified <em>Word</em> and <em>Meaning</em> into the current <em>WordBank</em>.</p>
@@ -137,13 +137,6 @@ specified.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : Exit <em>Dukemon</em>.</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Refer to <a href="#Features">[Features]</a> for details of each command.</p>
-</li>
-</ol>
-</div>
 </li>
 </ul>
 </div>
@@ -182,9 +175,9 @@ specified.</p>
 <div class="sect2">
 <h3 id="home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span"><a class="link" href="#home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">Home Mode &amp; Commands <span class="image"><img src="../images/load_mode_icon.png" alt="load" width="22"></span></a></h3>
 <div class="sect3">
-<h4 id="to-enter-loading-page-code-load-code"><a class="link" href="#to-enter-loading-page-code-load-code">To enter loading page : <code>load</code></a></h4>
+<h4 id="to-open-word-bank-content-code-open-code"><a class="link" href="#to-open-word-bank-content-code-open-code">To open word bank content : <code>open</code></a></h4>
 <div class="paragraph">
-<p>Changes the app mode to load, so that the user can perform load commands.</p>
+<p>Changes the app mode to open, so that the user can perform card commands.</p>
 </div>
 </div>
 <div class="sect3">
@@ -230,11 +223,11 @@ Examples:</p>
 <div class="sect3">
 <h4 id="import-a-word-bank-code-import-code"><a class="link" href="#import-a-word-bank-code-import-code">Import a word bank : <code>import</code></a></h4>
 <div class="paragraph">
-<p>Import the word bank from a specified file path on your system.<br>
+<p>Import the word bank from a specified folder path on your system.<br>
 Note that you can use '\' and '\\' for windows.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>import w/WORD_BANK f/FILE_PATH</code><br>
+<p>Format: <code>import w/WORD_BANK f/FOLDER</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
@@ -246,6 +239,19 @@ Examples:</p>
 <p><code>import w/fire pokemons f//Users/chrischenhui/data</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+FOLDER is the folder where the word bank file reside.
+WORBANK is the name of the file without the extension.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -269,21 +275,21 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="bank-a-word-bank-code-bank-code"><a class="link" href="#bank-a-word-bank-code-bank-code">Bank a word bank : <code>bank</code></a></h4>
+<h4 id="select-a-word-bank-code-select-code"><a class="link" href="#select-a-word-bank-code-select-code">Select a word bank : <code>select</code></a></h4>
 <div class="paragraph">
 <p>Choose the word bank you want to work with.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>bank WORD_BANK</code>
+<p>Format: <code>select WORD_BANK</code>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>bank CS2040</code></p>
+<p><code>select CS2040</code></p>
 </li>
 <li>
-<p><code>bank Biology</code></p>
+<p><code>select Biology</code></p>
 </li>
 </ul>
 </div>
@@ -343,7 +349,7 @@ There can be duplicate words, but duplicate meanings will be rejected.
 <p>Deletes the specified word from the data set.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete w/card</code></p>
+<p>Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -353,10 +359,11 @@ There can be duplicate words, but duplicate meanings will be rejected.
 <p>Deletes the word at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;,
+and must be a valid index within the list.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index refers to the index number shown in the displayed card list.</p>
 </li>
 </ul>
 </div>
@@ -393,12 +400,12 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-data-set-s-content-code-edit-code"><a class="link" href="#editing-a-data-set-s-content-code-edit-code">Editing a data set&#8217;s content : <code>edit</code></a></h4>
+<h4 id="editing-a-card-s-content-code-edit-code"><a class="link" href="#editing-a-card-s-content-code-edit-code">Editing a card&#8217;s content : <code>edit</code></a></h4>
 <div class="paragraph">
-<p>Edits a flash card.</p>
+<p>Edits a card.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit flashcardname</code></p>
+<p>Format: <code>edit INDEX [w/WORD] [m/MEANING] [t/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -406,15 +413,16 @@ Format: <code>clear</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit List of animals</code></p>
+<p><code>edit 1 w/new word m/new meaning</code></p>
 </li>
 <li>
-<p><code>edit Teeth</code></p>
+<p><code>edit 2 m/new meaning with tag t/tagged</code></p>
 </li>
 </ul>
 </div>
-<div class="sect4">
-<h5 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">Locating a word/description: <code>find</code></a></h5>
+</div>
+<div class="sect3">
+<h4 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">Locating a word/description: <code>find</code></a></h4>
 <div class="paragraph">
 <p>Finds entry whose word or description contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -458,7 +466,6 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </ul>
 </div>
 </div>
-</div>
 <div class="sect3">
 <h4 id="exit-dukemon-code-exit-code"><a class="link" href="#exit-dukemon-code-exit-code">Exit Dukemon: <code>exit</code></a></h4>
 
@@ -484,12 +491,12 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Home Command</p></th>
+<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Word Bank Command</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>help</strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bank</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>select</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
@@ -525,11 +532,11 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>edit</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT w/WORD_BANK m/meaning [t/TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX w/WORD_BANK m/meaning [t/TAG]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>find</strong></p></td>
@@ -712,13 +719,13 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains multiple <code>Cards</code>. (May contain tags)<br>
-<code>HomeCommands</code> work on <code>WordBanks</code>.</p>
+<code>WordBankCommands</code> work on <code>WordBanks</code>.</p>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains multiple <code>WordBanks</code>.</p>
 </div>
 <div class="paragraph">
-<p>Each time a <code>CardCommand</code> or <code>HomeCommand</code> is executed, <code>Storage</code> data is synchronised and
+<p>Each time a <code>CardCommand</code> or <code>WordBankCommand</code> is executed, <code>Storage</code> data is synchronised and
 <code>Model</code> gets updated automatically for <code>UI</code> to retrieve updated information for user viewing.</p>
 </div>
 <div class="paragraph">
@@ -751,9 +758,9 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/HomeCommands.png" alt="HomeCommands">
+<img src="../images/WordBankCommands.png" alt="WordBankCommands">
 </div>
-<div class="title">Figure 5. <code>HomeCommands</code></div>
+<div class="title">Figure 5. <code>WordBankCommands</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -889,11 +896,11 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <hr>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-cardcommands-and-homecommands"><a class="link" href="#implementation-of-cardcommands-and-homecommands">Implementation of CardCommands and HomeCommands</a></h4>
+<h4 id="implementation-of-cardcommands-and-wordbankcommands"><a class="link" href="#implementation-of-cardcommands-and-wordbankcommands">Implementation of CardCommands and WordBankCommands</a></h4>
 <div class="paragraph">
 <p>A card command edits the cards within a particular word bank. Therefore it needs to make function calls through the
 WordBank data structure.<br>
-A home command edits the word bank within that particular word bank list. Therefore it needs to make function calls through
+A word bank command edits the word bank within that particular word bank list. Therefore it needs to make function calls through
 the WordBankList data structure.</p>
 </div>
 <div class="paragraph">
@@ -1305,4 +1312,4 @@ drop feature is just a function call away, as all data structure and functions a
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 18:07:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 18:47:51 UTC</div></div></div></body></html>
