@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Jason Sathya Citro - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Jason Sathya Citro - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-dukemon"><a class="link" href="#project-dukemon">PROJECT: Dukemon</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dukemon is a desktop flashcard application used to reinforce memory techniques. The user interacts with it using a CLI,
+and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>added Game Result page after game ends</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It shows the user a page to indicate the game is over, which contains the user&#8217;s performance on the
+current game (score, time taken), the user&#8217;s progress (progress chart, achievement badges, high score, fastest clear),
+and a list of words the user has missed to help improve the user&#8217;s subsequent performance.</p>
+</li>
+<li>
+<p>Justification: It helps game-ify the process of learning, gives the user a chance to look at how to improve their
+performance, and also gives a sense of accomplishment for being able to see the progress made after a game session
+finished.</p>
+</li>
+<li>
+<p>Highlights: The usage of time as a metric of performance (time taken, fastest clear) required understanding on the
+code for the timer, which led to in-depth discussion with a group mate (Koh Yida).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/game_results_ui.png" alt="game results ui" width="700">
+</div>
+<div class="title">Figure 1. Game Result Page.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>added Statistics for each word bank</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It shows the user a page on the summary of the statistics of a word bank (can be seen in open mode). It
+contains the user&#8217;s progress (progress chart, achievement badges, high score, fastest clear) and a list of 5 words which
+the user gets wrong most often.</p>
+</li>
+<li>
+<p>Justification: It gives the user a way to see their progress on a specific word bank, and shows user which words the
+user is weak at.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wb_statistics_ui.png" alt="wb statistics ui" width="600">
+</div>
+<div class="title">Figure 2. Word Bank Statistics.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>added Global Statistics of overall usage</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It shows the user a page on the main page of their overall usage of the app. It contains the user&#8217;s
+total games played, weekly games count, and most played word bank.</p>
+</li>
+<li>
+<p>Justification: By showing the global statistics right on the home page, it makes the app feel more personalized.
+Additionally, showing the total games played and weekly games count may increase user&#8217;s app usage, as each game is
+recorded and it feels like the user is making their own footprint on the app.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/global_statistics_ui.png" alt="global statistics ui" width="560">
+</div>
+<div class="title">Figure 3. Global Statistics.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated
+code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Refactored the models of AB3 (Person, AddressBook, and their closely-connected classes) to correctly fit the app
+(Card, WordBank, etc) in the very early stage of the project, which leads to increased productivity from the other
+members,
+as it was one of the biggest bottleneck of the project&#8217;s progress.</p>
+</li>
+<li>
+<p>Sourced for and integrated the avatars for Dukemon that provide a more fun and flavorful learning
+experience [credit to Geovanny Gavilanes].</p>
+</li>
+<li>
+<p>Created the logo for the app.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting
+end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="statistics"><a class="link" href="#statistics">Statistics</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section covers the statistics shown to the user.</p>
+</div>
+<div class="sect2">
+<h3 id="game-result"><a class="link" href="#game-result">Game Result</a></h3>
+<div class="paragraph">
+<p>The game result is shown to the user every time they finish a game. It contains information of the finished game and
+some information of the word bank.</p>
+</div>
+<div class="paragraph">
+<p>We use a simple formula to calculate the score: <em>floor of</em> <em>(Number of correct answers) / (Total questions) * 100</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/annotated_game_results_ui.png" alt="annotated game results ui">
+</div>
+<div class="title">Figure 4. Game Result UI.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="word-bank-statistics"><a class="link" href="#word-bank-statistics">Word Bank Statistics</a></h3>
+<div class="paragraph">
+<p>The word bank statistics is shown on open mode and contains all information of the word bank.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/annotated_wb_statistics_ui.png" alt="annotated wb statistics ui">
+</div>
+<div class="title">Figure 5. Wordbank Statistics UI.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="global-statistics"><a class="link" href="#global-statistics">Global Statistics</a></h3>
+<div class="paragraph">
+<p>The global statistics is shown on the main title page and contains all information regarding the user&#8217;s overall usage
+of the app.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/annotated_global_statistics_ui.png" alt="annotated global statistics ui">
+</div>
+<div class="title">Figure 6. Global Statistics UI.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical
+documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Statistics"><a class="link" href="#Design-Statistics">Statistics component</a></h3>
+<div class="paragraph">
+<p>The Statistics component includes 2 main subcomponents:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>GlobalStatistics</code>, containing the user&#8217;s total number of games played and the number of games played in the
+current week.</p>
+</li>
+<li>
+<p>A <code>WordBankStatisticsList</code>, which is a collection of <code>WordBankStatistics</code>, one for each <code>WordBank</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The class diagram of the Statistics component is shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
+</div>
+<div class="title">Figure 7. Statistics class diagram TO BE UPDATED.</div>
+</div>
+<div class="paragraph">
+<p>The work of the Statistics component can be neatly captured and explained using a common series of user actions
+when operating the app.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">User action</th>
+<th class="tableblock halign-left valign-top">Statistics work</th>
+<th class="tableblock halign-left valign-top">UI Statistics updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User opens the app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s <code>GlobalStatistics</code> and <code>WordBankStatisticsList</code> are loaded into <code>Model</code> by the <code>MainApp</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User is shown their <code>GlobalStatistics</code> and their most played word bank from the <code>WordBankStatisticsList</code> in
+the main title page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User selects a word bank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The selected <code>WordBankStatistics</code> from the <code>WordBankStatisticsList</code> is loaded into <code>Model</code>.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User opens the selected word bank.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In open mode, User is shown the <code>WordBankStatistics</code> of the opened word bank.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User plays the game.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>GameStatisticsBuilder</code> is used to record user actions during the game.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User finishes the game.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>A <code>GameStatistics</code> is created from the <code>GameStatisticsBuilder</code>.</p>
+</li>
+<li>
+<p>The <code>WordBankStatistics</code> and <code>GlobalStatistics</code> are updated accordingly and saved to disk.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GameStatistics</code> and the corresponding <code>WordBankStatistics</code> are displayed to user in the game result page.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We will discuss each step with its implementation details primarily on the statistics work.</p>
+</div>
+<div class="sect4">
+<h5 id="1-span-class-underline-user-opens-the-app-span-br"><a class="link" href="#1-span-class-underline-user-opens-the-app-span-br">1. <span class="underline">User opens the app</span><br></a></h5>
+<div class="paragraph">
+<p>When the user opens the app, their <code>GlobalStatistics</code> and <code>WordBankStatisticsList</code> are loaded into <code>Model</code> by
+<code>MainApp</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 8. Sequence diagram for loading statistics</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="2-span-class-underline-user-selects-a-word-bank-span-br"><a class="link" href="#2-span-class-underline-user-selects-a-word-bank-span-br">2. <span class="underline">User selects a word bank</span><br></a></h5>
+<div class="paragraph">
+<p>When the user selects a word bank, the selected <code>WordBankStatistics</code> from the <code>WordBankStatisticsList</code> is loaded
+into Model.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 9. Sequence diagram for selecting a word bank statistics.</div>
+</div>
+<div class="paragraph">
+<p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
+<code>WordBankStatistics</code> can be found in <code>Model</code> and shown in the UI.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="3-span-class-underline-user-opens-the-selected-word-bank-span-br"><a class="link" href="#3-span-class-underline-user-opens-the-selected-word-bank-span-br">3. <span class="underline">User opens the selected word bank</span><br></a></h5>
+<div class="paragraph">
+<p>In open mode, the user is shown the <code>WordBankStatistics</code> of the opened word bank, which is set in <code>Model</code> at step 2.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="4-span-class-underline-user-plays-the-game-span-br"><a class="link" href="#4-span-class-underline-user-plays-the-game-span-br">4. <span class="underline">User plays the game</span><br></a></h5>
+<div class="paragraph">
+<p>A <code>GameStatisticsBuilder</code> is used to record user actions during the game.</p>
+</div>
+<div class="paragraph">
+<p>When the user starts the game by calling a <code>StartCommand</code>, the <code>GameStatisticsBuilder</code> is initialized.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InitializeStatisticsSequenceDiagram.png" alt="InitializeStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 10. Sequence diagram when user starts a game.</div>
+</div>
+<div class="paragraph">
+<p>During the game, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made. It receives
+the timestamp from the <code>GameTimer</code> which also resides in <code>AppManager</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 11. Sequence diagram when user makes a guess.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="span-class-underline-5-user-finishes-the-game-span-br"><a class="link" href="#span-class-underline-5-user-finishes-the-game-span-br"><span class="underline">5. User finishes the game</span><br></a></h5>
+<div class="paragraph">
+<p>When the user finishes the game, a <code>GameStatistics</code> is created from the <code>GameStatisticsBuilder</code>. The <code>GameStatistics</code>
+is shown to the user in the game result page.</p>
+</div>
+<div class="paragraph">
+<p>The <code>GameStatistics</code> is used to update its corresponding <code>WordBankStatistics</code>, which is then saved to disk.
+Additionally, the <code>GlobalStatistics</code> is also updated and saved to disk.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 12. Sequence diagram for saving the statistics to disk.</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>There were some design considerations on implementing the statistics.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
+How to store <code>WordBankStatistics</code> in the storage?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store in a separate file from the <code>WordBank</code> json file, but with the same name in a different directory.</strong></p>
+<p class="tableblock">Example: <code>WordBank</code> data is stored at <em>data/wordbanks/pokemon.json</em> while the <code>WordBankStatistics</code> data is stored at
+<em>data/wbstats/pokemon.json</em></p>
+<p class="tableblock"><em>Pros:</em><br>
+More abstraction to separate the data.<br></p>
+<p class="tableblock"><em>Cons:</em><br>
+The data is linked by name, so if the user changes the file name, the link is broken.<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store <code>WordBankStatistics</code> data in the same file as <code>WordBank</code></strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Less number of files.<br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Data is combined into one which lowers abstraction.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we decided to choose Alternative 1:</strong><br>
+We decided that abstraction between the data is important as each team member should work in parallel, such that it is
+easier for one person to modify the storage system for the word bank and another person to modify the storage system
+for the word bank statistics freely.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:54:07 UTC</div></div></div></body></html>

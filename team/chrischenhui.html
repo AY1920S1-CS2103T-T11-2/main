@@ -696,6 +696,213 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
+<h3 id="Design-Statistics"><a class="link" href="#Design-Statistics">Statistics component</a></h3>
+<div class="paragraph">
+<p>The Statistics component includes 2 main subcomponents:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>GlobalStatistics</code>, containing the user&#8217;s total number of games played and the number of games played in the
+current week.</p>
+</li>
+<li>
+<p>A <code>WordBankStatisticsList</code>, which is a collection of <code>WordBankStatistics</code>, one for each <code>WordBank</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The class diagram of the Statistics component is shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
+</div>
+<div class="title">Figure 3. Statistics class diagram TO BE UPDATED.</div>
+</div>
+<div class="paragraph">
+<p>The work of the Statistics component can be neatly captured and explained using a common series of user actions
+when operating the app.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">User action</th>
+<th class="tableblock halign-left valign-top">Statistics work</th>
+<th class="tableblock halign-left valign-top">UI Statistics updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User opens the app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s <code>GlobalStatistics</code> and <code>WordBankStatisticsList</code> are loaded into <code>Model</code> by the <code>MainApp</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User is shown their <code>GlobalStatistics</code> and their most played word bank from the <code>WordBankStatisticsList</code> in
+the main title page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User selects a word bank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The selected <code>WordBankStatistics</code> from the <code>WordBankStatisticsList</code> is loaded into <code>Model</code>.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User opens the selected word bank.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In open mode, User is shown the <code>WordBankStatistics</code> of the opened word bank.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User plays the game.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>GameStatisticsBuilder</code> is used to record user actions during the game.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User finishes the game.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>A <code>GameStatistics</code> is created from the <code>GameStatisticsBuilder</code>.</p>
+</li>
+<li>
+<p>The <code>WordBankStatistics</code> and <code>GlobalStatistics</code> are updated accordingly and saved to disk.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GameStatistics</code> and the corresponding <code>WordBankStatistics</code> are displayed to user in the game result page.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We will discuss each step with its implementation details primarily on the statistics work.</p>
+</div>
+<div class="sect4">
+<h5 id="1-span-class-underline-user-opens-the-app-span-br"><a class="link" href="#1-span-class-underline-user-opens-the-app-span-br">1. <span class="underline">User opens the app</span><br></a></h5>
+<div class="paragraph">
+<p>When the user opens the app, their <code>GlobalStatistics</code> and <code>WordBankStatisticsList</code> are loaded into <code>Model</code> by
+<code>MainApp</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 4. Sequence diagram for loading statistics</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="2-span-class-underline-user-selects-a-word-bank-span-br"><a class="link" href="#2-span-class-underline-user-selects-a-word-bank-span-br">2. <span class="underline">User selects a word bank</span><br></a></h5>
+<div class="paragraph">
+<p>When the user selects a word bank, the selected <code>WordBankStatistics</code> from the <code>WordBankStatisticsList</code> is loaded
+into Model.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 5. Sequence diagram for selecting a word bank statistics.</div>
+</div>
+<div class="paragraph">
+<p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
+<code>WordBankStatistics</code> can be found in <code>Model</code> and shown in the UI.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="3-span-class-underline-user-opens-the-selected-word-bank-span-br"><a class="link" href="#3-span-class-underline-user-opens-the-selected-word-bank-span-br">3. <span class="underline">User opens the selected word bank</span><br></a></h5>
+<div class="paragraph">
+<p>In open mode, the user is shown the <code>WordBankStatistics</code> of the opened word bank, which is set in <code>Model</code> at step 2.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="4-span-class-underline-user-plays-the-game-span-br"><a class="link" href="#4-span-class-underline-user-plays-the-game-span-br">4. <span class="underline">User plays the game</span><br></a></h5>
+<div class="paragraph">
+<p>A <code>GameStatisticsBuilder</code> is used to record user actions during the game.</p>
+</div>
+<div class="paragraph">
+<p>When the user starts the game by calling a <code>StartCommand</code>, the <code>GameStatisticsBuilder</code> is initialized.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InitializeStatisticsSequenceDiagram.png" alt="InitializeStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 6. Sequence diagram when user starts a game.</div>
+</div>
+<div class="paragraph">
+<p>During the game, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made. It receives
+the timestamp from the <code>GameTimer</code> which also resides in <code>AppManager</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 7. Sequence diagram when user makes a guess.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="span-class-underline-5-user-finishes-the-game-span-br"><a class="link" href="#span-class-underline-5-user-finishes-the-game-span-br"><span class="underline">5. User finishes the game</span><br></a></h5>
+<div class="paragraph">
+<p>When the user finishes the game, a <code>GameStatistics</code> is created from the <code>GameStatisticsBuilder</code>. The <code>GameStatistics</code>
+is shown to the user in the game result page.</p>
+</div>
+<div class="paragraph">
+<p>The <code>GameStatistics</code> is used to update its corresponding <code>WordBankStatistics</code>, which is then saved to disk.
+Additionally, the <code>GlobalStatistics</code> is also updated and saved to disk.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
+</div>
+<div class="title">Figure 8. Sequence diagram for saving the statistics to disk.</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>There were some design considerations on implementing the statistics.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
+How to store <code>WordBankStatistics</code> in the storage?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store in a separate file from the <code>WordBank</code> json file, but with the same name in a different directory.</strong></p>
+<p class="tableblock">Example: <code>WordBank</code> data is stored at <em>data/wordbanks/pokemon.json</em> while the <code>WordBankStatistics</code> data is stored at
+<em>data/wbstats/pokemon.json</em></p>
+<p class="tableblock"><em>Pros:</em><br>
+More abstraction to separate the data.<br></p>
+<p class="tableblock"><em>Cons:</em><br>
+The data is linked by name, so if the user changes the file name, the link is broken.<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store <code>WordBankStatistics</code> data in the same file as <code>WordBank</code></strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Less number of files.<br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Data is combined into one which lowers abstraction.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we decided to choose Alternative 1:</strong><br>
+We decided that abstraction between the data is important as each team member should work in parallel, such that it is
+easier for one person to modify the storage system for the word bank and another person to modify the storage system
+for the word bank statistics freely.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.Dukemon.commons</code> package.</p>
@@ -741,7 +948,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="../images/CardCommands.png" alt="CardCommands">
 </div>
-<div class="title">Figure 3. <code>CardCommands</code></div>
+<div class="title">Figure 9. <code>CardCommands</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -750,7 +957,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="../images/Cards.png" alt="Cards">
 </div>
-<div class="title">Figure 4. <code>Cards</code></div>
+<div class="title">Figure 10. <code>Cards</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -759,7 +966,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="../images/HomeCommands.png" alt="HomeCommands">
 </div>
-<div class="title">Figure 5. <code>HomeCommands</code></div>
+<div class="title">Figure 11. <code>HomeCommands</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -768,7 +975,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="../images/WordBanks.png" alt="WordBanks">
 </div>
-<div class="title">Figure 6. <code>WordBanks</code></div>
+<div class="title">Figure 12. <code>WordBanks</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -783,7 +990,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="../images/CardDiagram.png" alt="CardDiagram">
 </div>
-<div class="title">Figure 7. Class diagram of <code>Card</code>.</div>
+<div class="title">Figure 13. Class diagram of <code>Card</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
@@ -817,7 +1024,7 @@ Cards with the same meaning are duplicates, and is disallowed.
 <div class="content">
 <img src="../images/WordBankDiagram.png" alt="WordBankDiagram">
 </div>
-<div class="title">Figure 8. Class diagram of <code>Word Bank</code>.</div>
+<div class="title">Figure 14. Class diagram of <code>Word Bank</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
@@ -850,7 +1057,7 @@ This is so any changes to the cards gets updated in the <code>Model</code> and t
 <div class="content">
 <img src="../images/WordBankListDiagram.png" alt="WordBankListDiagram">
 </div>
-<div class="title">Figure 9. Class diagram of <code>WordBankList</code>.</div>
+<div class="title">Figure 15. Class diagram of <code>WordBankList</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
@@ -880,7 +1087,7 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <div class="content">
 <img src="../images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
 </div>
-<div class="title">Figure 10. Entire overview <code>WordBankList</code>.</div>
+<div class="title">Figure 16. Entire overview <code>WordBankList</code>.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -890,7 +1097,7 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <div class="content">
 <img src="../images/WBStorage.png" alt="WBStorage">
 </div>
-<div class="title">Figure 11. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
+<div class="title">Figure 17. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
 </div>
 <hr>
 </div>
@@ -910,7 +1117,7 @@ and then walk you through a Sequence Diagram of executing a particular command.<
 <div class="content">
 <img src="../images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
 </div>
-<div class="title">Figure 12. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+<div class="title">Figure 18. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
 </div>
 <div class="paragraph">
 <p>With the understanding of <code>WordBankList</code> data structure, and how the <code>Commands</code> are structured within <code>Logic</code>,
@@ -921,7 +1128,7 @@ For instance, <code>CreateCommand</code>:<br></p>
 <div class="content">
 <img src="../images/CreateCommandSequenceDiagram.png" alt="CreateCommandSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
+<div class="title">Figure 19. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
 </div>
 <div class="paragraph">
 <p>We will see the case where the input: "create bank1" is valid.</p>
@@ -981,13 +1188,13 @@ It aims to streamline the process of sharing word banks with friends.</p>
 <div class="content">
 <img src="../images/dragAndDropSteps.png" alt="dragAndDropSteps">
 </div>
-<div class="title">Figure 14. Screenshot showing drag and drop steps</div>
+<div class="title">Figure 20. Screenshot showing drag and drop steps</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/dragAndDropSteps.png" alt="dragAndDropSteps">
 </div>
-<div class="title">Figure 15. Screenshot showing drag and drop steps</div>
+<div class="title">Figure 21. Screenshot showing drag and drop steps</div>
 </div>
 <div class="paragraph">
 <p>From <code>HOME</code> mode, you can view <code>WordBank</code>, then simply drag and drop a <code>WordBank</code>, out of the application, into say,
@@ -1001,7 +1208,7 @@ function call, linked by the JavaFX&#8217;s UI drag detection and drag dropped m
 <hr>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1311,4 +1518,4 @@ drop feature is just a function call away, as all data structure and functions a
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:45:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:54:07 UTC</div></div></div></body></html>
