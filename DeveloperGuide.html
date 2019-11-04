@@ -26,7 +26,7 @@
 </li>
 <li><a href="#implementation-2">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#span-class-underline-autocomplete-feature-span-for-command-execution">3.1. <span class="underline">AutoComplete Feature</span> (for command execution)</a></li>
+<li><a href="#span-class-underline-autocomplete-and-command-execution-span">3.1. <span class="underline">AutoComplete and Command Execution</span></a></li>
 <li><a href="#span-class-underline-settings-feature-span">3.2. <span class="underline">Settings Feature</span></a></li>
 <li><a href="#span-class-underline-timer-feature-span">3.3. <span class="underline">Timer Feature</span></a></li>
 <li><a href="#span-class-underline-word-bank-features-span">3.4. <span class="underline">Word Bank features</span></a></li>
@@ -162,15 +162,6 @@ Reads data from, and writes data to, the local hard disk.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
-</div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
@@ -179,7 +170,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -191,7 +182,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
+<div class="title">Figure 3. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -228,7 +219,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/TimerClassDiagram.png" alt="TimerClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Timer Component</div>
+<div class="title">Figure 4. Structure of the Timer Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -258,46 +249,80 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.5. Logic component</a></h3>
+<div class="paragraph">
+<p><em>This section breakdown the logic package into its internal components</em></p>
+</div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Logic Component</div>
+<div class="title">Figure 5. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p>Logic is primarily built by two segments: Command and Parser.</p>
+</div>
+<div class="sect4">
+<h5 id="command"><a class="link" href="#command">Command</a></h5>
+<div class="literalblock">
+<div class="content">
+<pre>Command is an abstract class.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Four other abstract classes (HomeCommand, OpenCommand, GameCommand and SettingsCommand) extend Command.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Concrete Command classes with an execute method implementation extend one of the above four abstract classes.</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="parser"><a class="link" href="#parser">Parser</a></h5>
+<div class="literalblock">
+<div class="content">
+<pre>ParserManager holds reference to a SpecificModeParser and a SwitchModeParser.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The SpecificModeParser changes based on current application mode.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Both of them hold references to all concrete Parser and Command Classes with the help of ClassUtil</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Logic fulfils its contracts with other packages through two interfaces: Logic and UiLogicHelper</p>
+</div>
+<div class="paragraph">
+<p>Examples of transactions promised by Logic API include command execution, command result and update statistics.</p>
+</div>
+<div class="paragraph">
+<p>UiLogicHelper APIs is a subset of Logic APIs and only contains transactions for AutoComplete. It exposes the functionalities through the following getter methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>List&lt;AutoFillAction&gt;#getMenuItems(String text)</code>&#8201;&#8212;&#8201;Gets an List of AutoFillActions to fill up AutoComplete display based on current user input given in text</p>
+</li>
+<li>
+<p><code>ModeEnum#getMode()</code>&#8201;&#8212;&#8201;Retrieves the application mode to display visually to the user (represented by enumeration object ModeEnum)</p>
+</li>
+<li>
+<p><code>List&lt;ModeEnum&gt;#getModes()</code>&#8201;&#8212;&#8201;Retrieves the possible modes the user can transition to from current mode</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>
+<a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/logic/UiLogicHelper.java"><code>UiLogicHelper.java</code></a></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Logic</code> uses the <code>ParserManager</code> class to parse the user command.</p>
-</li>
-<li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
-</li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> and <code>AppManager</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
-</li>
-<li>
-<p>Furthermore, through the UiLogicHelper Interface, it updates the AutoComplete suggestions for every keystroke.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Given below is the Activity Diagram that shows the workflows that change state of <code>ParserManager</code> that produce different outcomes for commands entered.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
-</div>
-<div class="title">Figure 7. Activity diagram of Application flow</div>
 </div>
 </div>
 <div class="sect2">
@@ -306,7 +331,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -351,7 +376,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/GameClassDiagram.png" alt="GameClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Game Component</div>
+<div class="title">Figure 7. Structure of the Game Component</div>
 </div>
 <div class="paragraph">
 <p>The <code>Game</code>,</p>
@@ -379,7 +404,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 10. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -423,7 +448,7 @@ current week.</p>
 <div class="content">
 <img src="images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
 </div>
-<div class="title">Figure 11. Statistics class diagram TO BE UPDATED.</div>
+<div class="title">Figure 9. Statistics class diagram TO BE UPDATED.</div>
 </div>
 <div class="paragraph">
 <p>The work of the Statistics component can be neatly captured and explained using a common series of user actions
@@ -493,7 +518,7 @@ the main title page.</p></td>
 <div class="content">
 <img src="images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 12. Sequence diagram for loading statistics</div>
+<div class="title">Figure 10. Sequence diagram for loading statistics</div>
 </div>
 </div>
 <div class="sect4">
@@ -506,7 +531,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence diagram for selecting a word bank statistics.</div>
+<div class="title">Figure 11. Sequence diagram for selecting a word bank statistics.</div>
 </div>
 <div class="paragraph">
 <p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
@@ -531,7 +556,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/InitializeStatisticsSequenceDiagram.png" alt="InitializeStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 14. Sequence diagram when user starts a game.</div>
+<div class="title">Figure 12. Sequence diagram when user starts a game.</div>
 </div>
 <div class="paragraph">
 <p>During the game, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made. It receives
@@ -541,7 +566,7 @@ the timestamp from the <code>GameTimer</code> which also resides in <code>AppMan
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 13. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -558,7 +583,7 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence diagram for saving the statistics to disk.</div>
+<div class="title">Figure 14. Sequence diagram for saving the statistics to disk.</div>
 </div>
 </div>
 </div>
@@ -620,57 +645,44 @@ for the word bank statistics freely.</p></td>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-autocomplete-feature-span-for-command-execution"><a class="link" href="#span-class-underline-autocomplete-feature-span-for-command-execution">3.1. <span class="underline">AutoComplete Feature</span> (for command execution)</a></h3>
+<h3 id="span-class-underline-autocomplete-and-command-execution-span"><a class="link" href="#span-class-underline-autocomplete-and-command-execution-span">3.1. <span class="underline">AutoComplete and Command Execution</span></a></h3>
+<div class="paragraph">
+<p><em>This section explains how the design choice of Dynamic Parsers fulfils AutoComplete and Command Execution.</em></p>
+</div>
+<div class="paragraph">
+<p>ParserManager dynamically changes parser depending on current mode the game is at. When updating the User Interface for every keystroke, it ensures only the right commands get parsed and autocompleted at each moment.</p>
+</div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.1.1. Implementation</a></h4>
-<div class="paragraph">
-<p>The AutoComplete is facilitated by <code>ParserManager</code>.
-It dynamically changes parser depending on current mode the game is at. When updating the User Interface for every keystroke, it ensures only the right commands get parsed and autocompleted at each moment.</p>
-</div>
-<div class="paragraph">
-<p>For the UI package to have access to this information, it exposes its functionality through <code>LogicManager</code> as <code>UiLogicHelper</code> interface with the following getter methods:</p>
-</div>
-<div class="ulist">
-<ul>
+<h4 id="implementation-details"><a class="link" href="#implementation-details">3.1.1. Implementation details</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>List&lt;AutoFillAction&gt;#getMenuItems(String text)</code>&#8201;&#8212;&#8201;Gets an List of AutoFillActions to fill up AutoComplete display based on current user input given in text</p>
+<p><code>ParserManager</code> instance has reference to a <code>SwitchModeParser</code> and <code>SpecificModeParser</code></p>
 </li>
 <li>
-<p><code>ModeEnum#getMode()</code>&#8201;&#8212;&#8201;Retrieves the application mode to display visually to the user (represented by enumeration object ModeEnum)</p>
+<p>When user enters a keystroke, the <code>SwitchModeParser</code> and/or <code>SpecificModeParser</code> are accessed based on internal state.</p>
 </li>
 <li>
-<p><code>List&lt;ModeEnum&gt;#getModes()</code>&#8201;&#8212;&#8201;Retrieves the possible modes the user can transition to from current mode</p>
+<p>It updates the AutoComplete suggestions for every keystroke.</p>
 </li>
-</ul>
+<li>
+<p>Internal State consists of booleans: gameIsOver, bankLoaded and enumeration ModeEnum: HOME, OPEN, GAME, SETTINGS</p>
+</li>
+<li>
+<p>The above process is aided by <code>ClassUtil</code> to handle instantiation of Parser and Command objects.</p>
+<div class="literalblock">
+<div class="content">
+<pre>The state management is complex. The below sequence diagram demonstrates all possible workflows.</pre>
 </div>
-<div class="paragraph">
-<p>These operations are implemented in <code>SpecificModeParser</code> aided by <code>ClassUtil</code> to handle instantiation of Parser and Command objects.</p>
 </div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the AutoCompletion mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application. The <code>VersionedDukemon</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="paragraph">
-<p>Replace image with state of ParserManager</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user enters <code>start difficult</code> command to begin the game. The <code>LogicManager</code> passes string to <code>Model#commitDukemon()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>DukemonStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>stop</code> to abruptly end the game. The <code>add</code> command also calls <code>Model#commitDukemon()</code>, causing another modified address book state to be saved into the <code>DukemonStateList</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoDukemon()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the AutoComplete operation works:</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
+<img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
 </div>
+<div class="title">Figure 15. Activity diagram of Application flow</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -679,92 +691,132 @@ It dynamically changes parser depending on current mode the game is at. When upd
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+Home (No Switch) means HomeModeParser is used and SwitchModeParser is not used
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoDukemon()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
 </div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+<div class="sect3">
+<h4 id="walkthrough-of-command-execution"><a class="link" href="#walkthrough-of-command-execution">3.1.2. Walkthrough of Command Execution</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Command Execution through <code>Logic Interface</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A String from Ui package gets to <code>ParserManager</code> and gets converted into a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a word meaning pair into wordbank).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> and <code>AppManager</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-parser-and-command-objects-are-instantiated-in-specificmodeparser"><a class="link" href="#aspect-how-parser-and-command-objects-are-instantiated-in-specificmodeparser">Aspect: How parser and command objects are instantiated in SpecificModeParser</a></h5>
+<h4 id="walkthrough-of-autocomplete"><a class="link" href="#walkthrough-of-autocomplete">3.1.3. Walkthrough of AutoComplete</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use java reflections to hold a List of Classes and iterate through them to pick the matching Classes</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Open Close Principle strictly followed. Adding a command with a parser takes only one line of code.</p>
-</li>
-<li>
-<p>Cons: It is developer responsibility to ensure classes subclass Command object as compile time errors would not be thrown.</p>
+<p>AutoComplete through <code>UiLogicHelper Interface</code></p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use switches in Parser to match Command Word to create Parser objects if necessary else directly create Command object.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Compile time error would be thrown if new command or parser does not subclass correctly.</p>
-</li>
-<li>
-<p>Cons: Adding a new command with parser would require the developer to insert it into multiple locations as the autocomplete feature needs an iterable command list.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The following sequence diagram shows how the AutoComplete operation runs when user keys in "st" into command box.</p>
 </div>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
+</div>
+<div class="title">Figure 16. Sequence Diagram of AutoComplete</div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="aspect-single-parser-vs-parser-manager"><a class="link" href="#aspect-single-parser-vs-parser-manager">Aspect: Single Parser vs Parser Manager</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Using a ParserManager to dynamically switch between Parsers based on current state</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Commands not belonging to specific mode would not be parsed</p>
-</li>
-<li>
-<p>Cons: More code to right for initial developer. However it is easily extnensible for new modes and parsers by the Open Close Principle</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.1.4. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
+How parser and command objects are instantiated in SpecificModeParser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use java reflections to hold a List of Classes and iterate through them to pick the matching Classes</strong><br>
+<br>
+<em class="underline">Pros:</em><br>
+Open Close Principle strictly followed. Adding a command with a parser takes only one line of code.<br>
+<br>
+<em class="underline">Cons:</em><br>
+It is developer responsibility to ensure classes subclass Command object as compile time errors would not be thrown.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use switches in Parser to match Command Word to create Parser objects if necessary else directly create Command object.</strong><br>
+<br>
+<em class="underline">Pros:</em><br>
+Compile time error would be thrown if new command or parser does not subclass correctly.<br>
+<br>
+<em class="underline">Cons:</em><br>
+Adding a new command with parser would require the developer to insert it into multiple locations as the autocomplete feature needs an iterable command list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
+d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2:</strong><br>
+Single Parser vs Parser Manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Using a ParserManager to dynamically switch between Parsers based on current state</strong><br>
+<br>
+<em class="underline">Pros:</em><br>
+Commands not belonging to specific mode would not be parsed<br>
+<br>
+<em class="underline">Cons:</em><br>
+More code to write for initial developer. However it is easily extnensible for new modes and parsers by the Open Close Principle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use a single parser</strong><br>
+<br>
+<em class="underline">Pros</em><br>
+We do not need to restructure the logic package.<br>
+<br>
+<em class="underline">Cons</em><br>
+Bad user experience as it autocompletes and parses commands that do not belong to a particular mode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
+d</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="techinical-details"><a class="link" href="#techinical-details">3.1.5. Techinical details</a></h4>
+<div class="paragraph">
+<p>&lt;Insert class util code demonstrating java reflections&gt;</p>
 </div>
-</li>
-</ul>
-</div>
+<div class="paragraph">
+<p>&lt;Insert where one line of code can be inserted for adding new commands and parsers&gt;</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="span-class-underline-settings-feature-span"><a class="link" href="#span-class-underline-settings-feature-span">3.2. <span class="underline">Settings Feature</span></a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.2.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p><code>AppSettings</code> was a class that was created to be integrated into the <code>Model</code> of the app. It currently contains these functionalities:</p>
 </div>
@@ -2035,4 +2087,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 15:54:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 07:59:01 UTC</div></div></div></body></html>
