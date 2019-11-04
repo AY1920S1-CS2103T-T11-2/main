@@ -484,35 +484,35 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type of command</th>
-<th class="tableblock halign-left valign-top">Command name</th>
-<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Command Purpose</th>
+<th class="tableblock halign-left valign-top">Command Keyword</th>
+<th class="tableblock halign-left valign-top">Parameter(s) (if any)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Word Bank Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>help</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock"><strong>Manipulating WordBanks</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>help</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>select</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>select</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>create</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>remove</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>import</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>export</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
 </tr>
 <tr>
@@ -522,32 +522,32 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock">Card Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock"><strong>Manipulating Cards</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>list</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>add</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK m/meaning [t/TAG]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>edit</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX w/WORD_BANK m/meaning [t/TAG]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>delete</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>find</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [ADDITIONAL_KEYWORDS]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>clear</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>exit</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -557,16 +557,16 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Game Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>guess</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><strong>Playing Game</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>guess</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANSWER</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>skip</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>skip</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>stop</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>stop</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -576,21 +576,21 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Settings Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>difficulty</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Manipulating Settings</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>difficulty</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EASY/NORMAL/HARD</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>theme</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>theme</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DARK/LIGHT</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hints</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>hints</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ON/OFF</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>avatar</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>avatar</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX_OF_AVATAR</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
@@ -599,20 +599,20 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Switch Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>home</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Switching Modes</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>home</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>open</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>open</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>start</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[DIFFICULTY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>start</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[EASY/MEDIUM/HARD]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>setting</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>setting</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -1312,4 +1312,4 @@ drop feature is just a function call away, as all data structure and functions a
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 08:08:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 08:09:13 UTC</div></div></div></body></html>

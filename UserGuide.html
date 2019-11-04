@@ -29,10 +29,10 @@
 <li><a href="#settings-mode-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.4. Settings Mode &amp; Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></li>
 </ul>
 </li>
-<li><a href="#statistics">4. Statistics</a>
+<li><a href="#statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span">4. Statistics <span class="image"><img src="images/statistics-icon.png" alt="statistics icon" width="32"></span></a>
 <ul class="sectlevel2">
 <li><a href="#game-result">4.1. Game Result</a></li>
-<li><a href="#word-bank-statistics">4.2. Word Bank Statistics</a></li>
+<li><a href="#wordbank-statistics">4.2. WordBank Statistics</a></li>
 <li><a href="#global-statistics">4.3. Global Statistics</a></li>
 </ul>
 </li>
@@ -42,6 +42,7 @@
 <ul class="sectlevel2">
 <li><a href="#leaderboard-code-coming-in-v2-0-code">7.1. Leaderboard <code>[coming in v2.0]</code></a></li>
 <li><a href="#user-profiles-code-coming-in-v2-0-code">7.2. User profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#customizable-difficulty-code-coming-in-v2-0-code">7.3. Customizable Difficulty <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -1026,7 +1027,7 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="statistics"><a class="link" href="#statistics">4. Statistics</a></h2>
+<h2 id="statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span"><a class="link" href="#statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span">4. Statistics <span class="image"><img src="images/statistics-icon.png" alt="statistics icon" width="32"></span></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section covers the statistics shown to the user.</p>
@@ -1048,7 +1049,7 @@ some information of the word bank.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="word-bank-statistics"><a class="link" href="#word-bank-statistics">4.2. Word Bank Statistics</a></h3>
+<h3 id="wordbank-statistics"><a class="link" href="#wordbank-statistics">4.2. WordBank Statistics</a></h3>
 <div class="paragraph">
 <p>The word bank statistics is shown on open mode and contains all information of the word bank.</p>
 </div>
@@ -1105,35 +1106,35 @@ Statistics are also stored automatically.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type of command</th>
-<th class="tableblock halign-left valign-top">Command name</th>
-<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Command Purpose</th>
+<th class="tableblock halign-left valign-top">Command Keyword</th>
+<th class="tableblock halign-left valign-top">Parameter(s) (if any)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Word Bank Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>help</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock"><strong>Manipulating WordBanks</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>help</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>select</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>select</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>create</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>remove</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>import</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>export</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
 </tr>
 <tr>
@@ -1143,32 +1144,32 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock">Card Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock"><strong>Manipulating Cards</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>list</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>add</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK m/meaning [t/TAG]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>edit</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX w/WORD_BANK m/meaning [t/TAG]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>delete</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>find</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [ADDITIONAL_KEYWORDS]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>clear</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>exit</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1178,16 +1179,16 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Game Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>guess</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><strong>Playing Game</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>guess</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANSWER</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>skip</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>skip</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>stop</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>stop</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1197,21 +1198,21 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Settings Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>difficulty</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Manipulating Settings</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>difficulty</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EASY/NORMAL/HARD</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>theme</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>theme</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DARK/LIGHT</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hints</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>hints</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ON/OFF</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>avatar</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>avatar</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX_OF_AVATAR</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
@@ -1220,20 +1221,20 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Switch Command</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>home</strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Switching Modes</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>home</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>open</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>open</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>start</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[DIFFICULTY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>start</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[EASY/MEDIUM/HARD]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>setting</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>setting</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -1255,5 +1256,11 @@ Statistics are also stored automatically.</p>
 <p>Have more than one account to monitor statistics on the same computer</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="customizable-difficulty-code-coming-in-v2-0-code"><a class="link" href="#customizable-difficulty-code-coming-in-v2-0-code">7.3. Customizable Difficulty <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Create your own difficulties with customized time durations.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 08:08:14 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 08:09:12 UTC</div></div></div></body></html>
