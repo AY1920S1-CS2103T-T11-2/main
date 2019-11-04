@@ -23,10 +23,12 @@
 </li>
 <li><a href="#Commands">3. Commands</a>
 <ul class="sectlevel2">
-<li><a href="#home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Home Mode &amp; Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></li>
-<li><a href="#open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. Open Mode &amp; Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></li>
-<li><a href="#game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3. Game Mode &amp; Commands <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></li>
-<li><a href="#settings-mode-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.4. Settings Mode &amp; Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></li>
+<li><a href="#switch-commands">3.1. Switch Commands</a></li>
+<li><a href="#word-bank-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.2. Word Bank Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></li>
+<li><a href="#card-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.3. Card Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></li>
+<li><a href="#game-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.4. Game Commands <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></li>
+<li><a href="#settings-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.5. Settings Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></li>
+<li><a href="#misc-commands">3.6. Misc. Commands</a></li>
 </ul>
 </li>
 <li><a href="#statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span">4. Statistics <span class="image"><img src="images/statistics-icon.png" alt="statistics icon" width="32"></span></a>
@@ -41,8 +43,9 @@
 <li><a href="#upcoming-features">7. Upcoming Features</a>
 <ul class="sectlevel2">
 <li><a href="#leaderboard-code-coming-in-v2-0-code">7.1. Leaderboard <code>[coming in v2.0]</code></a></li>
-<li><a href="#user-profiles-code-coming-in-v2-0-code">7.2. User profiles <code>[coming in v2.0]</code></a></li>
-<li><a href="#customizable-difficulty-code-coming-in-v2-0-code">7.3. Customizable Difficulty <code>[coming in v2.0]</code></a></li>
+<li><a href="#reminders-code-coming-in-v2-0-code">7.2. Reminders <code>[coming in v2.0]</code></a></li>
+<li><a href="#user-profiles-code-coming-in-v2-0-code">7.3. User profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#customizable-difficulty-code-coming-in-v2-0-code">7.4. Customizable Difficulty <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -216,6 +219,20 @@ Likewise, you can drag and drop a json word bank into your app.</p>
 <div class="paragraph">
 <p>Try it!</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The drag and drop feature works fine on Windows, but exporting through drag and drop may sometimes crash the app
+on Mac.<br>
+To avoid this on Mac, simply use the export command instead.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="quickstart"><a class="link" href="#quickstart">2.6. QuickStart</a></h3>
@@ -273,31 +290,31 @@ Likewise, you can drag and drop a json word bank into your app.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>create &lt;NAME&gt;</code></strong> : Create an empty <em>WordBank</em> with specified name.</p>
+<p><strong><code>create &lt;NAME&gt;</code></strong>: Create an empty <em>WordBank</em> with specified name.</p>
 </li>
 <li>
-<p><strong><code>select &lt;NAME&gt;</code></strong> : Select and switch to <em>WordBank</em> with the specified name.</p>
+<p><strong><code>select &lt;NAME&gt;</code></strong>: Select and switch to <em>WordBank</em> with the specified name.</p>
 </li>
 <li>
-<p><strong><code>add w/&lt;WORD&gt; m/&lt;MEANING&gt;</code></strong> : Adds a new <em>Card</em> with specified <em>Word</em> and <em>Meaning</em> into the current <em>WordBank</em>.</p>
+<p><strong><code>add w/&lt;WORD&gt; m/&lt;MEANING&gt;</code></strong>: Adds a new <em>Card</em> with specified <em>Word</em> and <em>Meaning</em> into the current <em>WordBank</em>.</p>
 </li>
 <li>
-<p><strong><code>list</code></strong> : List all <em>Cards</em> in the current <em>WordBank</em>.</p>
+<p><strong><code>list</code></strong>: List all <em>Cards</em> in the current <em>WordBank</em>.</p>
 </li>
 <li>
-<p><strong><code>start &lt;EASY/MEDIUM/HARD&gt;</code></strong> : Starts a <em>Game</em> session with the specified <em>Difficulty</em>. Default difficulty in
+<p><strong><code>start &lt;EASY/MEDIUM/HARD&gt;</code></strong>: Starts a <em>Game</em> session with the specified <em>Difficulty</em>. Default difficulty in
 <em>Settings</em>
 will be used if not
 specified.</p>
 </li>
 <li>
-<p><strong><code>guess &lt;YOUR_ANSWER&gt;</code></strong> : Make a <em>Guess</em> for the current <em>Word</em> whose <em>Meaning</em> is shown on the UI.</p>
+<p><strong><code>guess &lt;YOUR_ANSWER&gt;</code></strong>: Make a <em>Guess</em> for the current <em>Word</em> whose <em>Meaning</em> is shown on the UI.</p>
 </li>
 <li>
-<p><strong><code>stop</code></strong> : Stops the current <em>Game</em> session.</p>
+<p><strong><code>stop</code></strong>: Stops the current <em>Game</em> session.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : Exit <em>Dukemon</em>.</p>
+<p><strong><code>exit</code></strong>: Exit <em>Dukemon</em>.</p>
 </li>
 </ul>
 </div>
@@ -378,35 +395,130 @@ specified.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add w/WORD</code>, <code>WORD</code> is a parameter which can be used as<br>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user.<br>
+Eg. in <code>add w/WORD m/MEANING</code>, <code>WORD</code> is a parameter which can be used as<br>
 <code>add w/Charmander m/Fire starter pokemon</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>w/WORD [t/TAG]</code> can be used as<br>
+<p>Items in square brackets are optional.<br>
+Eg. <code>w/WORD [t/TAG]</code> can be used as<br>
 <code>add w/Squirtle m/Water starter pokemon t/Water type</code> or as
 <br>
 <code>add w/Squirtle m/Water starter pokemon</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/CS2040</code>, <code>t/CS2040 t/GRAPH</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times.<br>
+E.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/CS2040</code>, <code>t/CS2040 t/GRAPH</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>w/WORD m/MEANING</code>, <code>m/MEANING w/WORD</code> is also acceptable.</p>
+<p>Parameters can be in any order.<br>
+E.g. if the command specifies <code>w/WORD m/MEANING</code>, <code>m/MEANING w/WORD</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span"><a class="link" href="#home-mode-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.1. Home Mode &amp; Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></h3>
-<div class="sect3">
-<h4 id="to-open-word-bank-content-code-open-code"><a class="link" href="#to-open-word-bank-content-code-open-code">3.1.1. To open word bank content : <code>open</code></a></h4>
+<h3 id="switch-commands"><a class="link" href="#switch-commands">3.1. Switch Commands</a></h3>
 <div class="paragraph">
-<p>Changes the app mode to open, so that the user can perform card commands.</p>
+<p>(Available in Home mode)</p>
+</div>
+<div class="sect3">
+<h4 id="to-switch-to-home-page-code-home-code"><a class="link" href="#to-switch-to-home-page-code-home-code">3.1.1. To switch to home page: <code>home</code></a></h4>
+<div class="paragraph">
+<p>Welcome home.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>home</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-new-word-bank-code-create-code"><a class="link" href="#create-new-word-bank-code-create-code">3.1.2. Create new word bank : <code>create</code></a></h4>
+<h4 id="to-open-word-bank-content-code-open-code"><a class="link" href="#to-open-word-bank-content-code-open-code">3.1.2. To open word bank content: <code>open</code></a></h4>
+<div class="paragraph">
+<p>Opens the page to edit the word bank selected.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>open</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Use the select command to select a word bank. Otherwise it won&#8217;t work.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="start-the-game-code-start-code"><a class="link" href="#start-the-game-code-start-code">3.1.3. Start the game: <code>start</code></a></h4>
+<div class="paragraph">
+<p>Start the game with the word bank selected.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>start [DIFFICULTY]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Use the select command to select a word bank. Otherwise it won&#8217;t work.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start</code></p>
+</li>
+<li>
+<p><code>start easy</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="customise-game-play-code-settings-code"><a class="link" href="#customise-game-play-code-settings-code">3.1.4. Customise game play: <code>settings</code></a></h4>
+<div class="paragraph">
+<p>Enters settings page, so that the user can customise the game play.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="word-bank-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span"><a class="link" href="#word-bank-commands-span-class-image-img-src-images-load_mode_icon-png-alt-load-width-22-span">3.2. Word Bank Commands <span class="image"><img src="images/load_mode_icon.png" alt="load" width="22"></span></a></h3>
+<div class="paragraph">
+<p>(Available in Home mode)</p>
+</div>
+<div class="sect3">
+<h4 id="select-a-word-bank-code-select-code"><a class="link" href="#select-a-word-bank-code-select-code">3.2.1. Select a word bank: <code>select</code></a></h4>
+<div class="paragraph">
+<p>Let Dukemon know what word bank you have selected.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>select WORD_BANK</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select arithmetic</code></p>
+</li>
+<li>
+<p><code>select sample</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="create-new-word-bank-code-create-code"><a class="link" href="#create-new-word-bank-code-create-code">3.2.2. Create new word bank: <code>create</code></a></h4>
 <div class="paragraph">
 <p>Creates a new word bank with specified name.<br></p>
 </div>
@@ -426,7 +538,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-word-bank-code-remove-code"><a class="link" href="#remove-a-word-bank-code-remove-code">3.1.3. Remove a word bank : <code>remove</code></a></h4>
+<h4 id="remove-a-word-bank-code-remove-code"><a class="link" href="#remove-a-word-bank-code-remove-code">3.2.3. Remove a word bank: <code>remove</code></a></h4>
 <div class="paragraph">
 <p>Removes a new word bank with specified name.<br></p>
 </div>
@@ -446,14 +558,35 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="import-a-word-bank-code-import-code"><a class="link" href="#import-a-word-bank-code-import-code">3.1.4. Import a word bank : <code>import</code></a></h4>
+<h4 id="import-a-word-bank-code-import-code"><a class="link" href="#import-a-word-bank-code-import-code">3.2.4. Import a word bank: <code>import</code></a></h4>
 <div class="paragraph">
-<p>Import the word bank from a specified folder path on your system.<br>
-Note that you can use '\' and '\\' for windows.</p>
+<p>Import the word bank from a specified folder path on your system.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>import w/WORD_BANK f/FOLDER</code><br>
-Examples:</p>
+<p>Format: <code>import w/WORD_BANK f/FOLDER</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FOLDER is the folder where the word bank file reside.</p>
+</li>
+<li>
+<p>WORDBANK is the name of the file without the extension.</p>
+</li>
+<li>
+<p>Dukemon can only read json word bank files.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>(Use \ for Windows)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -472,21 +605,40 @@ Examples:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-FOLDER is the folder where the word bank file reside.
-WORBANK is the name of the file without the extension.
+We have a drag and drop feature.<br>
+You can drag and drop a file from your computer into the section which holds the word banks.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-a-word-bank-code-export-code"><a class="link" href="#export-a-word-bank-code-export-code">3.1.5. Export a word bank : <code>export</code></a></h4>
+<h4 id="export-a-word-bank-code-export-code"><a class="link" href="#export-a-word-bank-code-export-code">3.2.5. Export a word bank: <code>export</code></a></h4>
 <div class="paragraph">
 <p>Export the word bank to a specified file path on your system.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>export w/WORD_BANK f/FILE_PATH</code><br>
-Examples:</p>
+<p>Format: <code>export w/WORD_BANK f/FOLDER</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FOLDER is the folder where the word bank file reside.</p>
+</li>
+<li>
+<p>WORDBANK is the name of the file without the extension.</p>
+</li>
+<li>
+<p>Dukemon exports word banks into json files.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -498,47 +650,6 @@ Examples:</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="select-a-word-bank-code-select-code"><a class="link" href="#select-a-word-bank-code-select-code">3.1.6. Select a word bank : <code>select</code></a></h4>
-<div class="paragraph">
-<p>Choose the word bank you want to work with.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>select WORD_BANK</code>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>select CS2040</code></p>
-</li>
-<li>
-<p><code>select Biology</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="help-code-help-code"><a class="link" href="#help-code-help-code">3.1.7. Help : <code>help</code></a></h4>
-<div class="paragraph">
-<p>Shows help</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span"><a class="link" href="#open-mode-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.2. Open Mode &amp; Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></h3>
-<div class="sect3">
-<h4 id="adding-a-flash-card-code-add-code"><a class="link" href="#adding-a-flash-card-code-add-code">3.2.1. Adding a flash card : <code>add</code></a></h4>
-<div class="paragraph">
-<p>Adds a new word-description pair to the word bank.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>add w/WORD m/MEANING</code></p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -546,10 +657,26 @@ Examples:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There can be duplicate words, but duplicate meanings will be rejected.
+We have a drag and drop feature.<br>
+You can also drag and drop a word bank out your app into your computer.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="card-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span"><a class="link" href="#card-commands-span-class-image-img-src-images-card_commands_icon-png-alt-card-commands-icon-width-29-5-span">3.3. Card Commands <span class="image"><img src="images/card_commands_icon.png" alt="card commands icon" width="29.5"></span></a></h3>
+<div class="paragraph">
+<p>(Available in Open mode)</p>
+</div>
+<div class="sect3">
+<h4 id="adding-a-flash-card-code-add-code"><a class="link" href="#adding-a-flash-card-code-add-code">3.3.1. Adding a flash card: <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds a new word-meaning pair to the word bank.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add w/WORD m/MEANING</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -567,11 +694,23 @@ There can be duplicate words, but duplicate meanings will be rejected.
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There can be duplicate words, but duplicate meanings will be rejected.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-flash-card-code-delete-code"><a class="link" href="#deleting-a-flash-card-code-delete-code">3.2.2. Deleting a flash card : <code>delete</code></a></h4>
+<h4 id="deleting-a-flash-card-code-delete-code"><a class="link" href="#deleting-a-flash-card-code-delete-code">3.3.2. Deleting a flash card: <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified word from the data set.<br></p>
+<p>Deletes the specified index from the word bank.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete INDEX</code></p>
@@ -601,7 +740,7 @@ and must be a valid index within the list.</p>
 <ul>
 <li>
 <p><code>delete 2</code><br>
-Deletes the 2nd word in the data set.</p>
+Deletes the 2nd word.</p>
 </li>
 <li>
 <p><code>delete 1</code><br>
@@ -611,21 +750,7 @@ Deletes the 1st word in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-word-bank-s-content-code-list-code"><a class="link" href="#viewing-a-word-bank-s-content-code-list-code">3.2.3. Viewing a word bank&#8217;s content : <code>list</code></a></h4>
-<div class="paragraph">
-<p>Views the content of a data set.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-a-word-bank-s-content-code-clear-code"><a class="link" href="#clear-a-word-bank-s-content-code-clear-code">3.2.4. Clear a word bank&#8217;s content : <code>clear</code></a></h4>
-<div class="paragraph">
-<p>Views the content of a data set.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-card-s-content-code-edit-code"><a class="link" href="#editing-a-card-s-content-code-edit-code">3.2.5. Editing a card&#8217;s content : <code>edit</code></a></h4>
+<h4 id="editing-a-card-s-content-code-edit-code"><a class="link" href="#editing-a-card-s-content-code-edit-code">3.3.3. Editing a card&#8217;s content: <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits a card.</p>
 </div>
@@ -647,9 +772,9 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-a-word-description-code-find-code"><a class="link" href="#locating-a-word-description-code-find-code">3.2.6. Locating a word/description: <code>find</code></a></h4>
+<h4 id="searching-for-a-card-code-find-code"><a class="link" href="#searching-for-a-card-code-find-code">3.3.4. Searching for a card: <code>find</code></a></h4>
 <div class="paragraph">
-<p>Finds entry whose word or description contain any of the given keywords.<br>
+<p>Finds entry whose word or meaning or tag  contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -663,13 +788,13 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Both word and description will be searched</p>
+<p>Word, meaning and tag will be searched</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Words contained within will be matched e.g. <code>formal</code> will match <code>Informal</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Cards matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -682,22 +807,39 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>find long</code><br>
-Returns entries containing elephant and giraffe.</p>
+Returns any entries containing <code>long</code> in its word or meaning or tag.</p>
 </li>
 <li>
 <p><code>find mammal fish bird</code><br>
-Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>bird</code> in its descriptions or words.</p>
+Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>bird</code> in its word or meaning or tag.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exit-dukemon-code-exit-code"><a class="link" href="#exit-dukemon-code-exit-code">3.2.7. Exit Dukemon: <code>exit</code></a></h4>
-
+<h4 id="viewing-a-word-bank-s-content-code-list-code"><a class="link" href="#viewing-a-word-bank-s-content-code-list-code">3.3.5. Viewing a word bank&#8217;s content: <code>list</code></a></h4>
+<div class="paragraph">
+<p>Views the content of a word bank.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-a-word-bank-s-content-code-clear-code"><a class="link" href="#clear-a-word-bank-s-content-code-clear-code">3.3.6. Clear a word bank&#8217;s content: <code>clear</code></a></h4>
+<div class="paragraph">
+<p>Clears the word bank by removing all cards.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3. Game Mode &amp; Commands <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h3>
+<h3 id="game-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-commands-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.4. Game Commands <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h3>
+<div class="paragraph">
+<p>(Available in Game mode)</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="790">
@@ -722,7 +864,7 @@ differs across each <em>Difficulty</em>.</p>
 </ol>
 </div>
 <div class="sect3">
-<h4 id="game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3.1. Game Mode - <span class="underline">Starting</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<h4 id="game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-starting-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.4.1. Game Mode - <span class="underline">Starting</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
 <div class="paragraph">
 <p>The relevant command(s) are:</p>
 </div>
@@ -750,7 +892,7 @@ will be used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3.2. Game Mode - <span class="underline">Playing</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<h4 id="game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.4.2. Game Mode - <span class="underline">Playing</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="][height="850"">
@@ -794,7 +936,7 @@ The relevant command(s) are:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.3.3. Game Mode - <span class="underline">Terminating &amp; Statistics</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
+<h4 id="game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-terminating-statistics-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.4.3. Game Mode - <span class="underline">Terminating &amp; Statistics</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideGameOverDiagram.png" alt="UserGuideGameOverDiagram" width="][height="850"">
@@ -837,13 +979,16 @@ be reported.</strong>)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="settings-mode-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span"><a class="link" href="#settings-mode-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.4. Settings Mode &amp; Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></h3>
+<h3 id="settings-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span"><a class="link" href="#settings-commands-span-class-image-img-src-images-settings_mode_icon-png-alt-settings-mode-icon-width-27-span">3.5. Settings Commands <span class="image"><img src="images/settings_mode_icon.png" alt="settings mode icon" width="27"></span></a></h3>
+<div class="paragraph">
+<p>(Available in Settings mode)</p>
+</div>
 <div class="paragraph">
 <p>Goes into the settings menu.<br>
 Format: <code>settings</code></p>
 </div>
 <div class="sect3">
-<h4 id="changing-the-theme-code-theme-code"><a class="link" href="#changing-the-theme-code-theme-code">3.4.1. Changing the theme : <code>theme</code></a></h4>
+<h4 id="changing-the-theme-code-theme-code"><a class="link" href="#changing-the-theme-code-theme-code">3.5.1. Changing the theme: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>Changes the theme of the UI.<br>
 Format: <code>theme dark/light</code></p>
@@ -881,7 +1026,7 @@ Changes the UI theme to light.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="turning-hints-on-off-code-hints-code"><a class="link" href="#turning-hints-on-off-code-hints-code">3.4.2. Turning hints on/off : <code>hints</code></a></h4>
+<h4 id="turning-hints-on-off-code-hints-code"><a class="link" href="#turning-hints-on-off-code-hints-code">3.5.2. Turning hints on/off: <code>hints</code></a></h4>
 <div class="paragraph">
 <p>Turns hints on or off.<br>
 Format: <code>hints on/off</code></p>
@@ -919,7 +1064,7 @@ Turns hints off.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-difficulty-code-difficulty-code"><a class="link" href="#changing-difficulty-code-difficulty-code">3.4.3. Changing difficulty : <code>difficulty</code></a></h4>
+<h4 id="changing-difficulty-code-difficulty-code"><a class="link" href="#changing-difficulty-code-difficulty-code">3.5.3. Changing difficulty: <code>difficulty</code></a></h4>
 <div class="paragraph">
 <p>Changes the difficulty of the game.<br>
 Format: <code>difficulty easy/medium/hard</code></p>
@@ -971,7 +1116,7 @@ Changes the difficulty to hard. (Timer = 5 seconds)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-avatar-code-avatar-code"><a class="link" href="#changing-avatar-code-avatar-code">3.4.4. Changing Avatar : <code>avatar</code></a></h4>
+<h4 id="changing-avatar-code-avatar-code"><a class="link" href="#changing-avatar-code-avatar-code">3.5.4. Changing Avatar : <code>avatar</code></a></h4>
 <div class="paragraph">
 <p>Changes the avatar in the home screen. The avatar is one of the 151 original pokemon, so pick and choose! (There is a secret avatar as well. See if you can find it!)<br>
 Format: <code>avatar [0 - 151]</code><br>
@@ -1021,6 +1166,31 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 <img src="images/avatar151.png" alt="avatar151">
 </div>
 <div class="title">Figure 21. Avatar number 151, in this case, Mew.</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="misc-commands"><a class="link" href="#misc-commands">3.6. Misc. Commands</a></h3>
+<div class="paragraph">
+<p>(Help is available in Home mode)<br>
+(Exit is available in any mode except Game mode)</p>
+</div>
+<div class="sect3">
+<h4 id="ask-for-help-code-help-code"><a class="link" href="#ask-for-help-code-help-code">3.6.1. Ask for help: <code>help</code></a></h4>
+<div class="paragraph">
+<p>Dukemon sends help.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="take-a-break-code-exit-code"><a class="link" href="#take-a-break-code-exit-code">3.6.2. Take a break: <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Dukemon says bye!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
 </div>
 </div>
 </div>
@@ -1106,18 +1276,39 @@ Statistics are also stored automatically.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command Purpose</th>
+<th class="tableblock halign-left valign-top">Command Type</th>
 <th class="tableblock halign-left valign-top">Command Keyword</th>
 <th class="tableblock halign-left valign-top">Parameter(s) (if any)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock"><strong>Manipulating WordBanks</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>help</code></strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Switch Commands<br>
+(Available in Home mode)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>home</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>open</code></strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>start</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[DIFFICULTY]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>settings</code></strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">Word Bank Commands<br>
+(Available in Home mode)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>select</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD_BANK</code></p></td>
 </tr>
@@ -1131,11 +1322,11 @@ Statistics are also stored automatically.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>import</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FOLDER</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>export</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FILE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK f/FOLDER</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
@@ -1144,44 +1335,42 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock"><strong>Manipulating Cards</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>list</code></strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
+<th class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Card Commands<br>
+(Available in Open mode)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>add</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD_BANK m/meaning [t/TAG]</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>edit</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX w/WORD_BANK m/meaning [t/TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w/WORD m/MEANING [t/TAG]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>delete</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>edit</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX w/WORD m/MEANING [t/TAG]</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>find</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [ADDITIONAL_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [MORE_KEYWORDS]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>list</code></strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>clear</code></strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>exit</code></strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><strong>Playing Game</strong></p></th>
+<th class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Game Commands<br>
+(Available in Game mode)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>guess</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANSWER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORD</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>skip</code></strong></p></td>
@@ -1198,7 +1387,8 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Manipulating Settings</strong></p></th>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Settings Commands<br>
+(Available in Settings mode)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>difficulty</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EASY/NORMAL/HARD</code></p></td>
 </tr>
@@ -1212,7 +1402,7 @@ Statistics are also stored automatically.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>avatar</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX_OF_AVATAR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
@@ -1221,20 +1411,14 @@ Statistics are also stored automatically.</p>
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><strong>Switching Modes</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>home</code></strong></p></td>
+<th class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Misc. Commands</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>help</code><br>
+(Available in Home mode)</strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>open</code></strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>start</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[EASY/MEDIUM/HARD]</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>setting</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>exit</code><br>
+(Available anywhere except Game mode)</strong></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -1251,16 +1435,22 @@ Statistics are also stored automatically.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">7.2. User profiles <code>[coming in v2.0]</code></a></h3>
+<h3 id="reminders-code-coming-in-v2-0-code"><a class="link" href="#reminders-code-coming-in-v2-0-code">7.2. Reminders <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Smart algorithms to pop reminders for you to know which bank you have not visited and is most likely to forget soon.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-profiles-code-coming-in-v2-0-code"><a class="link" href="#user-profiles-code-coming-in-v2-0-code">7.3. User profiles <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Have more than one account to monitor statistics on the same computer</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="customizable-difficulty-code-coming-in-v2-0-code"><a class="link" href="#customizable-difficulty-code-coming-in-v2-0-code">7.3. Customizable Difficulty <code>[coming in v2.0]</code></a></h3>
+<h3 id="customizable-difficulty-code-coming-in-v2-0-code"><a class="link" href="#customizable-difficulty-code-coming-in-v2-0-code">7.4. Customizable Difficulty <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Create your own difficulties with customized time durations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 08:09:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 10:48:38 UTC</div></div></div></body></html>
