@@ -865,7 +865,7 @@ in this one, we do not think the added functionality of allowing the user to ext
 <div class="title">Figure 22. Screenshot of the automatic <code>Hints</code> feature in action.</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-overview-code-timer-code"><a class="link" href="#implementation-overview-code-timer-code">3.3.1. Implementation Overview - <code>Timer</code></a></h4>
+<h4 id="implementation-overview"><a class="link" href="#implementation-overview">3.3.1. Implementation Overview</a></h4>
 <div class="paragraph">
 <p>The <code>Timer</code> component utilizes the <code>java.util.Timer</code> API to simulate a stopwatch during a <code>Game</code>. It also relies on
 using <em>Functional Interfaces</em> as <em>callbacks</em> to periodically notify other components in the system. Using <em>callbacks</em>
@@ -926,9 +926,9 @@ within the  <code>GameTimer</code> interface, which is concretized via the <code
 </div>
 </div>
 <div class="sect3">
-<h4 id="flow-of-events"><a class="link" href="#flow-of-events">3.3.2. Flow of Events</a></h4>
+<h4 id="flow-of-events-code-hints-code-disabled"><a class="link" href="#flow-of-events-code-hints-code-disabled">3.3.2. Flow of Events - <code>Hints</code> Disabled</a></h4>
 <div class="paragraph">
-<p>This section describes the sequential flow of events in the life cycle of a <code>GameTimer</code> object.</p>
+<p>This section describes the sequential flow of events in the life cycle of a <code>GameTimer</code> object with <strong>no hints</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -943,12 +943,20 @@ the <code>UI</code> component. This is to provide better abstraction between the
 </div>
 <div class="paragraph">
 <p>A <code>GameTimer</code> instance is created by the <code>AppManager</code> for every <code>Card</code> of a <code>Game</code>.
-The <code>AppManager</code> provides information regarding the duration in which the <code>Timer</code> should run for, and whether
-to trigger <code>Hints</code> at the point when a <code>GameTimer</code> instance is created.</p>
+The <code>AppManager</code> provides information regarding the duration in which the <code>Timer</code> should run for.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.3. Design Considerations</a></h4>
+<h4 id="flow-of-events-code-hints-code-enabled"><a class="link" href="#flow-of-events-code-hints-code-enabled">3.3.3. Flow of Events - <code>Hints</code> Enabled</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/TimerActivityDiagramWithHints.png" alt="TimerActivityDiagramWithHints">
+</div>
+<div class="title">Figure 25. Activity diagram of the <code>Timer</code> component when <code>Hints</code> are enabled</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.4. Design Considerations</a></h4>
 <div class="paragraph">
 <p>There were a few considerations for designing the <code>Timer</code> this way.</p>
 </div>
@@ -1033,7 +1041,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/CardCommands.png" alt="CardCommands">
 </div>
-<div class="title">Figure 25. <code>CardCommands</code></div>
+<div class="title">Figure 26. <code>CardCommands</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -1042,7 +1050,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/Cards.png" alt="Cards">
 </div>
-<div class="title">Figure 26. <code>Cards</code></div>
+<div class="title">Figure 27. <code>Cards</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -1051,7 +1059,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/WordBankCommands.png" alt="WordBankCommands">
 </div>
-<div class="title">Figure 27. <code>WordBankCommands</code></div>
+<div class="title">Figure 28. <code>WordBankCommands</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -1060,7 +1068,7 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/WordBanks.png" alt="WordBanks">
 </div>
-<div class="title">Figure 28. <code>WordBanks</code></div>
+<div class="title">Figure 29. <code>WordBanks</code></div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -1075,14 +1083,14 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/CardDiagram.png" alt="CardDiagram">
 </div>
-<div class="title">Figure 29. Class diagram of <code>Card</code>.</div>
+<div class="title">Figure 30. Class diagram of <code>Card</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
 </div>
 <div class="paragraph">
-<p><code>id</code> : for statistical tracking<br>
-<code>word</code>: answer to the question<br>
+<p><code>id</code> : for statistical tracking +<code>`
+`word</code>: answer to the question<br>
 <code>meaning</code>: the question that will appear in the game<br>
 <code>tags</code>: optional tag to classify cards</p>
 </div>
@@ -1109,7 +1117,7 @@ Cards with the same meaning are duplicates, and is disallowed.
 <div class="content">
 <img src="images/WordBankDiagram.png" alt="WordBankDiagram">
 </div>
-<div class="title">Figure 30. Class diagram of <code>Word Bank</code>.</div>
+<div class="title">Figure 31. Class diagram of <code>Word Bank</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
@@ -1142,7 +1150,7 @@ This is so any changes to the cards gets updated in the <code>Model</code> and t
 <div class="content">
 <img src="images/WordBankListDiagram.png" alt="WordBankListDiagram">
 </div>
-<div class="title">Figure 31. Class diagram of <code>WordBankList</code>.</div>
+<div class="title">Figure 32. Class diagram of <code>WordBankList</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
@@ -1172,7 +1180,7 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <div class="content">
 <img src="images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
 </div>
-<div class="title">Figure 32. Entire overview <code>WordBankList</code>.</div>
+<div class="title">Figure 33. Entire overview <code>WordBankList</code>.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1182,7 +1190,7 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <div class="content">
 <img src="images/WBStorage.png" alt="WBStorage">
 </div>
-<div class="title">Figure 33. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
+<div class="title">Figure 34. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
 </div>
 <hr>
 </div>
@@ -1202,7 +1210,7 @@ and then walk you through a Sequence Diagram of executing a particular command.<
 <div class="content">
 <img src="images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
 </div>
-<div class="title">Figure 34. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+<div class="title">Figure 35. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
 </div>
 <div class="paragraph">
 <p>With the understanding of <code>WordBankList</code> data structure, and how the <code>Commands</code> are structured within <code>Logic</code>,
@@ -1213,7 +1221,7 @@ For instance, <code>CreateCommand</code>:<br></p>
 <div class="content">
 <img src="images/CreateCommandSequenceDiagram.png" alt="CreateCommandSequenceDiagram">
 </div>
-<div class="title">Figure 35. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
+<div class="title">Figure 36. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
 </div>
 <div class="paragraph">
 <p>We will see the case where the input: "create bank1" is valid.</p>
@@ -1273,13 +1281,13 @@ It aims to streamline the process of sharing word banks with friends.</p>
 <div class="content">
 <img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
 </div>
-<div class="title">Figure 36. Screenshot showing drag and drop steps</div>
+<div class="title">Figure 37. Screenshot showing drag and drop steps</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
 </div>
-<div class="title">Figure 37. Screenshot showing drag and drop steps</div>
+<div class="title">Figure 38. Screenshot showing drag and drop steps</div>
 </div>
 <div class="paragraph">
 <p>From <code>HOME</code> mode, you can view <code>WordBank</code>, then simply drag and drop a <code>WordBank</code>, out of the application, into say,
@@ -1480,7 +1488,7 @@ the main title page.</p></td>
 <div class="content">
 <img src="images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 38. Sequence diagram for loading statistics</div>
+<div class="title">Figure 39. Sequence diagram for loading statistics</div>
 </div>
 </div>
 <div class="sect4">
@@ -1493,7 +1501,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 39. Sequence diagram for selecting a word bank statistics.</div>
+<div class="title">Figure 40. Sequence diagram for selecting a word bank statistics.</div>
 </div>
 <div class="paragraph">
 <p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
@@ -1518,7 +1526,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/InitializeStatisticsSequenceDiagram.png" alt="InitializeStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 40. Sequence diagram when user starts a game.</div>
+<div class="title">Figure 41. Sequence diagram when user starts a game.</div>
 </div>
 <div class="paragraph">
 <p>During the game, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made. It receives
@@ -1528,7 +1536,7 @@ the timestamp from the <code>GameTimer</code> which also resides in <code>AppMan
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 42. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1545,7 +1553,7 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 42. Sequence diagram for saving the statistics to disk.</div>
+<div class="title">Figure 43. Sequence diagram for saving the statistics to disk.</div>
 </div>
 </div>
 </div>
@@ -2131,4 +2139,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 16:58:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 20:19:20 UTC</div></div></div></body></html>
