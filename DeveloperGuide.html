@@ -29,7 +29,7 @@
 <li><a href="#span-class-underline-autocomplete-and-command-execution-span">3.1. <span class="underline">AutoComplete and Command Execution</span></a></li>
 <li><a href="#span-class-underline-settings-feature-span">3.2. <span class="underline">Settings Feature</span></a></li>
 <li><a href="#span-class-underline-timer-based-features-span">3.3. <span class="underline">Timer-based Features</span></a></li>
-<li><a href="#span-class-underline-wordbank-features-span">3.4. <span class="underline">WordBank Features</span></a></li>
+<li><a href="#span-class-underline-word-bank-management-span">3.4. <span class="underline">Word Bank Management</span></a></li>
 <li><a href="#span-class-underline-statistics-features-span">3.5. <span class="underline">Statistics features</span></a></li>
 <li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
 <li><a href="#proposed-user-profiles">3.7. [Proposed] User Profiles</a></li>
@@ -386,32 +386,24 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>contains information that the game requires at run time. They include: <code>WordBankList</code>, <code>WordBankStatisticsList</code>,
+<code>GlobalStatistics</code>, <code>Game</code>, <code>AppSettings</code>, <code>UserPrefs</code>.</p>
 </li>
 <li>
-<p>stores the Word Bank data.</p>
+<p>does not depend on any of the higher level components. i.e. <code>Ui</code>, <code>Timer</code>, <code>AppManager</code>, <code>Logic</code>, <code>Storage</code></p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>has a direct reference to a user selected <code>WordBank</code>.</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that
+the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>can be visualised as playing the role of a computer&#8217;s RAM, while <code>Logic</code> plays the role of an operating system,
+and <code>Storage</code> plays the role of a hard disk.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -459,10 +451,17 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>contains multiple types of distinct storage.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>handles function calls directly to the computer&#8217;s system.</p>
+</li>
+<li>
+<p>can save data objects in json format and read it back.</p>
+</li>
+<li>
+<p>can be visualised as playing the role of a computer&#8217;s hard disk, while <code>Logic</code> plays the role of an operating system
+, and <code>Model</code> plays the role of a RAM.</p>
 </li>
 </ul>
 </div>
@@ -1073,80 +1072,42 @@ debug and resolve problems in the code.
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-wordbank-features-span"><a class="link" href="#span-class-underline-wordbank-features-span">3.4. <span class="underline">WordBank Features</span></a></h3>
+<h3 id="span-class-underline-word-bank-management-span"><a class="link" href="#span-class-underline-word-bank-management-span">3.4. <span class="underline">Word Bank Management</span></a></h3>
 <div class="paragraph">
-<p>Dukemon, a flashcard app, requires a non-trivial implementation of a data structure to contain it&#8217;s information.<br>
-It comes along with a set of commands that either modifies it&#8217;s data, or modify the view.<br>
-These commands will then synchronise the data in storage, or update the model for viewing.<br>
-Lastly, there is a cool drag and drop feature for word banks, to transfer the files into and out of your computer.</p>
+<p>This section discusses the implementation of Word Bank Management in varied levels of detail.<br>
+This can be split into four complimentary distinct sections.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s begin by explaining some key terms:</p>
+<p>They are:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Word Bank’s data structure and storage<br></p>
+</li>
+<li>
+<p>User Commands<br></p>
+</li>
+<li>
+<p>Revision Word Bank<br></p>
+</li>
+<li>
+<p>Drag and Drop</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>A <code>Card</code> contains a word and a unique meaning. (May contain tags)<br>
-<code>CardCommands</code> work on <code>Cards</code>.<br></p>
-</div>
-<div class="paragraph">
-<p>A <code>WordBank</code> contains multiple <code>Cards</code>. (May contain tags)<br>
-<code>WordBankCommands</code> work on <code>WordBanks</code>.</p>
-</div>
-<div class="paragraph">
-<p>A <code>WordBankList</code> contains multiple <code>WordBanks</code>.</p>
-</div>
-<div class="paragraph">
-<p>Each time a <code>CardCommand</code> or <code>WordBankCommand</code> is executed, <code>Storage</code> data is synchronised and
-<code>Model</code> gets updated automatically for <code>UI</code> to retrieve updated information for user viewing.</p>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<hr>
-<div class="paragraph">
-<p>A quick look at <code>Card</code> and <code>WordBank</code> as it is displayed through the <code>UI</code>.</p>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CardCommands.png" alt="CardCommands">
-</div>
-<div class="title">Figure 27. <code>CardCommands</code></div>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Cards.png" alt="Cards">
-</div>
-<div class="title">Figure 28. <code>Cards</code></div>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/WordBankCommands.png" alt="WordBankCommands">
-</div>
-<div class="title">Figure 29. <code>WordBankCommands</code></div>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/WordBanks.png" alt="WordBanks">
-</div>
-<div class="title">Figure 30. <code>WordBanks</code></div>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
+<p>&#160;</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="data-structure-overview"><a class="link" href="#data-structure-overview">3.4.1. Data Structure Overview</a></h4>
+<h4 id="word-bank-s-data-structure-and-storage"><a class="link" href="#word-bank-s-data-structure-and-storage">3.4.1. Word Bank&#8217;s data structure and storage</a></h4>
+<div class="paragraph">
+<p>In the following class diagrams which details the data structure and storage of <code>WordBankList</code>,
+observe closely the attributes and methods.<br>
+Each of them are implemented with close examination so that it is easily usable and extended upon by other
+teammates/complimentary features.</p>
+</div>
 <div class="paragraph">
 <p>We start from the lowest level - <code>Card</code>.<br></p>
 </div>
@@ -1154,16 +1115,16 @@ Lastly, there is a cool drag and drop feature for word banks, to transfer the fi
 <div class="content">
 <img src="images/CardDiagram.png" alt="CardDiagram">
 </div>
-<div class="title">Figure 31. Class diagram of <code>Card</code>.</div>
+<div class="title">Figure 27. Class diagram of <code>Card</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
 </div>
 <div class="paragraph">
-<p><code>id</code> : for statistical tracking +<code>`
-`word</code>: answer to the question<br>
+<p><code>id</code> : for statistical tracking<br>
+<code>word</code>: answer to the question (meaning)<br>
 <code>meaning</code>: the question that will appear in the game<br>
-<code>tags</code>: optional tag to classify cards</p>
+<code>tags</code>: optional tags to classify cards</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1177,9 +1138,6 @@ Cards with the same meaning are duplicates, and is disallowed.
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
 <hr>
 <div class="paragraph">
 <p>Now the second level - <code>WordBank</code></p>
@@ -1188,7 +1146,7 @@ Cards with the same meaning are duplicates, and is disallowed.
 <div class="content">
 <img src="images/WordBankDiagram.png" alt="WordBankDiagram">
 </div>
-<div class="title">Figure 32. Class diagram of <code>Word Bank</code>.</div>
+<div class="title">Figure 28. Class diagram of <code>Word Bank</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
@@ -1204,14 +1162,12 @@ Cards with the same meaning are duplicates, and is disallowed.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Internally, the <code>UniqueCardList</code> contains an observable list of <code>Card</code>.
-This is so any changes to the cards gets updated in the <code>Model</code> and thus the <code>UI</code> automatically.
+<code>WordBank</code> exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed'.
+The UI can be bound to this list so that the UI automatically updates when the cards in the list
+change.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>&#160;<br></p>
 </div>
 <hr>
 <div class="paragraph">
@@ -1221,7 +1177,7 @@ This is so any changes to the cards gets updated in the <code>Model</code> and t
 <div class="content">
 <img src="images/WordBankListDiagram.png" alt="WordBankListDiagram">
 </div>
-<div class="title">Figure 33. Class diagram of <code>WordBankList</code>.</div>
+<div class="title">Figure 29. Class diagram of <code>WordBankList</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
@@ -1236,8 +1192,9 @@ This is so any changes to the cards gets updated in the <code>Model</code> and t
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Internally, the <code>UniqueWordBankList</code> contains an observable list of <code>WordBank</code>.
-This is so any changes to the word banks gets updated in the <code>Model</code> and thus the <code>UI</code> automatically.
+<code>WordBank</code> exposes an unmodifiable <code>ObservableList&lt;WordBank&gt;</code> that can be 'observed'.
+The UI can be bound to this list so that the UI automatically updates when the cards in the list
+change.
 </td>
 </tr>
 </table>
@@ -1247,132 +1204,312 @@ This is so any changes to the word banks gets updated in the <code>Model</code> 
 <code>Model</code> holds a reference to that specific <code>WordBankList</code>.</p>
 </div>
 <hr>
+<div class="paragraph">
+<p>Architecture overview - <code>WordBankList</code></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
 </div>
-<div class="title">Figure 34. Entire overview <code>WordBankList</code>.</div>
+<div class="title">Figure 30. Overview of <code>WordBankList</code>.</div>
 </div>
 <hr>
 <div class="paragraph">
-<p>Now the integration - How these data structures are stored in <code>Model</code> and <code>Storage</code>.</p>
+<p>Now the integration with storage - How <code>WordBankList</code> is stored in <code>Model</code> and <code>Storage</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/WBStorage.png" alt="WBStorage">
 </div>
-<div class="title">Figure 35. Overview class diagram of <code>Storage</code> and <code>Model</code>.</div>
+<div class="title">Figure 31. Integration of <code>WordBankList</code> within <code>Storage</code> and <code>Model</code>.</div>
+</div>
+<div class="paragraph">
+<p>WordBankListStorage consists of robust and self-explanatory methods in which users can use and extend upon easily.<br>
+Alongside with word bank&#8217;s data structure, they lay the foundation for my other complementary sections of Word Bank Management.</p>
+</div>
+<div class="paragraph">
+<p>On top of that, they serve as a essential foundation for Dukemon. As such, these data structures and methods were required
+by my teammates, to build their own feature implementations. (Statistics, Game, Settings)</p>
+</div>
+<div class="paragraph">
+<p>&#160;</p>
 </div>
 <hr>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-cardcommands-and-wordbankcommands"><a class="link" href="#implementation-of-cardcommands-and-wordbankcommands">3.4.2. Implementation of CardCommands and WordBankCommands</a></h4>
+<h4 id="user-commands"><a class="link" href="#user-commands">3.4.2. User Commands</a></h4>
 <div class="paragraph">
-<p>A card command edits the cards within a particular word bank. Therefore it needs to make function calls through the
-WordBank data structure.<br>
-A word bank command edits the word bank within that particular word bank list. Therefore it needs to make function calls through
-the WordBankList data structure.</p>
+<p>Allows user to customise his cards and group them according to topics (word banks).<br>
+User commands edits and manipulates <code>Cards</code> and <code>WordBanks</code> heavily.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned previously, user commands will extend and utilise word bank&#8217;s data structure and storage heavily.<br>
+You can refer to it to enhance your understanding of this implementation.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>To have a better understanding of how these commands work, I will show you how these commands are structured in <code>Logic</code>
-and then walk you through a Sequence Diagram of executing a particular command.</p>
+<p>Let me first introduce you how these commands are implemented and structured in <code>Logic</code>.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
 </div>
-<div class="title">Figure 36. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+<div class="title">Figure 32. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
 </div>
 <div class="paragraph">
-<p>With the understanding of <code>WordBankList</code> data structure, and how the <code>Commands</code> are structured within <code>Logic</code>,
-I will now take you through what happens when a <code>Command</code> is called.<br>
-For instance, <code>CreateCommand</code>:<br></p>
+<p>Commands reside in <code>Logic</code>. They work on <code>Model</code> and <code>Storage</code> through <code>Logic</code>.<br>
+To segregate cards according to their function, I distinguished the following:</p>
+</div>
+<div class="paragraph">
+<p><code>CardCommands</code> work on <code>Cards</code>.<br></p>
+</div>
+<div class="paragraph">
+<p><code>WordBankCommands</code> work on <code>WordBanks</code>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Walkthrough - <code>ImportCommand</code>.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CreateCommandSequenceDiagram.png" alt="CreateCommandSequenceDiagram">
+<img src="images/ImportCommandSeqDiagram.png" alt="ImportCommandSeqDiagram">
 </div>
-<div class="title">Figure 37. Sequence diagram describing the updating of <code>WordBankList</code> using <code>WordBankCommand</code> through different components</div>
+<div class="title">Figure 33. Sequence diagram detailing a successful <code>WordBankCommand</code> through different components.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Most of these methods utilised can be found in my word bank data structure and storage class diagrams.<br>
+The emphasis here is to show how these commands utilise word bank&#8217;s data structure and storage.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>We will see the case where the input: "create bank1" is valid.</p>
+<p>We will see the case where an Import command is valid.<br>
+For example, for the input: "import w/bank1, f/~/downloads"</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>It gets parsed by the ParserManager. Depending on the input, a specific <code>Command</code> is returned.
-In this case, a <code>CreateCommand</code> object is instantiated.</p>
+<p>Depending on the input, a specific <code>Command</code> type is returned by <code>ParserManager</code>. i.e. <code>ImportCommand</code>.</p>
 </li>
 <li>
-<p>Depending on the type of Command object, execute() performs slightly different tasks.
-In this case, the execute method of <code>CreateCommand</code> checks in <code>Model</code> to see if the <code>WordBank</code> currently already exist.</p>
+<p>Each type of <code>Command</code> executes with slight variance. <code>ImportCommand</code> executes and checks in <code>Model</code> to check if
+<code>WordBankList</code> already contains <code>WordBank</code>.</p>
 </li>
 <li>
-<p>Relevant information is stored in <code>CreateCommandResult</code> and is returned back to <code>LogicManager</code>.</p>
+<p>Relevant information is stored in a specific <code>CommandResult</code> and is returned back to <code>LogicManager</code>.
+i.e. <code>ImportCommandResult</code>.</p>
 </li>
 <li>
-<p>With the retrieved information and type of <code>CommandResult</code>, commandResult updates the storage through it&#8217;s method.</p>
-</li>
-<li>
-<p>The <code>Storage</code> abstracts away details and contains well-written methods, each to handle different cases of <code>CommandResult</code>.
-In this case, createWordBank is called.</p>
+<p>Each type of <code>CommandResult</code> updates the storage with slight variance. <code>ImportCommand</code> calls the importWordBank method.</p>
 </li>
 <li>
 <p><code>JsonWordBankListStorage</code> contains the abstracted details of how a commandResult should be handled.
-For a <code>CreateCommandResult</code>, addWordBank and saveWordBank is called.</p>
+For importWordBank method, addWordBank and saveWordBank private methods are called.</p>
 </li>
 <li>
-<p>In addWordBank method, it simply adds to the only WordBankList in the entire app. This <code>WordBankList</code> is the
-same instance as referenced by <code>Model</code>.</p>
+<p>Within addWordBank method, <code>WordBank</code> is added into the underlying UniqueWordBankList.<br>
+Two synchronisation happens here.<br>
+As <code>Model</code> contains the same <code>WordBankList</code>, the two list contains synchronised data.<br>
+Secondly, <code>WordBankList</code> exposes an unmodifiable <code>ObservableList&lt;WordBank&gt;</code> that can be 'observed'.
+<code>UI</code> was bounded to this list upon initialisation. Hence, it allows the user sees the updated word bank automatically.</p>
 </li>
 <li>
-<p>In saveWordBank method, an even lower level saveJsonFile function is called to write to the disk.
+<p>Within saveWordBank method, an even lower level saveJsonFile function is called to write to the disk.
 This is performed through the common class: <code>JsonUtil</code>.</p>
 </li>
 <li>
-<p>In addWordBank method, it simply adds to the only WordBankList in the entire app. This <code>WordBankList</code> is the
-same instance as referenced by <code>Model</code>.</p>
-</li>
-<li>
-<p>It returns void all the way back to <code>LogicManager</code>, and then success message is then passed back to <code>AppManager</code>,
+<p>It returns back to <code>LogicManager</code>, and a success message is passed back to <code>AppManager</code>,
 then to the <code>UI</code> to notify the user.</p>
 </li>
 </ol>
 </div>
-<hr>
-</div>
-<div class="sect3">
-<h4 id="drag-and-drop-feature-and-it-s-implementation"><a class="link" href="#drag-and-drop-feature-and-it-s-implementation">3.4.3. Drag and drop feature and it&#8217;s implementation.</a></h4>
-<div class="paragraph">
-<p>As much as a pro CLI user would love to type all the commands, I figured a good old drag and drop feature will save
-the user lots of time.<br>
-It aims to streamline the process of sharing word banks with friends.</p>
-</div>
-<div class="imageblock">
+<div class="sidebarblock">
 <div class="content">
-<img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
+<div class="ulist">
+<ul>
+<li>
+<p>Other <code>CardCommands</code> and <code>WordBankCommand</code> work similarly to <code>ImportCommand</code>, with slight variance.</p>
+</li>
+</ul>
 </div>
-<div class="title">Figure 38. Screenshot showing drag and drop steps</div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/dragAndDropSteps.png" alt="dragAndDropSteps">
-</div>
-<div class="title">Figure 39. Screenshot showing drag and drop steps</div>
-</div>
-<div class="paragraph">
-<p>From <code>HOME</code> mode, you can view <code>WordBank</code>, then simply drag and drop a <code>WordBank</code>, out of the application, into say,
-your desktop, or chat applications.<br>
-From your computer, simply drag and drop a <code>WordBank</code> json file into Dukemon&#8217;s <code>HOME</code> page.</p>
 </div>
 <div class="paragraph">
-<p>With the well designed <code>WordBankList</code> data structure and it&#8217;s functions, drag and drop feature is simply an import and export
-function call, linked by the JavaFX&#8217;s UI drag detection and drag dropped methods.</p>
+<p>&#160;</p>
 </div>
 <hr>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.4. Design Considerations</a></h4>
+<h4 id="drag-and-drop"><a class="link" href="#drag-and-drop">3.4.3. Drag and drop</a></h4>
+<div class="paragraph">
+<p>Enables saving/loading a word bank file into/out of user&#8217;s computer through drag and drop.<br>
+Improves user experience by making it easy to share word banks with friends.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned previously, drag and drop will extend and utilise word bank&#8217;s storage heavily.<br>
+You can refer to it to enhance your understanding of this implementation.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop1.png" alt="150" width="150">
+</div>
+<div class="title">Figure 34. Word bank file.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop2.png" alt="150" width="150">
+</div>
+<div class="title">Figure 35. Dragging into Dukemon.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop3.png" alt="150" width="150">
+</div>
+<div class="title">Figure 36. Dukemon registers the bank.</div>
+</div>
+<div class="paragraph">
+<p>From <code>HOME</code> mode, you can view your <code>WordBanks</code>.
+Simply drag and drop a <code>WordBank</code> json file from your computer into Dukemon.
+Likewise, drag and drop a <code>WordBank</code> out of the application, into say,
+your desktop, or chat applications.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Walkthrough - Drag in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDropSequenceDiagram.png" alt="DragAndDropSequenceDiagram">
+</div>
+<div class="title">Figure 37. Sequence diagram showing how drag and drop utilises the ImportCommand and thus the word bank&#8217;s storage.</div>
+</div>
+<div class="paragraph">
+<p><code>LoadBankPanel</code> is the corresponding class and the FXML file that displays the word banks for the user.<br>
+It only has access to an <code>ObservableList&lt;WordBank&gt;</code>.<br>
+This means it has no way to perform commands, update model or update storage.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To work around this, a functional callback is registered within LoadBankPanel.</p>
+</li>
+<li>
+<p>LoadBankPanel registers JavaFX&#8217;s UI drag detection and drag dropped methods, with the callback.<br></p>
+</li>
+<li>
+<p>After which, the callback essentially performs an <code>ImportCommand</code>, to load the word bank.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It is also noteworthy to mention that, dragging into Dukemon functionality is well guarded against:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Not json file format.</p>
+</li>
+<li>
+<p>Json file but data in wrong format.</p>
+</li>
+<li>
+<p>Json file with correct format but contains duplicate cards within.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>User receives apt feedback through the command box for different cases.
+This is possible with careful exceptions handling within the <code>ImportCommand</code> itself.</p>
+</div>
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="revision-word-bank"><a class="link" href="#revision-word-bank">3.4.4. Revision Word Bank</a></h4>
+<div class="paragraph">
+<p>Serves as a centralised bank that collects cards across different word banks through the game play.
+The update to revision word bank is done automatically after every game session.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned previously, revision word bank will extend and utilise word bank&#8217;s data structure and storage heavily.<br>
+You can refer to it to enhance your understanding of this implementation.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RevisionBankActivityDiagram.png" alt="RevisionBankActivityDiagram">
+</div>
+<div class="title">Figure 38. Activity diagram showing different scenarios possible while trying to update revision bank.</div>
+</div>
+<div class="paragraph">
+<p>Revision bank was one of the essential and dominant features we wanted to implement since early development, however
+it had to be implemented last because it required multiple components working together.<br>
+Basically Dukemon needed to be up and running, before revision bank can be implemented.</p>
+</div>
+<div class="paragraph">
+<p>They include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AppManager</p>
+</li>
+<li>
+<p>StorageManager</p>
+</li>
+<li>
+<p>LogicManager</p>
+</li>
+<li>
+<p>GameStatistics</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given that well-developed methods reside in each of these components, we then require an overview of revision bank implementation.
+The activity diagram above describes my thought process.</p>
+</div>
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.5. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1388,8 +1525,7 @@ function call, linked by the JavaFX&#8217;s UI drag detection and drag dropped m
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
 Data structure for WordBankList.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Although WordBankList and WordBank have very similar structures, I made classes for each of them they
-each contain a unique list</strong>:<br></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create classes for both WordBankList and WordBank, even though they are very similar in structure.</strong>:<br></p>
 <p class="tableblock"><em>Pros:</em><br>
 User&#8217;s modification to their word banks and cards requires very different methods. These two data structure
 requires different access to the storage as well.<br>
@@ -1407,7 +1543,7 @@ This couples WordBank with WordBankList. Does not follow the Open-Closed princip
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
-Following the spirit of software engineering principles, it is better to have the basic data structure implemented well.
+In the spirit of software engineering principles, it is better to have the basic data structure implemented well.
 Commands that depend on it becomes much easier to implement. (This can be seen in the drag and drop feature.)</p></td>
 </tr>
 </tbody>
@@ -1426,13 +1562,13 @@ Commands that depend on it becomes much easier to implement. (This can be seen i
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2</strong>:<br>
-Storage system for Word Banks.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>One single large json file with word bank names as keys and it&#8217;s word bank data as values</strong>:<br></p>
+Storage system for word banks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store one single large json file with word bank names as keys and it&#8217;s word bank data as values</strong>:<br></p>
 <p class="tableblock"><em>Pros:</em><br>
 Always save a snapshot of the data to the same file, regardless of what commands are executed.</p>
 <p class="tableblock"><em>Cons:</em><br>
 Unable to share word banks with friends, because one file contains all the word banks.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>In the default data folder, each word bank is stored as a json file.</strong><br></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store each word bank as a json file.</strong><br></p>
 <p class="tableblock"><em>Pros:</em><br>
 Enables sharing of word bank files to friends.</p>
 <p class="tableblock"><em>Cons:</em><br>
@@ -1480,8 +1616,45 @@ Requires tedious implementation to follow the principles.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
-Alternative 2 allows for easy extension of the app&#8217;s functionality. Implementation of the drag and
-drop feature is just a function call away, as all data structure and functions are well written.</p></td>
+Alternative 2 allows for easy extension of Dukemon&#8217;s functionality. Implementation of the drag and
+drop feature is just a few function calls away, as all data structure and functions are well written.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 4</strong>:<br>
+How to implement Drag and Drop.<br>
+<code>LoadBankPanel</code> is a deeply nested class, and is the corresponding class for the
+<code>UI</code> to interact with user&#8217;s drag and drop action.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Updates the storage directly from <code>LoadBankPanel</code></strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+It only requires a reference and then saving directly to <code>Storage</code>. This can be implemented with ease.<br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Practically, there are a few exceptions being thrown when calling the storage&#8217;s method directly. <code>LoadBankPanel</code> cannot handle them effectively.<br>
+This also leads to poor abstraction and high potential for cyclic dependencies, resulting in high coupling.<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Using <em>Functional Interfaces</em> as Call-backs to call an <code>ImportCommand</code> from <code>LoadBankPanel</code>.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Calling an already well-implemented <code>ImportCommand</code> allows all exceptions caught to be handled properly.<br>
+It also maintains abstraction and minimal coupling between <code>LoadBankPanel</code> and other components.</p>
+<p class="tableblock"><em>Cons:</em><br>
+It makes the code less OOP and more functional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
+Provides a more complete implementation, as it would make sense for exceptions to be caught and allow user to see
+feedback messages.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1559,7 +1732,7 @@ the main title page.</p></td>
 <div class="content">
 <img src="images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 40. Sequence diagram for loading statistics</div>
+<div class="title">Figure 39. Sequence diagram for loading statistics</div>
 </div>
 </div>
 <div class="sect4">
@@ -1572,7 +1745,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram for selecting a word bank statistics.</div>
+<div class="title">Figure 40. Sequence diagram for selecting a word bank statistics.</div>
 </div>
 <div class="paragraph">
 <p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
@@ -1599,7 +1772,7 @@ It receives the timestamp from the <code>GameTimer</code> which also resides in 
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 42. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 41. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1616,7 +1789,7 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 43. Sequence diagram when the user makes the final guess.</div>
+<div class="title">Figure 42. Sequence diagram when the user makes the final guess.</div>
 </div>
 <div class="paragraph">
 <p>The work done in step 4 and 5 is executed in <code>AppManager</code> and the checks to decide what to do are done in
@@ -1626,7 +1799,7 @@ the same method <code>updateGameStatisticsBuilder(CommandResult)</code>.</p>
 <div class="content">
 <img src="images/GameStatisticsBuilderActivityDiagram.png" alt="GameStatisticsBuilderActivityDiagram">
 </div>
-<div class="title">Figure 44. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
+<div class="title">Figure 43. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
 </div>
 </div>
 </div>
@@ -2233,4 +2406,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 15:05:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 17:16:21 UTC</div></div></div></body></html>

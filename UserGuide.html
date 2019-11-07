@@ -17,8 +17,9 @@
 <li><a href="#switching-modes">2.3. Switching Modes</a></li>
 <li><a href="#autocomplete-bar">2.4. AutoComplete Bar</a></li>
 <li><a href="#drag-and-drop">2.5. Drag and drop</a></li>
-<li><a href="#quickstart">2.6. QuickStart</a></li>
-<li><a href="#purposes-of-each-mode">2.7. Purposes of each mode</a></li>
+<li><a href="#revision-bank">2.6. Revision bank</a></li>
+<li><a href="#quickstart">2.7. QuickStart</a></li>
+<li><a href="#purposes-of-each-mode">2.8. Purposes of each mode</a></li>
 </ul>
 </li>
 <li><a href="#Commands">3. Commands</a>
@@ -213,9 +214,31 @@ to enter <code>home</code> mode</p>
 <div class="sect2">
 <h3 id="drag-and-drop"><a class="link" href="#drag-and-drop">2.5. Drag and drop</a></h3>
 <div class="paragraph">
-<p>To enable sharing of word banks between friends,
-You can drag and drop a particular word bank out of the app into your computer.
-Likewise, you can drag and drop a json word bank into your app.</p>
+<p>Streamline the process of sharing of word banks with friends.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop1.png" alt="150" width="150">
+</div>
+<div class="title">Figure 7. Word bank file</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop2.png" alt="150" width="150">
+</div>
+<div class="title">Figure 8. Dragging into Dukemon</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DragAndDrop3.png" alt="150" width="150">
+</div>
+<div class="title">Figure 9. Dukemon registers the bank</div>
+</div>
+<div class="paragraph">
+<p>From <code>HOME</code> mode, you can view your <em>WordBanks</em>.<br>
+Simply drag and drop a <em>WordBank</em> json file from your computer into Dukemon.<br>
+Likewise, drag and drop a <em>WordBank</em> out of the application, into say,
+your desktop, or chat applications.<br></p>
 </div>
 <div class="paragraph">
 <p>Try it!</p>
@@ -227,21 +250,42 @@ Likewise, you can drag and drop a json word bank into your app.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The drag and drop feature works fine on Windows, but exporting through drag and drop may sometimes crash the app
-on Mac.<br>
-To avoid this on Mac, simply use the export command instead.
+Dukemon only reads json files.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="quickstart"><a class="link" href="#quickstart">2.6. QuickStart</a></h3>
+<h3 id="revision-bank"><a class="link" href="#revision-bank">2.6. Revision bank</a></h3>
+<div class="paragraph">
+<p>A revision bank is automatically updated for you, every time a game session ends.<br>
+It collates all your wrong cards, whichever <em>WordBank</em> it may have came from.<br>
+It is also smart enough to remove the cards if you have cleared it afterwards.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/revisionbank.png" alt="220" width="220">
+</div>
+<div class="title">Figure 10. Revision bank alongside with other word banks</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/revisionpage.png" alt="700" width="700">
+</div>
+<div class="title">Figure 11. Screenshot of how a revision page looks like</div>
+</div>
+<div class="paragraph">
+<p>To try it, simply play some <em>WordBank</em> and then visit the revision bank to attempt all your wrong cards.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quickstart"><a class="link" href="#quickstart">2.7. QuickStart</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideFlowOverview.png" alt="UserGuideFlowOverview" width="790">
 </div>
-<div class="title">Figure 7. General program flow of Dukemon, showing how the different parts work together.</div>
+<div class="title">Figure 12. General program flow of Dukemon, showing how the different parts work together.</div>
 </div>
 <div class="paragraph">
 <p>Lets select the sample <em>WordBank</em> and play a game to get familiar.</p>
@@ -321,7 +365,7 @@ specified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="purposes-of-each-mode"><a class="link" href="#purposes-of-each-mode">2.7. Purposes of each mode</a></h3>
+<h3 id="purposes-of-each-mode"><a class="link" href="#purposes-of-each-mode">2.8. Purposes of each mode</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/HomeMode.png" alt="HomeMode" width="450">
@@ -562,10 +606,10 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Remove Gen 3 pokemon</code></p>
+<p><code>remove Gen 3 pokemon</code></p>
 </li>
 <li>
-<p><code>Remove Vocabulary</code></p>
+<p><code>remove Vocabulary</code></p>
 </li>
 </ul>
 </div>
@@ -619,7 +663,7 @@ Examples:</p>
 </td>
 <td class="content">
 We have a drag and drop feature.<br>
-You can drag and drop a file from your computer into the section which holds the _WordBank_s.
+You can drag and drop a file from your computer into the section which holds the <em>WordBanks</em>.
 </td>
 </tr>
 </table>
@@ -795,10 +839,10 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case insensitive. e.g <code>capital</code> will match <code>cApiTAl</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. <code>key words</code> will match <code>words key</code></p>
 </li>
 <li>
 <p>Word, meaning and tag will be searched</p>
@@ -807,7 +851,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <p>Words contained within will be matched e.g. <code>formal</code> will match <code>Informal</code></p>
 </li>
 <li>
-<p>Cards matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Cards matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Peter man</code> will return <code>Peter Parker</code>, <code>Spiderman</code></p>
 </li>
 </ul>
 </div>
@@ -857,7 +901,7 @@ Returns any entries containing <code>mammal</code>, <code>fish</code> or <code>b
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram1.png" alt="UserGuideGameSessionDiagram1" width="790">
 </div>
-<div class="title">Figure 8. UI regions that are relevant when a Game session is in progress.</div>
+<div class="title">Figure 13. UI regions that are relevant when a Game session is in progress.</div>
 </div>
 <div class="paragraph">
 <p>This section covers the actions and feedback that are relevant to the <em>Game</em> mode.  The general layout of the UI when a <em>Game</em> is in progress is as seen above.</p>
@@ -910,7 +954,7 @@ will be used.</p>
 <div class="content">
 <img src="images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="][height="850"">
 </div>
-<div class="title">Figure 9. UI regions that show feedback during a Game session.</div>
+<div class="title">Figure 14. UI regions that show feedback during a Game session.</div>
 </div>
 <div class="paragraph">
 <p>During a <em>Game</em>, the <em>Timer</em> will change colour according to the time left (region in green box). Feedback for each <em>Guess</em> is shown via the <em>ResultDisplay</em> (region in the red box).<br>
@@ -954,13 +998,13 @@ The relevant command(s) are:</p>
 <div class="content">
 <img src="images/UserGuideGameOverDiagram.png" alt="UserGuideGameOverDiagram" width="][height="850"">
 </div>
-<div class="title">Figure 10. UI regions showing Statistics and results after a Game session has completed.</div>
+<div class="title">Figure 15. UI regions showing Statistics and results after a Game session has completed.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideGameStopDiagram.png" alt="UserGuideGameStopDiagram" width="][height="850"">
 </div>
-<div class="title">Figure 11. UI regions showing feedback when a Game is forcibly stopped.</div>
+<div class="title">Figure 16. UI regions showing feedback when a Game is forcibly stopped.</div>
 </div>
 <div class="paragraph">
 <p>A <em>Game</em> finishes when <strong>all <em>Cards</em> have been attempted</strong>. <em>Statistics</em> are
@@ -1033,7 +1077,7 @@ Changes the UI theme to dark.</p>
 <div class="content">
 <img src="images/darktheme.png" alt="darktheme">
 </div>
-<div class="title">Figure 12. Dark Theme</div>
+<div class="title">Figure 17. Dark Theme</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1047,7 +1091,7 @@ Changes the UI theme to light.</p>
 <div class="content">
 <img src="images/lighttheme.png" alt="lighttheme">
 </div>
-<div class="title">Figure 13. Light Theme</div>
+<div class="title">Figure 18. Light Theme</div>
 </div>
 </div>
 <div class="sect3">
@@ -1071,7 +1115,7 @@ Turns hints on.</p>
 <div class="content">
 <img src="images/hintson.png" alt="hintson">
 </div>
-<div class="title">Figure 14. Hints on</div>
+<div class="title">Figure 19. Hints on</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1085,7 +1129,7 @@ Turns hints off.</p>
 <div class="content">
 <img src="images/hintsoff.png" alt="hintsoff">
 </div>
-<div class="title">Figure 15. Hints off</div>
+<div class="title">Figure 20. Hints off</div>
 </div>
 </div>
 <div class="sect3">
@@ -1109,7 +1153,7 @@ Changes the difficulty to easy. (Timer = 15 seconds)</p>
 <div class="content">
 <img src="images/difficultyeasy.png" alt="difficultyeasy">
 </div>
-<div class="title">Figure 16. Easy difficulty (15 seconds)</div>
+<div class="title">Figure 21. Easy difficulty (15 seconds)</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1123,7 +1167,7 @@ Changes the difficulty to medium. (Timer = 10 seconds)</p>
 <div class="content">
 <img src="images/difficultymedium.png" alt="difficultymedium">
 </div>
-<div class="title">Figure 17. Medium difficulty (10 seconds)</div>
+<div class="title">Figure 22. Medium difficulty (10 seconds)</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1137,7 +1181,7 @@ Changes the difficulty to hard. (Timer = 5 seconds)</p>
 <div class="content">
 <img src="images/difficultyhard.png" alt="difficultyhard">
 </div>
-<div class="title">Figure 18. Hard difficulty (5 seconds)</div>
+<div class="title">Figure 23. Hard difficulty (5 seconds)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1162,7 +1206,7 @@ Changes the avatar to a random one everytime a new command is called.</p>
 <div class="content">
 <img src="images/avatarrandom.png" alt="avatarrandom">
 </div>
-<div class="title">Figure 19. Random avatar, in this case, Porygon.</div>
+<div class="title">Figure 24. Random avatar, in this case, Porygon.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1176,7 +1220,7 @@ Changes the avatar to 001 in the original Pokedex, which is Bulbasaur.</p>
 <div class="content">
 <img src="images/avatar1.png" alt="avatar1">
 </div>
-<div class="title">Figure 20. Avatar number 1, in this case, Bulbasaur.</div>
+<div class="title">Figure 25. Avatar number 1, in this case, Bulbasaur.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1190,7 +1234,7 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 <div class="content">
 <img src="images/avatar151.png" alt="avatar151">
 </div>
-<div class="title">Figure 21. Avatar number 151, in this case, Mew.</div>
+<div class="title">Figure 26. Avatar number 151, in this case, Mew.</div>
 </div>
 </div>
 </div>
@@ -1240,7 +1284,7 @@ some information of the <em>WordBank</em>.</p>
 <div class="content">
 <img src="images/annotated_game_results_ui.png" alt="annotated game results ui">
 </div>
-<div class="title">Figure 22. Game Result UI.</div>
+<div class="title">Figure 27. Game Result UI.</div>
 </div>
 </div>
 <div class="sect2">
@@ -1252,7 +1296,7 @@ some information of the <em>WordBank</em>.</p>
 <div class="content">
 <img src="images/annotated_wb_statistics_ui.png" alt="annotated wb statistics ui">
 </div>
-<div class="title">Figure 23. Wordbank Statistics UI.</div>
+<div class="title">Figure 28. Wordbank Statistics UI.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1277,7 +1321,7 @@ of the app.</p>
 <div class="content">
 <img src="images/annotated_global_statistics_ui.png" alt="annotated global statistics ui">
 </div>
-<div class="title">Figure 24. Global Statistics UI.</div>
+<div class="title">Figure 29. Global Statistics UI.</div>
 </div>
 </div>
 </div>
@@ -1296,7 +1340,7 @@ of the app.</p>
 <div class="paragraph">
 <p><strong>Q</strong>: Do I have to save data?<br>
 <strong>A</strong>: Dukemon data are saved in the hard disk automatically after any command that changes the data.
-These commands are generally card commands.
+These commands are generally Card/<em>WordBank</em> commands.
 There is no need to save manually.
 Statistics are also stored automatically.</p>
 </div>
@@ -1387,7 +1431,7 @@ Statistics are also stored automatically.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>find</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>list</code></strong></p></td>
@@ -1490,4 +1534,4 @@ Statistics are also stored automatically.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 15:05:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 17:16:21 UTC</div></div></div></body></html>
