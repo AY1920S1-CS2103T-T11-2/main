@@ -1582,23 +1582,15 @@ into Model.<br></p>
 <p>A <code>GameStatisticsBuilder</code> is used to record user actions during the game.</p>
 </div>
 <div class="paragraph">
-<p>When the user starts the game by calling a <code>StartCommand</code>, the <code>GameStatisticsBuilder</code> is initialized.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/InitializeStatisticsSequenceDiagram.png" alt="InitializeStatisticsSequenceDiagram">
-</div>
-<div class="title">Figure 41. Sequence diagram when user starts a game.</div>
-</div>
-<div class="paragraph">
-<p>During the game, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made. It receives
-the timestamp from the <code>GameTimer</code> which also resides in <code>AppManager</code>.</p>
+<p>When the user starts the game by calling a <code>StartCommand</code>, the <code>GameStatisticsBuilder</code> is initialized.
+Additionally, the <code>GameStatisticsBuilder</code> is updated with every <code>GuessCommand</code> or <code>SkipCommand</code> made during the game.
+It receives the timestamp from the <code>GameTimer</code> which also resides in <code>AppManager</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 42. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 41. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1615,7 +1607,17 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 43. Sequence diagram for saving the statistics to disk.</div>
+<div class="title">Figure 42. Sequence diagram when the user makes the final guess.</div>
+</div>
+<div class="paragraph">
+<p>The work done in step 4 and 5 is executed in <code>AppManager</code> and the checks to decide what to do are done in
+the same method <code>updateGameStatisticsBuilder(CommandResult)</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GameStatisticsBuilderActivityDiagram.png" alt="GameStatisticsBuilderActivityDiagram">
+</div>
+<div class="title">Figure 43. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
 </div>
 </div>
 </div>
@@ -2222,4 +2224,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 11:07:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 10:41:35 UTC</div></div></div></body></html>
