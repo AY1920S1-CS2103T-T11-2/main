@@ -170,16 +170,6 @@ Reads data from, and writes data to, the local hard disk.</p>
 </li>
 </ul>
 </div>
-<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
-<div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
-</div>
-<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
-</div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
@@ -190,7 +180,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 3. Structure of the UI Component</div>
+<div class="title">Figure 2. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/ui/UiManager.java"><code>Ui.java</code></a></p>
@@ -202,7 +192,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/ModularDisplayClassDiagram.png" alt="ModularDisplayClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the ModularDisplay items.</div>
+<div class="title">Figure 3. Structure of the ModularDisplay items.</div>
 </div>
 <div class="paragraph">
 <p>As our application also comprises a dynamically changing UI in replacement of the <code>PersonListPanel</code>, <code>ModularDisplay</code> contains multiple other <code>Panel</code> classes in itself in order to render the proper screens during runtime. This rendering is controlled by <code>UpdateUi</code> in <code>MainWindow</code>.</p>
@@ -230,7 +220,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="content">
 <img src="images/AppManagerClassDiagram.png" alt="AppManagerClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the AppManager Component</div>
+<div class="title">Figure 4. Structure of the AppManager Component</div>
 </div>
 <div class="paragraph">
 <p>The <code>AppManager</code> component serves as a <em>Facade</em> layer and communication hub between the internal components of <em>Dukemon</em> and the <em>UI</em> components.
@@ -263,7 +253,7 @@ and the <code>UI</code>.</p>
 <div class="content">
 <img src="images/TimerClassDiagram.png" alt="TimerClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Timer Component</div>
+<div class="title">Figure 5. Structure of the Timer Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -300,7 +290,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Logic Component</div>
+<div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p>Logic is primarily built by two segments: Command and Parser.</p>
@@ -375,7 +365,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -390,7 +380,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <code>GlobalStatistics</code>, <code>Game</code>, <code>AppSettings</code>, <code>UserPrefs</code>.</p>
 </li>
 <li>
-<p>does not depend on any of the higher level components. i.e. <code>Ui</code>, <code>Timer</code>, <code>AppManager</code>, <code>Logic</code>, <code>Storage</code></p>
+<p>does not depend on any of the higher level components. i.e. <code>Ui</code>, <code>Timer</code>, <code>AppManager</code>, <code>Logic</code>, <code>Storage</code>.</p>
 </li>
 <li>
 <p>has a direct reference to a user selected <code>WordBank</code>.</p>
@@ -398,10 +388,6 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that
 the UI automatically updates when the data in the list change.</p>
-</li>
-<li>
-<p>can be visualised as playing the role of a computer&#8217;s RAM, while <code>Logic</code> plays the role of an operating system,
-and <code>Storage</code> plays the role of a hard disk.</p>
 </li>
 </ul>
 </div>
@@ -412,7 +398,7 @@ and <code>Storage</code> plays the role of a hard disk.</p>
 <div class="content">
 <img src="images/GameClassDiagram.png" alt="GameClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Game Component</div>
+<div class="title">Figure 8. Structure of the Game Component</div>
 </div>
 <div class="paragraph">
 <p>The <code>Game</code> component,</p>
@@ -440,7 +426,7 @@ and <code>Storage</code> plays the role of a hard disk.</p>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 10. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -451,17 +437,16 @@ and <code>Storage</code> plays the role of a hard disk.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>contains multiple types of distinct storage.</p>
+<p>contains multiple types of distinct storage system.</p>
+</li>
+<li>
+<p>does not depend on any of the higher level components. i.e. <code>Ui</code>, <code>Timer</code>, <code>AppManager</code>, <code>Logic</code>, <code>Model</code>.</p>
 </li>
 <li>
 <p>handles function calls directly to the computer&#8217;s system.</p>
 </li>
 <li>
 <p>can save data objects in json format and read it back.</p>
-</li>
-<li>
-<p>can be visualised as playing the role of a computer&#8217;s hard disk, while <code>Logic</code> plays the role of an operating system
-, and <code>Model</code> plays the role of a RAM.</p>
 </li>
 </ul>
 </div>
@@ -489,7 +474,7 @@ current week.</p>
 <div class="content">
 <img src="images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
 </div>
-<div class="title">Figure 11. Statistics class diagram.</div>
+<div class="title">Figure 10. Statistics class diagram.</div>
 </div>
 </div>
 <div class="sect2">
@@ -544,7 +529,7 @@ current week.</p>
 <div class="content">
 <img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
 </div>
-<div class="title">Figure 12. Activity diagram of Application flow</div>
+<div class="title">Figure 11. Activity diagram of Application flow</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -601,7 +586,7 @@ Home (No Switch) means HomeModeParser is used and SwitchModeParser is not used
 <div class="content">
 <img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence Diagram of AutoComplete</div>
+<div class="title">Figure 12. Sequence Diagram of AutoComplete</div>
 </div>
 </div>
 <div class="sect3">
@@ -705,7 +690,7 @@ d</p></td>
 <div class="content">
 <img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
 </div>
-<div class="title">Figure 14. Activity diagram of the execution of a settings command.</div>
+<div class="title">Figure 13. Activity diagram of the execution of a settings command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -726,7 +711,7 @@ Take note that "mode" as defined in our project is the state in which the applic
 <div class="content">
 <img src="images/StateDiagramBefore.png" alt="StateDiagramBefore">
 </div>
-<div class="title">Figure 15. Before state of application.</div>
+<div class="title">Figure 14. Before state of application.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1:</strong><br>
@@ -736,7 +721,7 @@ Let us assume that the current difficulty of the application is "EASY". The obje
 <div class="content">
 <img src="images/DifficultySequenceDiagram1.png" alt="DifficultySequenceDiagram1">
 </div>
-<div class="title">Figure 16. Sequence diagram of Step 2.</div>
+<div class="title">Figure 15. Sequence diagram of Step 2.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2:</strong><br>
@@ -746,7 +731,7 @@ When the user enters <code>difficulty hard</code>, the command gets passed into 
 <div class="content">
 <img src="images/DifficultySequenceDiagram2.png" alt="DifficultySequenceDiagram2">
 </div>
-<div class="title">Figure 17. Sequence diagram of Step 3.</div>
+<div class="title">Figure 16. Sequence diagram of Step 3.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 3:</strong><br>
@@ -756,7 +741,7 @@ At <code>LogicManager#execute()</code> however, the command gets passed into a p
 <div class="content">
 <img src="images/DifficultySequenceDiagram3.png" alt="DifficultySequenceDiagram3">
 </div>
-<div class="title">Figure 18. Sequence diagram of Step 4.</div>
+<div class="title">Figure 17. Sequence diagram of Step 4.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 4:</strong><br>
@@ -766,7 +751,7 @@ Upon execution of the <code>DifficultyCommand</code>, the state of the model is 
 <div class="content">
 <img src="images/DifficultySequenceDiagram4.png" alt="DifficultySequenceDiagram4">
 </div>
-<div class="title">Figure 19. Sequence diagram of Step 5.</div>
+<div class="title">Figure 18. Sequence diagram of Step 5.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 5:</strong><br>
@@ -776,7 +761,7 @@ Since the main function of the <code>difficulty</code> command is accomplished a
 <div class="content">
 <img src="images/DifficultySequenceDiagram5.png" alt="DifficultySequenceDiagram5">
 </div>
-<div class="title">Figure 20. Sequence diagram of Step 6.</div>
+<div class="title">Figure 19. Sequence diagram of Step 6.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 6:</strong><br>
@@ -789,7 +774,7 @@ Assuming that there were no errors thrown during the execution of the <code>diff
 <div class="content">
 <img src="images/StateDiagramAfter.png" alt="StateDiagramAfter">
 </div>
-<div class="title">Figure 21. After state of application</div>
+<div class="title">Figure 20. After state of application</div>
 </div>
 </div>
 <div class="sect3">
@@ -864,7 +849,7 @@ in this one, we do not think the added functionality of allowing the user to ext
 <div class="content">
 <img src="images/TimerDGScreenshot.png" alt="TimerDGScreenshot">
 </div>
-<div class="title">Figure 22. Screenshot of the <code>Timer</code> component in action.</div>
+<div class="title">Figure 21. Screenshot of the <code>Timer</code> component in action.</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-overview"><a class="link" href="#implementation-overview">3.3.1. Implementation Overview</a></h4>
@@ -903,7 +888,7 @@ synchronization issues with the <code>UI</code> component, all
 <div class="content">
 <img src="images/TimerClassDiagramCallbacks.png" alt="TimerClassDiagramCallbacks">
 </div>
-<div class="title">Figure 23. Class diagram reflecting how the callback-functions are organized in the Timer component.</div>
+<div class="title">Figure 22. Class diagram reflecting how the callback-functions are organized in the Timer component.</div>
 </div>
 <div class="paragraph">
 <p>The three main events that are currently triggered by the <code>Timer</code> component which require a <em>callback</em> are:</p>
@@ -936,7 +921,7 @@ within the  <code>GameTimer</code> interface, which is implemented by the <code>
 <div class="content">
 <img src="images/TimerSequenceDiagram1.png" alt="TimerSequenceDiagram1">
 </div>
-<div class="title">Figure 24. Sequence diagram (with some details omitted) describing the flow of registering and executing callbacks between the different components</div>
+<div class="title">Figure 23. Sequence diagram (with some details omitted) describing the flow of registering and executing callbacks between the different components</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1003,13 +988,13 @@ The <code>AppManager</code> provides information regarding the duration in which
 <div class="content">
 <img src="images/HintDGScreenshot.png" alt="HintDGScreenshot" width="790">
 </div>
-<div class="title">Figure 25. Screenshot of the automatic <code>Hints</code> feature in action.</div>
+<div class="title">Figure 24. Screenshot of the automatic <code>Hints</code> feature in action.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TimerActivityDiagramWithHints.png" alt="TimerActivityDiagramWithHints">
 </div>
-<div class="title">Figure 26. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
+<div class="title">Figure 25. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
 </div>
 <div class="paragraph">
 <p>The behavior of <code>Timer</code> when <code>Hints</code> are enabled is <strong>largely still the same.</strong><br>
@@ -1083,16 +1068,16 @@ This can be split into four complimentary distinct sections.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Word Bank’s data structure and storage<br></p>
+<p>Word bank’s data structure and it&#8217;s storage system</p>
 </li>
 <li>
-<p>User Commands<br></p>
+<p>User Commands</p>
 </li>
 <li>
-<p>Revision Word Bank<br></p>
+<p>Drag and drop</p>
 </li>
 <li>
-<p>Drag and Drop</p>
+<p>Revision word bank</p>
 </li>
 </ul>
 </div>
@@ -1101,10 +1086,14 @@ This can be split into four complimentary distinct sections.</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="word-bank-s-data-structure-and-storage"><a class="link" href="#word-bank-s-data-structure-and-storage">3.4.1. Word Bank&#8217;s data structure and storage</a></h4>
+<h4 id="word-bank-s-data-structure-and-it-s-storage-system"><a class="link" href="#word-bank-s-data-structure-and-it-s-storage-system">3.4.1. Word bank&#8217;s data structure and it&#8217;s storage system</a></h4>
 <div class="paragraph">
-<p>In the following class diagrams which details the data structure and storage of <code>WordBankList</code>,
-observe closely the attributes and methods.<br>
+<p>Allows developers to use and extend this architecture to streamline their feature implementation.<br>
+Allows user to save and load their word banks.<br></p>
+</div>
+<div class="paragraph">
+<p>Observe closely the attributes and methods of the following class diagrams.<br>
+They describe and explain word bank&#8217;s data structure and storage in detail.<br>
 Each of them are implemented with close examination so that it is easily usable and extended upon by other
 teammates/complimentary features.</p>
 </div>
@@ -1115,7 +1104,7 @@ teammates/complimentary features.</p>
 <div class="content">
 <img src="images/CardDiagram.png" alt="CardDiagram">
 </div>
-<div class="title">Figure 27. Class diagram of <code>Card</code>.</div>
+<div class="title">Figure 26. Class diagram of <code>Card</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
@@ -1146,7 +1135,7 @@ Cards with the same meaning are duplicates, and is disallowed.
 <div class="content">
 <img src="images/WordBankDiagram.png" alt="WordBankDiagram">
 </div>
-<div class="title">Figure 28. Class diagram of <code>Word Bank</code>.</div>
+<div class="title">Figure 27. Class diagram of <code>WordBank</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
@@ -1165,6 +1154,7 @@ Cards with the same meaning are duplicates, and is disallowed.
 <code>WordBank</code> exposes an unmodifiable <code>ObservableList&lt;Card&gt;</code> that can be 'observed'.
 The UI can be bound to this list so that the UI automatically updates when the cards in the list
 change.
+Word banks with the same name are duplicates, and is disallowed.
 </td>
 </tr>
 </table>
@@ -1177,7 +1167,7 @@ change.
 <div class="content">
 <img src="images/WordBankListDiagram.png" alt="WordBankListDiagram">
 </div>
-<div class="title">Figure 29. Class diagram of <code>WordBankList</code>.</div>
+<div class="title">Figure 28. Class diagram of <code>WordBankList</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
@@ -1211,7 +1201,7 @@ change.
 <div class="content">
 <img src="images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
 </div>
-<div class="title">Figure 30. Overview of <code>WordBankList</code>.</div>
+<div class="title">Figure 29. Overview of <code>WordBankList</code>.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1221,7 +1211,7 @@ change.
 <div class="content">
 <img src="images/WBStorage.png" alt="WBStorage">
 </div>
-<div class="title">Figure 31. Integration of <code>WordBankList</code> within <code>Storage</code> and <code>Model</code>.</div>
+<div class="title">Figure 30. Integration of <code>WordBankList</code> within <code>Storage</code> and <code>Model</code>.</div>
 </div>
 <div class="paragraph">
 <p>WordBankListStorage consists of robust and self-explanatory methods in which users can use and extend upon easily.<br>
@@ -1262,11 +1252,11 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
 </div>
-<div class="title">Figure 32. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+<div class="title">Figure 31. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
 </div>
 <div class="paragraph">
 <p>Commands reside in <code>Logic</code>. They work on <code>Model</code> and <code>Storage</code> through <code>Logic</code>.<br>
-To segregate cards according to their function, I distinguished the following:</p>
+To segregate cards according to their function, we distinguished the following:</p>
 </div>
 <div class="paragraph">
 <p><code>CardCommands</code> work on <code>Cards</code>.<br></p>
@@ -1282,7 +1272,7 @@ To segregate cards according to their function, I distinguished the following:</
 <div class="content">
 <img src="images/ImportCommandSeqDiagram.png" alt="ImportCommandSeqDiagram">
 </div>
-<div class="title">Figure 33. Sequence diagram detailing a successful <code>WordBankCommand</code> through different components.</div>
+<div class="title">Figure 32. Sequence diagram detailing a successful <code>WordBankCommand</code> through different components.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1324,7 +1314,7 @@ For importWordBank method, addWordBank and saveWordBank private methods are call
 <li>
 <p>Within addWordBank method, <code>WordBank</code> is added into the underlying UniqueWordBankList.<br>
 Two synchronisation happens here.<br>
-As <code>Model</code> contains the same <code>WordBankList</code>, the two list contains synchronised data.<br>
+Firstly, as <code>Model</code> contains the same <code>WordBankList</code>, the two list contains synchronised data.<br>
 Secondly, <code>WordBankList</code> exposes an unmodifiable <code>ObservableList&lt;WordBank&gt;</code> that can be 'observed'.
 <code>UI</code> was bounded to this list upon initialisation. Hence, it allows the user sees the updated word bank automatically.</p>
 </li>
@@ -1377,19 +1367,19 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/DragAndDrop1.png" alt="150" width="150">
 </div>
-<div class="title">Figure 34. Word bank file.</div>
+<div class="title">Figure 33. Word bank file.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DragAndDrop2.png" alt="150" width="150">
 </div>
-<div class="title">Figure 35. Dragging into Dukemon.</div>
+<div class="title">Figure 34. Dragging into Dukemon.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DragAndDrop3.png" alt="150" width="150">
 </div>
-<div class="title">Figure 36. Dukemon registers the bank.</div>
+<div class="title">Figure 35. Dukemon registers the bank.</div>
 </div>
 <div class="paragraph">
 <p>From <code>HOME</code> mode, you can view your <code>WordBanks</code>.
@@ -1405,11 +1395,11 @@ your desktop, or chat applications.<br></p>
 <div class="content">
 <img src="images/DragAndDropSequenceDiagram.png" alt="DragAndDropSequenceDiagram">
 </div>
-<div class="title">Figure 37. Sequence diagram showing how drag and drop utilises the ImportCommand and thus the word bank&#8217;s storage.</div>
+<div class="title">Figure 36. Sequence diagram showing how drag and drop utilises the ImportCommand and thus the word bank&#8217;s storage.</div>
 </div>
 <div class="paragraph">
 <p><code>LoadBankPanel</code> is the corresponding class and the FXML file that displays the word banks for the user.<br>
-It only has access to an <code>ObservableList&lt;WordBank&gt;</code>.<br>
+It is deeply nested within <code>UI</code> and only has access to an <code>ObservableList&lt;WordBank&gt;</code>.<br>
 This means it has no way to perform commands, update model or update storage.</p>
 </div>
 <div class="olist arabic">
@@ -1451,7 +1441,7 @@ This is possible with careful exceptions handling within the <code>ImportCommand
 <hr>
 </div>
 <div class="sect3">
-<h4 id="revision-word-bank"><a class="link" href="#revision-word-bank">3.4.4. Revision Word Bank</a></h4>
+<h4 id="revision-word-bank"><a class="link" href="#revision-word-bank">3.4.4. Revision word bank</a></h4>
 <div class="paragraph">
 <p>Serves as a centralised bank that collects cards across different word banks through the game play.
 The update to revision word bank is done automatically after every game session.<br></p>
@@ -1473,15 +1463,14 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/RevisionBankActivityDiagram.png" alt="RevisionBankActivityDiagram">
 </div>
-<div class="title">Figure 38. Activity diagram showing different scenarios possible while trying to update revision bank.</div>
+<div class="title">Figure 37. Activity diagram showing different scenarios possible while trying to update revision bank.</div>
 </div>
 <div class="paragraph">
 <p>Revision bank was one of the essential and dominant features we wanted to implement since early development, however
-it had to be implemented last because it required multiple components working together.<br>
-Basically Dukemon needed to be up and running, before revision bank can be implemented.</p>
+it had to be implemented last because it required multiple components working together.<br></p>
 </div>
 <div class="paragraph">
-<p>They include:</p>
+<p>These components include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1501,7 +1490,26 @@ Basically Dukemon needed to be up and running, before revision bank can be imple
 </div>
 <div class="paragraph">
 <p>Given that well-developed methods reside in each of these components, we then require an overview of revision bank implementation.
-The activity diagram above describes my thought process.</p>
+The activity diagram above is able to detail my thought process and implementation.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>AppManager</code> gets first notification that a <code>Game</code> session has ended.</p>
+</li>
+<li>
+<p><code>StorageManager</code> creates revision word bank if necessary.</p>
+</li>
+<li>
+<p><code>GameStatistics</code> gives the required information: correct and wrong cards.</p>
+</li>
+<li>
+<p><code>LogicManager</code> manages the processing of these cards, with some slight variance depending on situation, into revision bank.</p>
+</li>
+<li>
+<p><code>StorageManager</code> saves it back into hard disk.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
@@ -1525,7 +1533,7 @@ The activity diagram above describes my thought process.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
 Data structure for WordBankList.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create classes for both WordBankList and WordBank, even though they are very similar in structure.</strong>:<br></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create classes for both WordBankList and WordBank, even though they are very similar in structure.</strong><br></p>
 <p class="tableblock"><em>Pros:</em><br>
 User&#8217;s modification to their word banks and cards requires very different methods. These two data structure
 requires different access to the storage as well.<br>
@@ -1578,7 +1586,7 @@ Harder to read from multiple files.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
 This choice was based largely from the user&#8217;s perspective.<br>
-As our app is designed to streamline learning, I figured that easy sharing of word banks file with friends is an important
+As our app is designed to streamline learning, we figured that easy sharing of word banks file with friends is an important
 aspect in our app, and cannot be compromised.</p></td>
 </tr>
 </tbody>
@@ -1608,7 +1616,7 @@ Can be further improved, as in Alternative 2.</p></td>
 Commands that work on Cards extends the abstract
 <code>CardCommand</code> class and commands that work on <code>WordBank</code> extends the abstract <code>WordBankCommand</code> class.</strong><br></p>
 <p class="tableblock"><em>Pros:</em><br>
-As I have created distinct data structure for <code>WordBankList</code> and <code>WordBank</code>, distinguished commands now
+As we have created distinct data structure for <code>WordBankList</code> and <code>WordBank</code>, distinguished commands now
 work solely on their respective data structure. It follows the Single Responsibility Principle
 and the Separation of Concerns Principle more closely, and decreases the coupling between the two component.</p>
 <p class="tableblock"><em>Cons:</em><br>
@@ -1616,8 +1624,8 @@ Requires tedious implementation to follow the principles.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
-Alternative 2 allows for easy extension of Dukemon&#8217;s functionality. Implementation of the drag and
-drop feature is just a few function calls away, as all data structure and functions are well written.</p></td>
+Allows for easy extension of Dukemon&#8217;s functionality. Implementation of the drag and
+drop feature is now a few function calls away, as all data structure and functions are well written.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1732,7 +1740,7 @@ the main title page.</p></td>
 <div class="content">
 <img src="images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 39. Sequence diagram for loading statistics</div>
+<div class="title">Figure 38. Sequence diagram for loading statistics</div>
 </div>
 </div>
 <div class="sect4">
@@ -1745,7 +1753,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 40. Sequence diagram for selecting a word bank statistics.</div>
+<div class="title">Figure 39. Sequence diagram for selecting a word bank statistics.</div>
 </div>
 <div class="paragraph">
 <p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
@@ -1772,7 +1780,7 @@ It receives the timestamp from the <code>GameTimer</code> which also resides in 
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 40. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1789,7 +1797,7 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 42. Sequence diagram when the user makes the final guess.</div>
+<div class="title">Figure 41. Sequence diagram when the user makes the final guess.</div>
 </div>
 <div class="paragraph">
 <p>The work done in step 4 and 5 is executed in <code>AppManager</code> and the checks to decide what to do are done in
@@ -1799,7 +1807,7 @@ the same method <code>updateGameStatisticsBuilder(CommandResult)</code>.</p>
 <div class="content">
 <img src="images/GameStatisticsBuilderActivityDiagram.png" alt="GameStatisticsBuilderActivityDiagram">
 </div>
-<div class="title">Figure 43. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
+<div class="title">Figure 42. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
 </div>
 </div>
 </div>
@@ -2406,4 +2414,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 16:05:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 20:22:50 UTC</div></div></div></body></html>
