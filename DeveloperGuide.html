@@ -26,15 +26,13 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#span-class-underline-autocomplete-and-command-execution-span">3.1. <span class="underline">AutoComplete and Command Execution</span></a></li>
+<li><a href="#autocomplete-and-dynamic-parsers">3.1. AutoComplete and Dynamic Parsers</a></li>
 <li><a href="#span-class-underline-settings-feature-span">3.2. <span class="underline">Settings Feature</span></a></li>
 <li><a href="#span-class-underline-timer-based-features-span">3.3. <span class="underline">Timer-based Features</span></a></li>
 <li><a href="#span-class-underline-word-bank-management-span">3.4. <span class="underline">Word Bank Management</span></a></li>
 <li><a href="#span-class-underline-statistics-features-span">3.5. <span class="underline">Statistics features</span></a></li>
-<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-user-profiles">3.7. [Proposed] User Profiles</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -304,7 +302,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Four other abstract classes (HomeCommand, OpenCommand, GameCommand and SettingsCommand) extend Command.</pre>
+<pre>Four other abstract classes (WordBankCommand, CardCommand, GameCommand and SettingsCommand) extend Command.</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -317,32 +315,61 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <h5 id="parser"><a class="link" href="#parser">Parser</a></h5>
 <div class="literalblock">
 <div class="content">
-<pre>ParserManager holds reference to a SpecificModeParser and a SwitchModeParser.</pre>
+<pre>ParserManager holds reference to two SpecificModeParsers</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>The SpecificModeParser changes based on current application mode.</pre>
+<pre>The SpecificModeParsers change based on current application mode.</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Both of them hold references to all concrete Parser and Command Classes with the help of ClassUtil</pre>
+<pre>They hold references to all concrete Parser and Command Classes with the help of ClassUtil</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Logic fulfils its contracts with other packages through two interfaces: Logic and UiLogicHelper</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="interaction-through-logic-interface"><a class="link" href="#interaction-through-logic-interface">2.5.3. Interaction through Logic Interface</a></h4>
 <div class="paragraph">
 <p>Examples of transactions promised by Logic API include command execution, command result and update statistics.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command Execution through <code>Logic Interface</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A String from Ui package gets to <code>ParserManager</code> and gets converted into a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a word meaning pair into wordbank).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> and <code>AppManager</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="interaction-through-uilogichelper-interface"><a class="link" href="#interaction-through-uilogichelper-interface">2.5.4. Interaction through UiLogicHelper Interface</a></h4>
 <div class="paragraph">
 <p>UiLogicHelper APIs is a subset of Logic APIs and only contains transactions for AutoComplete. It exposes the functionalities through the following getter methods:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>List&lt;AutoFillAction&gt;#getMenuItems(String text)</code>&#8201;&#8212;&#8201;Gets an List of AutoFillActions to fill up AutoComplete display based on current user input given in text</p>
+<p><code>List&lt;AutoFillAction&gt;#getMenuItems(String text)</code>&#8201;&#8212;&#8201;Gets a List of AutoFillActions to fill up AutoComplete display based on current user input given in text</p>
 </li>
 <li>
 <p><code>ModeEnum#getMode()</code>&#8201;&#8212;&#8201;Retrieves the application mode to display visually to the user (represented by enumeration object ModeEnum)</p>
@@ -351,6 +378,15 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <p><code>List&lt;ModeEnum&gt;#getModes()</code>&#8201;&#8212;&#8201;Retrieves the possible modes the user can transition to from current mode</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the AutoComplete operation runs when user keys in "st" into command box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
+</div>
+<div class="title">Figure 7. Sequence Diagram of AutoComplete</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -365,7 +401,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -398,7 +434,7 @@ the UI automatically updates when the data in the list change.</p>
 <div class="content">
 <img src="images/GameClassDiagram.png" alt="GameClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Game Component</div>
+<div class="title">Figure 9. Structure of the Game Component</div>
 </div>
 <div class="paragraph">
 <p>The <code>Game</code> component,</p>
@@ -426,7 +462,7 @@ the UI automatically updates when the data in the list change.</p>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -474,7 +510,7 @@ current week.</p>
 <div class="content">
 <img src="images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
 </div>
-<div class="title">Figure 10. Statistics class diagram.</div>
+<div class="title">Figure 11. Statistics class diagram.</div>
 </div>
 </div>
 <div class="sect2">
@@ -492,34 +528,47 @@ current week.</p>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-autocomplete-and-command-execution-span"><a class="link" href="#span-class-underline-autocomplete-and-command-execution-span">3.1. <span class="underline">AutoComplete and Command Execution</span></a></h3>
+<h3 id="autocomplete-and-dynamic-parsers"><a class="link" href="#autocomplete-and-dynamic-parsers">3.1. AutoComplete and Dynamic Parsers</a></h3>
 <div class="paragraph">
 <p><em>This section explains how the design choice of Dynamic Parsers fulfils AutoComplete and Command Execution.</em></p>
 </div>
 <div class="paragraph">
-<p>ParserManager dynamically changes parser depending on current mode the game is at. When updating the User Interface for every keystroke, it ensures only the right commands get parsed and autocompleted at each moment.</p>
+<p>ParserManager dynamically changes parser depending on current mode the game is at. This is modeled using the Strategy Pattern. <a href="https://en.wikipedia.org/wiki/Strategy_pattern" class="bare">https://en.wikipedia.org/wiki/Strategy_pattern</a>.</p>
 </div>
-<div class="sect3">
-<h4 id="implementation-details"><a class="link" href="#implementation-details">3.1.1. Implementation details</a></h4>
+<div class="paragraph">
+<p>Instead of choosing a  single parser to use at compile time, they are chosen at runtime depending on runtime state. This supports a variety of benefits which are explained under design considerations.</p>
+</div>
+<div class="paragraph">
+<p>The above implementation empowers the application with the following features :</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>ParserManager</code> instance has reference to a <code>SwitchModeParser</code> and <code>SpecificModeParser</code></p>
+<p>Every user keystroke only auto completes the right commands</p>
 </li>
 <li>
-<p>When user enters a keystroke, the <code>SwitchModeParser</code> and/or <code>SpecificModeParser</code> are accessed based on internal state.</p>
+<p>Only the right commands get parsed and executed. What are the right commands? They are the commands that belong to the current mode and switch commands when preconditions are met.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="implementation-details-of-parsermanager"><a class="link" href="#implementation-details-of-parsermanager">3.1.1. Implementation details of ParserManager</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ParserManager</code> instance has reference to two <code>SpecificModeParser</code> objects</p>
 </li>
 <li>
-<p>It updates the AutoComplete suggestions for every keystroke.</p>
+<p>When user enters a keystroke, the <code>SpecificModeParser</code> which holds switch commands or <code>SpecificModeParser</code> which holds current mode commands are accessed based on internal state.</p>
 </li>
 <li>
 <p>Internal State consists of booleans: gameIsOver, bankLoaded and enumeration ModeEnum: HOME, OPEN, GAME, SETTINGS</p>
 </li>
 <li>
-<p>The above process is aided by <code>ClassUtil</code> to handle instantiation of Parser and Command objects.</p>
+<p>Boolean algebra is used to derive the four overall states.</p>
 <div class="literalblock">
 <div class="content">
-<pre>The state management is complex. The below sequence diagram demonstrates all possible workflows.</pre>
+<pre>The below activity diagram demonstrates four possible states and a typical user flow.</pre>
 </div>
 </div>
 </li>
@@ -527,70 +576,73 @@ current week.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ParserManagerActivityDiagram.PNG" alt="ParserManagerActivityDiagram">
+<img src="images/StateActivityDiagram.PNG" alt="StateActivityDiagram">
 </div>
-<div class="title">Figure 11. Activity diagram of Application flow</div>
+<div class="title">Figure 12. Activity diagram of a typical application flow</div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Home (No Switch) means HomeModeParser is used and SwitchModeParser is not used
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="walkthrough-of-command-execution"><a class="link" href="#walkthrough-of-command-execution">3.1.2. Walkthrough of Command Execution</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Command Execution through <code>Logic Interface</code></p>
-<div class="olist arabic">
-<ol class="arabic">
+<p>Definitions of Switch and Mode in table above</p>
+<div class="ulist">
+<ul>
 <li>
-<p>A String from Ui package gets to <code>ParserManager</code> and gets converted into a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+<p>SwitchCommands = (commands that change mode)</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a word meaning pair into wordbank).</p>
+<p>ModeCommands = (commands that belong to a specific mode ie Home, Open, Game and Settings)</p>
 </li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> and <code>AppManager</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
-</li>
-</ol>
+</ul>
 </div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="walkthrough-of-autocomplete"><a class="link" href="#walkthrough-of-autocomplete">3.1.3. Walkthrough of AutoComplete</a></h4>
+<h4 id="implementation-details-of-specificmodeparser"><a class="link" href="#implementation-details-of-specificmodeparser">3.1.2. Implementation details of SpecificModeParser</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>AutoComplete through <code>UiLogicHelper Interface</code></p>
+<p>SpecificModeParsers use  ClassUtil to handle instantiation of Parser and Command objects.</p>
+</li>
+<li>
+<p>ClassUtil holds a list of references to Command and Parsers classes. In Java class references are passed using .class attribute. Example: AddCommand.class</p>
+</li>
+<li>
+<p>Internally, ClassUtil employs java reflections to find attributes of classes without instantiating them. Code for it is succinct and shown in the snippet below.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the AutoComplete operation runs when user keys in "st" into command box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram">
+<img src="images/reflectionsSnippet.PNG" alt="reflectionsSnippet" width="500">
 </div>
-<div class="title">Figure 12. Sequence Diagram of AutoComplete</div>
+<div class="title">Figure 13. Code snippet from ClassUtil.java</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Also, when a command needs to be executed, it instantiates the Parser object (if any) and Command object at runtime.</p>
+</li>
+<li>
+<p>Below snippet is from ParserManager. Just one line of code is necessary to include a new command with its parser. Example:</p>
+<div class="literalblock">
+<div class="content">
+<pre>temp.add(NewCommand.class, NewCommandParser.class);</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/reflectionsSnippet2.PNG" alt="reflectionsSnippet2" width="500">
+</div>
+<div class="title">Figure 14. Code snippet from ParserManager.java</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.4. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -606,14 +658,14 @@ Home (No Switch) means HomeModeParser is used and SwitchModeParser is not used
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 1</strong>:<br>
 How parser and command objects are instantiated in SpecificModeParser</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use java reflections to hold a List of Classes and iterate through them to pick the matching Classes</strong><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use java reflections to hold a list of classes and iterate through them to pick the matching classes</strong><br>
 <br>
 <em class="underline">Pros:</em><br>
-Open Close Principle strictly followed. Adding a command with a parser takes only one line of code.<br>
+Open Close Principle strictly followed. Adding a command and a parser takes only one line of code.<br>
 <br>
 <em class="underline">Cons:</em><br>
-It is developer responsibility to ensure classes subclass Command object as compile time errors would not be thrown.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use switches in Parser to match Command Word to create Parser objects if necessary else directly create Command object.</strong><br>
+It is developer&#8217;s responsibility to ensure classes subclass the abstract Command class as compile time errors would not be thrown.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use switches to match the command word with the right parsers</strong><br>
 <br>
 <em class="underline">Pros:</em><br>
 Compile time error would be thrown if new command or parser does not subclass correctly.<br>
@@ -623,7 +675,7 @@ Adding a new command with parser would require the developer to insert it into m
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
-d</p></td>
+Given that ClassUtil gracefully handles wrongly passed class references, the lack of compile time check does not impair the functionality of the application. Furthermore, alternative 1 prevents code duplication for autocomplete and executing.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2:</strong><br>
@@ -634,7 +686,7 @@ Single Parser vs Parser Manager</p></td>
 Commands not belonging to specific mode would not be parsed<br>
 <br>
 <em class="underline">Cons:</em><br>
-More code to write for initial developer. However it is easily extnensible for new modes and parsers by the Open Close Principle</p></td>
+More code to write for initial developer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use a single parser</strong><br>
 <br>
 <em class="underline">Pros</em><br>
@@ -645,19 +697,10 @@ Bad user experience as it autocompletes and parses commands that do not belong t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 1:</strong><br>
-d</p></td>
+As commands are stateful, it would be easy to overlook the edge cases when so many combinations and permutations are likely. Segregating them by modes allows a better user experience and minimises the possibilities of bugs. Also, future extensibility  is improved for new modes and parsers as the Open Close Principle is abided.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="technical-details"><a class="link" href="#technical-details">3.1.5. Technical details</a></h4>
-<div class="paragraph">
-<p>&lt;Insert class util code demonstrating java reflections&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;Insert where one line of code can be inserted for adding new commands and parsers&gt;</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -690,7 +733,7 @@ d</p></td>
 <div class="content">
 <img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
 </div>
-<div class="title">Figure 13. Activity diagram of the execution of a settings command.</div>
+<div class="title">Figure 15. Activity diagram of the execution of a settings command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -711,7 +754,7 @@ Take note that "mode" as defined in our project is the state in which the applic
 <div class="content">
 <img src="images/StateDiagramBefore.png" alt="StateDiagramBefore">
 </div>
-<div class="title">Figure 14. Before state of application.</div>
+<div class="title">Figure 16. Before state of application.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1:</strong><br>
@@ -721,7 +764,7 @@ Let us assume that the current difficulty of the application is "EASY". The obje
 <div class="content">
 <img src="images/DifficultySequenceDiagram1.png" alt="DifficultySequenceDiagram1">
 </div>
-<div class="title">Figure 15. Sequence diagram of Step 2.</div>
+<div class="title">Figure 17. Sequence diagram of Step 2.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2:</strong><br>
@@ -731,7 +774,7 @@ When the user enters <code>difficulty hard</code>, the command gets passed into 
 <div class="content">
 <img src="images/DifficultySequenceDiagram2.png" alt="DifficultySequenceDiagram2">
 </div>
-<div class="title">Figure 16. Sequence diagram of Step 3.</div>
+<div class="title">Figure 18. Sequence diagram of Step 3.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 3:</strong><br>
@@ -741,7 +784,7 @@ At <code>LogicManager#execute()</code> however, the command gets passed into a p
 <div class="content">
 <img src="images/DifficultySequenceDiagram3.png" alt="DifficultySequenceDiagram3">
 </div>
-<div class="title">Figure 17. Sequence diagram of Step 4.</div>
+<div class="title">Figure 19. Sequence diagram of Step 4.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 4:</strong><br>
@@ -751,7 +794,7 @@ Upon execution of the <code>DifficultyCommand</code>, the state of the model is 
 <div class="content">
 <img src="images/DifficultySequenceDiagram4.png" alt="DifficultySequenceDiagram4">
 </div>
-<div class="title">Figure 18. Sequence diagram of Step 5.</div>
+<div class="title">Figure 20. Sequence diagram of Step 5.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 5:</strong><br>
@@ -761,7 +804,7 @@ Since the main function of the <code>difficulty</code> command is accomplished a
 <div class="content">
 <img src="images/DifficultySequenceDiagram5.png" alt="DifficultySequenceDiagram5">
 </div>
-<div class="title">Figure 19. Sequence diagram of Step 6.</div>
+<div class="title">Figure 21. Sequence diagram of Step 6.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 6:</strong><br>
@@ -774,7 +817,7 @@ Assuming that there were no errors thrown during the execution of the <code>diff
 <div class="content">
 <img src="images/StateDiagramAfter.png" alt="StateDiagramAfter">
 </div>
-<div class="title">Figure 20. After state of application</div>
+<div class="title">Figure 22. After state of application</div>
 </div>
 </div>
 <div class="sect3">
@@ -849,7 +892,7 @@ in this one, we do not think the added functionality of allowing the user to ext
 <div class="content">
 <img src="images/TimerDGScreenshot.png" alt="TimerDGScreenshot">
 </div>
-<div class="title">Figure 21. Screenshot of the <code>Timer</code> component in action.</div>
+<div class="title">Figure 23. Screenshot of the <code>Timer</code> component in action.</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-overview"><a class="link" href="#implementation-overview">3.3.1. Implementation Overview</a></h4>
@@ -888,7 +931,7 @@ synchronization issues with the <code>UI</code> component, all
 <div class="content">
 <img src="images/TimerClassDiagramCallbacks.png" alt="TimerClassDiagramCallbacks">
 </div>
-<div class="title">Figure 22. Class diagram reflecting how the callback-functions are organized in the Timer component.</div>
+<div class="title">Figure 24. Class diagram reflecting how the callback-functions are organized in the Timer component.</div>
 </div>
 <div class="paragraph">
 <p>The three main events that are currently triggered by the <code>Timer</code> component which require a <em>callback</em> are:</p>
@@ -921,7 +964,7 @@ within the  <code>GameTimer</code> interface, which is implemented by the <code>
 <div class="content">
 <img src="images/TimerSequenceDiagram1.png" alt="TimerSequenceDiagram1">
 </div>
-<div class="title">Figure 23. Sequence diagram (with some details omitted) describing the flow of registering and executing callbacks between the different components</div>
+<div class="title">Figure 25. Sequence diagram (with some details omitted) describing the flow of registering and executing callbacks between the different components</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -988,13 +1031,13 @@ The <code>AppManager</code> provides information regarding the duration in which
 <div class="content">
 <img src="images/HintDGScreenshot.png" alt="HintDGScreenshot" width="790">
 </div>
-<div class="title">Figure 24. Screenshot of the automatic <code>Hints</code> feature in action.</div>
+<div class="title">Figure 26. Screenshot of the automatic <code>Hints</code> feature in action.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TimerActivityDiagramWithHints.png" alt="TimerActivityDiagramWithHints">
 </div>
-<div class="title">Figure 25. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
+<div class="title">Figure 27. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
 </div>
 <div class="paragraph">
 <p>The behavior of <code>Timer</code> when <code>Hints</code> are enabled is <strong>largely still the same.</strong><br>
@@ -1059,7 +1102,7 @@ debug and resolve problems in the code.
 <div class="sect2">
 <h3 id="span-class-underline-word-bank-management-span"><a class="link" href="#span-class-underline-word-bank-management-span">3.4. <span class="underline">Word Bank Management</span></a></h3>
 <div class="paragraph">
-<p>This section discusses the implementation of Word Bank Management in varied levels of detail.<br>
+<p>This section discusses the implementation of Word Bank Management in various levels of detail.<br>
 This can be split into four complimentary distinct sections.</p>
 </div>
 <div class="paragraph">
@@ -1068,7 +1111,7 @@ This can be split into four complimentary distinct sections.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Word bank’s data structure and it&#8217;s storage system</p>
+<p>Word bank’s data structure and its storage system</p>
 </li>
 <li>
 <p>User Commands</p>
@@ -1086,16 +1129,14 @@ This can be split into four complimentary distinct sections.</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="word-bank-s-data-structure-and-it-s-storage-system"><a class="link" href="#word-bank-s-data-structure-and-it-s-storage-system">3.4.1. Word bank&#8217;s data structure and it&#8217;s storage system</a></h4>
+<h4 id="word-bank-s-data-structure-and-its-storage-system"><a class="link" href="#word-bank-s-data-structure-and-its-storage-system">3.4.1. Word bank&#8217;s data structure and its storage system</a></h4>
 <div class="paragraph">
 <p>Allows developers to use and extend this architecture to streamline their feature implementation.<br>
 Allows user to save and load their word banks.<br></p>
 </div>
 <div class="paragraph">
 <p>Observe closely the attributes and methods of the following class diagrams.<br>
-They describe and explain word bank&#8217;s data structure and storage in detail.<br>
-Each of them are implemented with close examination so that it is easily usable and extended upon by other
-teammates/complimentary features.</p>
+They describe and explain word bank&#8217;s data structure and its storage system in detail.<br></p>
 </div>
 <div class="paragraph">
 <p>We start from the lowest level - <code>Card</code>.<br></p>
@@ -1104,7 +1145,7 @@ teammates/complimentary features.</p>
 <div class="content">
 <img src="images/CardDiagram.png" alt="CardDiagram">
 </div>
-<div class="title">Figure 26. Class diagram of <code>Card</code>.</div>
+<div class="title">Figure 28. Class diagram of <code>Card</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>Card</code> contains a unique <code>id</code>, a <code>word</code>, a unique <code>meaning</code>, a set of <code>tags</code>.<br></p>
@@ -1129,13 +1170,13 @@ Cards with the same meaning are duplicates, and is disallowed.
 </div>
 <hr>
 <div class="paragraph">
-<p>Now the second level - <code>WordBank</code></p>
+<p>Next, the second level - <code>WordBank</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/WordBankDiagram.png" alt="WordBankDiagram">
 </div>
-<div class="title">Figure 27. Class diagram of <code>WordBank</code>.</div>
+<div class="title">Figure 29. Class diagram of <code>WordBank</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBank</code> contains a <code>UniqueCardList</code> and a unique <code>name</code>.<br></p>
@@ -1167,7 +1208,7 @@ Word banks with the same name are duplicates, and is disallowed.
 <div class="content">
 <img src="images/WordBankListDiagram.png" alt="WordBankListDiagram">
 </div>
-<div class="title">Figure 28. Class diagram of <code>WordBankList</code>.</div>
+<div class="title">Figure 30. Class diagram of <code>WordBankList</code>.</div>
 </div>
 <div class="paragraph">
 <p>A <code>WordBankList</code> contains a <code>UniqueWordBankList</code>.</p>
@@ -1201,17 +1242,17 @@ change.
 <div class="content">
 <img src="images/OverviewOfWordBankList.png" alt="OverviewOfWordBankList">
 </div>
-<div class="title">Figure 29. Overview of <code>WordBankList</code>.</div>
+<div class="title">Figure 31. Overview of <code>WordBankList</code>.</div>
 </div>
 <hr>
 <div class="paragraph">
-<p>Now the integration with storage - How <code>WordBankList</code> is stored in <code>Model</code> and <code>Storage</code>.</p>
+<p>Word bank&#8217;s storage system integration.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/WBStorage.png" alt="WBStorage">
 </div>
-<div class="title">Figure 30. Integration of <code>WordBankList</code> within <code>Storage</code> and <code>Model</code>.</div>
+<div class="title">Figure 32. Integration of <code>WordBankList</code> within <code>Storage</code> and <code>Model</code>.</div>
 </div>
 <div class="paragraph">
 <p>WordBankListStorage consists of robust and self-explanatory methods in which users can use and extend upon easily.<br>
@@ -1229,7 +1270,7 @@ by my teammates, to build their own feature implementations. (Statistics, Game, 
 <div class="sect3">
 <h4 id="user-commands"><a class="link" href="#user-commands">3.4.2. User Commands</a></h4>
 <div class="paragraph">
-<p>Allows user to customise his cards and group them according to topics (word banks).<br>
+<p>Allows user to customise cards and group them according to topics (word banks).<br>
 User commands edits and manipulates <code>Cards</code> and <code>WordBanks</code> heavily.</p>
 </div>
 <div class="admonitionblock note">
@@ -1252,7 +1293,7 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/WBLogicStorageModel.png" alt="WBLogicStorageModel">
 </div>
-<div class="title">Figure 31. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
+<div class="title">Figure 33. Overview class diagram of <code>Logic</code> with emphasis on CardCommands and WordBankCommands.</div>
 </div>
 <div class="paragraph">
 <p>Commands reside in <code>Logic</code>. They work on <code>Model</code> and <code>Storage</code> through <code>Logic</code>.<br>
@@ -1272,7 +1313,7 @@ To segregate cards according to their function, we distinguished the following:<
 <div class="content">
 <img src="images/ImportCommandSeqDiagram.png" alt="ImportCommandSeqDiagram">
 </div>
-<div class="title">Figure 32. Sequence diagram detailing a successful <code>WordBankCommand</code> through different components.</div>
+<div class="title">Figure 34. Sequence diagram detailing a successful <code>WordBankCommand</code> through different components.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1347,8 +1388,11 @@ then to the <code>UI</code> to notify the user.</p>
 <div class="sect3">
 <h4 id="drag-and-drop"><a class="link" href="#drag-and-drop">3.4.3. Drag and drop</a></h4>
 <div class="paragraph">
-<p>Enables saving/loading a word bank file into/out of user&#8217;s computer through drag and drop.<br>
-Improves user experience by making it easy to share word banks with friends.</p>
+<p>Allows user to export their word bank out of their computer simply by dragging it out of Dukemon.<br>
+Likewise, it allows user to import a word bank file from their computer by dragging it into Dukemon.</p>
+</div>
+<div class="paragraph">
+<p>Improves user experience by making it easy to share word banks with friends.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1367,19 +1411,19 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/DragAndDrop1.png" alt="150" width="150">
 </div>
-<div class="title">Figure 33. Word bank file.</div>
+<div class="title">Figure 35. Word bank file.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DragAndDrop2.png" alt="150" width="150">
 </div>
-<div class="title">Figure 34. Dragging into Dukemon.</div>
+<div class="title">Figure 36. Dragging into Dukemon.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DragAndDrop3.png" alt="150" width="150">
 </div>
-<div class="title">Figure 35. Dukemon registers the bank.</div>
+<div class="title">Figure 37. Dukemon registers the bank.</div>
 </div>
 <div class="paragraph">
 <p>From <code>HOME</code> mode, you can view your <code>WordBanks</code>.
@@ -1395,7 +1439,7 @@ your desktop, or chat applications.<br></p>
 <div class="content">
 <img src="images/DragAndDropSequenceDiagram.png" alt="DragAndDropSequenceDiagram">
 </div>
-<div class="title">Figure 36. Sequence diagram showing how drag and drop utilises the ImportCommand and thus the word bank&#8217;s storage.</div>
+<div class="title">Figure 38. Sequence diagram showing how drag and drop utilises the ImportCommand and thus the word bank&#8217;s storage.</div>
 </div>
 <div class="paragraph">
 <p><code>LoadBankPanel</code> is the corresponding class and the FXML file that displays the word banks for the user.<br>
@@ -1443,8 +1487,12 @@ This is possible with careful exceptions handling within the <code>ImportCommand
 <div class="sect3">
 <h4 id="revision-word-bank"><a class="link" href="#revision-word-bank">3.4.4. Revision word bank</a></h4>
 <div class="paragraph">
-<p>Serves as a centralised bank that collects cards across different word banks through the game play.
-The update to revision word bank is done automatically after every game session.<br></p>
+<p>Allows user to visit a centralised word bank that automatically collects cards for revision.<br>
+Cards that were answered wrongly are automatically added to this revision bank.<br>
+Likewise, cards that were answered correctly during game play are automatically removed from this revision bank.</p>
+</div>
+<div class="paragraph">
+<p>Improves user learning experience by helping the user to collate cards that require revision.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1463,7 +1511,7 @@ You can refer to it to enhance your understanding of this implementation.
 <div class="content">
 <img src="images/RevisionBankActivityDiagram.png" alt="RevisionBankActivityDiagram">
 </div>
-<div class="title">Figure 37. Activity diagram showing different scenarios possible while trying to update revision bank.</div>
+<div class="title">Figure 39. Activity diagram showing different scenarios possible while trying to update revision bank.</div>
 </div>
 <div class="paragraph">
 <p>Revision bank was one of the essential and dominant features we wanted to implement since early development, however
@@ -1571,7 +1619,7 @@ Commands that depend on it becomes much easier to implement. (This can be seen i
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2</strong>:<br>
 Storage system for word banks.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store one single large json file with word bank names as keys and it&#8217;s word bank data as values</strong>:<br></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Store one single large json file with word bank names as keys and its word bank data as values</strong>:<br></p>
 <p class="tableblock"><em>Pros:</em><br>
 Always save a snapshot of the data to the same file, regardless of what commands are executed.</p>
 <p class="tableblock"><em>Cons:</em><br>
@@ -1740,7 +1788,7 @@ the main title page.</p></td>
 <div class="content">
 <img src="images/LoadStatisticsSequenceDiagram.png" alt="LoadStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 38. Sequence diagram for loading statistics</div>
+<div class="title">Figure 40. Sequence diagram for loading statistics</div>
 </div>
 </div>
 <div class="sect4">
@@ -1753,7 +1801,7 @@ into Model.<br></p>
 <div class="content">
 <img src="images/SelectWordBankStatisticsSequenceDiagram.png" alt="SelectWordBankStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 39. Sequence diagram for selecting a word bank statistics.</div>
+<div class="title">Figure 41. Sequence diagram for selecting a word bank statistics.</div>
 </div>
 <div class="paragraph">
 <p>It is necessary to set the active <code>WordBankStatistics</code> in the <code>Model</code> such that when the user opens the <code>WordBank</code>, the
@@ -1780,7 +1828,7 @@ It receives the timestamp from the <code>GameTimer</code> which also resides in 
 <div class="content">
 <img src="images/UpdateStatisticsSequenceDiagram.png" alt="UpdateStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 40. Sequence diagram when user makes a guess.</div>
+<div class="title">Figure 42. Sequence diagram when user makes a guess.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1797,7 +1845,7 @@ Additionally, the <code>GlobalStatistics</code> is also updated and saved to dis
 <div class="content">
 <img src="images/UpdateSaveStatisticsSequenceDiagram.png" alt="UpdateSaveStatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram when the user makes the final guess.</div>
+<div class="title">Figure 43. Sequence diagram when the user makes the final guess.</div>
 </div>
 <div class="paragraph">
 <p>The work done in step 4 and 5 is executed in <code>AppManager</code> and the checks to decide what to do are done in
@@ -1807,7 +1855,7 @@ the same method <code>updateGameStatisticsBuilder(CommandResult)</code>.</p>
 <div class="content">
 <img src="images/GameStatisticsBuilderActivityDiagram.png" alt="GameStatisticsBuilderActivityDiagram">
 </div>
-<div class="title">Figure 42. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
+<div class="title">Figure 44. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
 </div>
 </div>
 </div>
@@ -1855,26 +1903,14 @@ for the word bank statistics freely.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-user-profiles"><a class="link" href="#proposed-user-profiles">3.7. [Proposed] User Profiles</a></h3>
-<div class="paragraph">
-<p><em>The user profiles could allow multiple users to use the same app and have different statistics tracked. This feature is a work in progress and will be delayed to v2.0.</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1905,7 +1941,7 @@ for the word bank statistics freely.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2414,4 +2450,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 20:22:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 04:20:06 UTC</div></div></div></body></html>
