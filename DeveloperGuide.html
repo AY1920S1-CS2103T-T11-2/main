@@ -1070,7 +1070,7 @@ these polled <em>timestamps</em> to update the <code>Hints</code> provided perio
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.5. Design Considerations</a></h4>
 <div class="paragraph">
-<p>There were a few considerations for designing the <code>Timer</code> this way.</p>
+<p>There were a few reasons for designing the <code>Timer</code> and <code>Hints</code> this way.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1100,11 +1100,37 @@ Relies on developer to register correct call-back methods with the <code>Timer</
 implemented as different call-backs separately. Possible overhead in performing few levels of call-backs.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why did we choose Alternative 2:</strong><br>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we chose Alternative 2:</strong><br>
 To ensure better extendability of our code for future expansion, we felt it was important to maintain as much
 abstraction between components. This is also to make life easier when there comes a need to
 debug and resolve problems in the code.
 <br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aspect 2</strong>:<br>
+ Where and how to perform string formatting for <code>Hints</code> to be displayed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Move retrieval of individual Hint characters and all formatting outside of the Game component completely</strong>:<br></p>
+<p class="tableblock"> <em>Pros:</em><br>
+Maintains immutability of each <code>Card</code> inside <code>Game</code> component. <br></p>
+<p class="tableblock"> <em>Cons:</em><br>
+Breaking abstraction as higher level components should not have to deal with string formatting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Perform formatting at the lowest level possible, using a <code>FormattedHint</code> class.</strong><br></p>
+<p class="tableblock"> <em>Pros:</em><br>
+Higher level components need not know about string formatting at all, maintains good abstraction. <br></p>
+<p class="tableblock"> <em>Cons:</em><br>
+Individual <code>Game</code> components like each <code>Card</code> become stateful, need to make deep copies to prevent
+state from carrying across <code>Game</code> sessions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we chose Alternative 2:</strong><br>
+Implementing cloning of <code>Cards</code> affects other areas of code the least, and reduces unnecessary coupling. Since changes to higher level
+elements can potentially affect all other components, it was safer to modify more atomic areas of code.
+ <br></p></td>
 </tr>
 </tbody>
 </table>
@@ -2464,4 +2490,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:40:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 15:36:19 UTC</div></div></div></body></html>
