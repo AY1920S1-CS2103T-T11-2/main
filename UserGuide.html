@@ -884,10 +884,7 @@ differs across each <em>Difficulty</em>.</p>
 <ul>
 <li>
 <p>Starts a game session with the currently selected <em>WordBank</em> and specified <em>Difficulty</em>.
-(<em>WorkBank</em> selection is done in <em>Home</em> mode.)</p>
-</li>
-<li>
-<p>If no <em>Difficuty</em> is specfied, the default <em>Difficulty</em> in <em>Settings</em>
+(<em>WorkBank</em> selection is done in <em>Home</em> mode.) If no <em>Difficuty</em> is specified, the default <em>Difficulty</em> in <em>Settings</em>
 will be used.</p>
 </li>
 </ul>
@@ -900,14 +897,12 @@ will be used.</p>
 <h4 id="game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span"><a class="link" href="#game-mode-span-class-underline-playing-span-span-class-image-img-src-images-game_mode_icon-png-alt-game-mode-icon-width-30-span">3.5.2. Game Mode - <span class="underline">Playing</span> <span class="image"><img src="images/game_mode_icon.png" alt="game mode icon" width="30"></span></a></h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="][height="850"">
+<img src="images/UserGuideGameSessionDiagram2.png" alt="UserGuideGameSessionDiagram2" width="790">
 </div>
-<div class="title">Figure 9. UI regions that show feedback during a Game session.</div>
+<div class="title">Figure 9. Timer and feedback for each Guess during a Game session. (Timer changes color based on time left).</div>
 </div>
 <div class="paragraph">
-<p>During a <em>Game</em>, the <em>Timer</em> will change colour according to the time left (region in green box). Feedback for each <em>Guess</em> is shown via the <em>ResultDisplay</em> (region in the red box).<br>
-<br>
-The relevant command(s) are:</p>
+<p>The relevant command(s) are:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -950,10 +945,8 @@ The relevant command(s) are:</p>
 </div>
 <div class="paragraph">
 <p>A <em>Game</em> finishes when <strong>all <em>Cards</em> have been attempted</strong>. <em>Statistics</em> are
-<strong>automatically shown</strong> upon completion of a <em>Game</em> (see Fig. 6 above).<br>
-<br>
-The user can choose to <code>stop</code> a <em>Game</em> before it has finished. This will result in all current <em>Game</em> progress being lost, and
-no <em>Statistics</em> being collected or generated (see Fig. 7 above).<br>
+<strong>automatically shown</strong> upon completion of a <em>Game</em> (see Fig. 6 above). The user can choose to <code>stop</code> a <em>Game</em> before it has finished- <strong>all current <em>Game</em> progress is lost</strong>, and
+<strong>no <em>Statistics</em> are collected</strong> (see Fig. 7 above).<br>
 <br>
 The relevant command(s) are:</p>
 </div>
@@ -967,8 +960,7 @@ The relevant command(s) are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Forcibly terminates the current active <em>Game</em> session (<strong>all progress will be lost, and no <em>Statistics</em> will
-be reported.</strong>)</p>
+<p>Forcibly terminates the current active <em>Game</em> session.</p>
 </li>
 </ul>
 </div>
@@ -1170,14 +1162,23 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 </div>
 <div class="sect2">
 <h3 id="misc-commands"><a class="link" href="#misc-commands">3.7. Misc. Commands</a></h3>
-<div class="paragraph">
-<p>(Help is available in Home mode)<br>
-(Exit is available in any mode except Game mode)</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>help</code> is available in <em>Home</em> mode<br>
+<code>exit</code> is available in any mode <strong>except</strong> <em>Game</em> mode)
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="ask-for-help-code-help-code"><a class="link" href="#ask-for-help-code-help-code">3.7.1. Ask for help: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Dukemon sends help.</p>
+<p>Show the link to the User Guide (appears as a pop-up).</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
@@ -1186,7 +1187,7 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 <div class="sect3">
 <h4 id="take-a-break-code-exit-code"><a class="link" href="#take-a-break-code-exit-code">3.7.2. Take a break: <code>exit</code></a></h4>
 <div class="paragraph">
-<p>Dukemon says bye!</p>
+<p>Exit and close <em>Dukemon</em>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>exit</code></p>
@@ -1199,13 +1200,13 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 <h2 id="statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span"><a class="link" href="#statistics-span-class-image-img-src-images-statistics-icon-png-alt-statistics-icon-width-32-span">4. Statistics <span class="image"><img src="images/statistics-icon.png" alt="statistics icon" width="32"></span></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section covers the statistics shown to the user.</p>
+<p>This section covers the <em>Statistics</em> shown to the user.</p>
 </div>
 <div class="sect2">
 <h3 id="game-result"><a class="link" href="#game-result">4.1. Game Result</a></h3>
 <div class="paragraph">
-<p>The game result is shown to the user every time they finish a game. It contains information of the finished game and
-some information of the <em>WordBank</em>.</p>
+<p>The game result is shown to the user every time a Game finishes. It contains information regarding the finished <em>Game</em> session and
+<em>Statistics</em> for the selected <em>WordBank</em>.</p>
 </div>
 <div class="paragraph">
 <p>We use a simple formula to calculate the score: <em>floor of</em> <em>(Number of correct answers) / (Total questions) * 100</em>.</p>
@@ -1220,7 +1221,7 @@ some information of the <em>WordBank</em>.</p>
 <div class="sect2">
 <h3 id="wordbank-statistics"><a class="link" href="#wordbank-statistics">4.2. WordBank Statistics</a></h3>
 <div class="paragraph">
-<p>The <em>WordBank</em> statistics is shown on open mode and contains all information of the <em>WordBank</em>.</p>
+<p>The <em>WordBank</em> statistics is shown in the <em>Open</em> mode and contains all information regarding the selected <em>WordBank</em>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1235,7 +1236,7 @@ some information of the <em>WordBank</em>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The high score and fastest clear of a word bank will not be reset on adding/deleting cards.
+The high score and fastest clear timing of a <em>WordBank</em> will not be reset upon adding/deleting cards.
 </td>
 </tr>
 </table>
@@ -1273,7 +1274,7 @@ of the app.</p>
 </div>
 <div class="paragraph">
 <p>From <code>HOME</code> mode, you can view your <em>WordBanks</em>.<br>
-Simply drag and drop a <em>WordBank</em> json file from your computer into Dukemon.<br></p>
+Simply drag and drop a <em>WordBank</em> .json file from your computer into the <em>Dukemon</em> GUI.<br></p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/DragAndDropOut1.png" alt="DragAndDropOut1" width="130"></span>
@@ -1296,7 +1297,8 @@ your desktop, or chat applications.<br></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Dukemon only reads json files.
+<em>Dukemon</em> only accepts .json files when importing <em>WordBanks</em>. Attempting to
+ import or export other types files will not be successful.
 </td>
 </tr>
 </table>
@@ -1525,19 +1527,37 @@ to revise wrong cards. Give it a try!</p>
 <h2 id="faq"><a class="link" href="#faq">8. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I pronounce your app name?<br>
-<strong>A</strong>: Think Pokemon.</p>
+<p><strong>Q</strong>: <em>Dukemon</em> is not starting up/crashes upon load-up, how can I rectify this?<br>
+<strong>A</strong>: Move <em>Dukemon</em> to a new, <strong>empty</strong> file directory. Ensure that all data and configuration files in the same directory are
+deleted (<em>some files may be corrupted</em>). <em>Dukemon</em> will perform clean start from the new directory.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my <em>WordBank</em> to my friend?<br>
-<strong>A</strong>: Export your <em>WordBank</em> to your computer, then transfer him the file. He can then import the file into his Dukemon.</p>
+<p><strong>Q</strong>: The <em>Game</em> failed to start, what can I do?<br>
+<strong>A</strong>: Ensure that your selected <em>WordBank</em> has at least three <em>Cards</em> to be able to start. Also note that
+you will be <strong>brought to the <em>Game</em> mode</strong> regardless, and will need to switch out of it.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: Do I have to save data?<br>
-<strong>A</strong>: Dukemon data are saved in the hard disk automatically after any command that changes the data.
-These commands are generally Card/<em>WordBank</em> commands.
-There is no need to save manually.
-Statistics are also stored automatically.</p>
+<p><strong>Q</strong>: Switching modes is not working, what can I do?<br>
+<strong>A</strong>: Ensure that <strong>you have selected a <em>WordBank</em></strong> before attempting to switch modes. Check that you have <strong>stopped the <em>Game</em> session</strong>
+if you want to switch to certain modes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I pronounce the app name?<br>
+<strong>A</strong>: Think <em>Pokemon</em>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: The GUI (Graphical User Interface) seems to be lagging, is this an issue?<br>
+<strong>A</strong>: <em>Dukemon</em> aims to run at around 60fps, but performance varies across machines.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How can I transfer/share <em>WordBanks</em> across machines?<br>
+<strong>A</strong>: Use the <code>export</code> and <code>import</code> functionalities to move data to specific file directories. From there you can
+share your files manually.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How can I save my data?<br>
+<strong>A</strong>: <em>Dukemon&#8217;s</em> data is saved to the hard disk automatically (eg. adding cards/words, statistics etc)
+There is no need to manually save data or Game <code>Statistics</code>.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:23:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:10:40 UTC</div></div></div></body></html>

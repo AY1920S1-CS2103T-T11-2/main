@@ -692,7 +692,7 @@ As commands are stateful, it would be easy to overlook the edge cases when so ma
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p><code>AppSettings</code> was a class that was created to be integrated into the <code>Model</code> of the app. It currently contains these functionalities:</p>
+<p><code>AppSettings</code> is a class that was created to be integrated into the <code>Model</code> of the app. It currently contains these functionalities:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -881,20 +881,18 @@ in this one, we do not think the added functionality of allowing the user to ext
 <div class="sect3">
 <h4 id="implementation-overview-timer"><a class="link" href="#implementation-overview-timer">3.3.1. Implementation Overview - Timer</a></h4>
 <div class="paragraph">
-<p>The <code>Timer</code> component utilizes the <code>java.util.Timer</code> API to simulate a stopwatch that runs for each <code>Card</code> in a <code>Game</code>. It also relies on
-using <em>Functional Interfaces</em> as <em>callbacks</em> to periodically notify other components in the system. Using <em>callbacks</em>
-allows the <code>Timer</code> to enact changes in other components of the system without directly holding a reference to those
+<p>The <code>Timer</code> component utilizes the <code>java.util.Timer</code> API to simulate a stopwatch that runs for each <code>Card</code> in a <code>Game</code>. It relies on
+using <em>Functional Interfaces</em> as <em>callbacks</em> for the TImer to periodically notify other components in the system without directly holding a reference to those
 components.</p>
 </div>
 <div class="paragraph">
 <p>Internally, the <code>Timer</code>
-works by using the method <code>java.util.Timer.schedule()</code> that will schedule <code>java.util.TimerTasks</code> at a fixed rate (<em>every 50ms</em>).</p>
+works by using the method <code>java.util.Timer.schedule()</code> that schedules <code>java.util.TimerTasks</code> at a fixed rate (<em>every 50ms</em>).</p>
 </div>
 <div class="paragraph">
 <p>An <em>Observer Pattern</em> is loosly followed between the <code>Timer</code> and the other components. As opposed to defining an
 <em>Observable</em> interface, the <code>AppManager</code> simply passes in <em>method pointers</em> into the <code>Timer</code> to <em>callback</em> when an
-event is triggered. The <code>AppManager</code> thus works closely with the <code>Timer</code> as the main hub to enact changes based on
-signals given by the <code>Timer</code>.</p>
+event is triggered by the <code>Timer</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -904,8 +902,8 @@ signals given by the <code>Timer</code>.</p>
 </td>
 <td class="content">
 To avoid
-synchronization issues with the <code>UI</code> component, all
-<code>TimerTasks</code> (such as requesting to refresh a component of the <code>UI</code>) are forced to run on the <strong>JavaFX Application Thread</strong> using
+synchronization issues, all
+<em>callbacks</em> to change <code>UI</code> components are forced to run on the <strong>JavaFX Application Thread</strong> using
 <code>Platform.runLater()</code>.
 </td>
 </tr>
@@ -962,12 +960,15 @@ within the  <code>GameTimer</code> interface, which is implemented by the <code>
 <p>Each <code>FormattedHintSupplier</code> contains a <code>java.util.List</code> of <code>Hint</code> to update  the <code>FormattedHint</code> with.</p>
 </li>
 <li>
+<p>Each <code>FormattedHint</code> maintains a <code>char[]</code> array that it&#8217;s <code>toString()</code> method uses to format the output <code>Hint</code> string with.</p>
+</li>
+<li>
 <p>Each <code>Hint</code> encapsulates a <code>Character</code> and an <code>Index</code> which the <code>Character</code> is to be shown in the <code>FormattedHint</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>Timer</code> component <strong>triggers a request</strong> to the <code>AppManager</code>, who then updates and retrieves the <code>FormattedHint</code> from
+<p>The <code>Timer</code> component <strong>triggers a request to update <code>Hints</code></strong> to the <code>AppManager</code>, who then updates and retrieves the updated <code>FormattedHint</code> from
 the current <code>Game</code> via the <code>Logic</code> component.</p>
 </div>
 </div>
@@ -994,6 +995,11 @@ is omitted in the above diagram for simplicity.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>A new <code>GameTimer</code> instance is created by the <code>AppManager</code> for every <code>Card</code> of a <code>Game</code>.
+The <code>AppManager</code> provides information regarding the duration in which the <code>GameTimer</code> should run for, and whether
+<code>Hints</code> are enabled.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1026,20 +1032,6 @@ is omitted in the above diagram for simplicity.
 <div class="paragraph">
 <p>Using this approach of <em>callbacks</em> provides <strong>better abstraction</strong> between the <code>UI</code> and <code>Timer</code>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A new <code>GameTimer</code> instance is created by the <code>AppManager</code> for every <code>Card</code> of a <code>Game</code>.
-The <code>AppManager</code> provides information regarding the duration in which the <code>GameTimer</code> should run for, and whether
-<code>Hints</code> are enabled.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
 <h4 id="flow-of-events-code-hints-code-enabled"><a class="link" href="#flow-of-events-code-hints-code-enabled">3.3.4. Flow of Events - <code>Hints</code> Enabled</a></h4>
@@ -1055,18 +1047,24 @@ The <code>AppManager</code> provides information regarding the duration in which
 </div>
 <div class="title">Figure 26. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
 </div>
-<div class="paragraph">
-<p>The behavior of <code>Timer</code> when <code>Hints</code> are enabled is <strong>largely still the same.</strong><br>
-<br>
- When <code>Hints</code> are enabled,
-<code>AppManager</code> initializes a <code>HintTimingQueue</code> in the <code>GameTimer</code> for each <em>Card</em>. <code>HintTimingQueue</code> is a class that
-contains a <code>java.util.Queue</code> of <em>timestamps</em> (in milliseconds). <code>GameTimer</code> polls from the <code>HintTimingQueue</code> and checks against
-these polled <em>timestamps</em> to update the <code>Hints</code> provided periodically.<br>
-<br>
-The described activity is visualized via the activity diagram as <strong>shown above</strong>. The internal <code>Timer</code> is started when
+<div class="ulist">
+<ul>
+<li>
+<p>In the diagram as <strong>shown above</strong>, the internal <code>Timer</code> is started when
 <code>GameTimerManager</code> calls the <code>.schedule()</code> method of its internal <code>java.util.Timer</code>, which schedules <code>TimerTasks</code> immediately,
 every 50 milliseconds until the <code>java.util.Timer</code> is cancelled. The field <code>timeLeft</code> is initialized
 to be the amount of time allowed per <em>Card</em> (in milliseconds), and is updated every 50ms.</p>
+</li>
+<li>
+<p>The behavior of <code>Timer</code> when <code>Hints</code> are enabled is <strong>largely still the same.</strong></p>
+</li>
+<li>
+<p>When <code>Hints</code> are enabled,
+<code>AppManager</code> initializes a <code>HintTimingQueue</code> in the <code>GameTimer</code> for each <em>Card</em>. <code>HintTimingQueue</code> is a class that
+contains a <code>java.util.Queue</code> of <em>timestamps</em> (in milliseconds). <code>GameTimer</code> polls from the <code>HintTimingQueue</code> and checks against
+these polled <em>timestamps</em> to update the <code>Hints</code> provided periodically.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -2466,4 +2464,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:23:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:10:40 UTC</div></div></div></body></html>
