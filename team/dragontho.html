@@ -4,7 +4,7 @@
 <h2 id="project-dukemon"><a class="link" href="#project-dukemon">PROJECT: Dukemon</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Link to Reposense code</em>: <a href="https://github.com/AY1920S1-CS2103T-T11-2/main">Reposense</a></p>
+<p><em>Link to Reposense code</em>: <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=totalCommits%20dsc&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;until=2019-11-08&amp;tabType=authorship&amp;tabAuthor=dragontho&amp;tabRepo=AY1920S1-CS2103T-T11-2%2Fmain%5Bmaster%5D">Reposense</a></p>
 </div>
 <div class="paragraph">
 <p><em>Link to Github Repo</em>: <a href="https://github.com/AY1920S1-CS2103T-T11-2/main">Dukemon</a></p>
@@ -38,7 +38,7 @@ fellow developers to build their UI components on.</p>
 </div>
 <div class="paragraph">
 <div class="title">Settings Page</div>
-<p><span class="image"><img src="../images/paulthoppp.png" alt="paulthoppp"></span></p>
+<p><span class="image"><img src="../images/paulthoppp.png" alt="paulthoppp" width="400"></span></p>
 </div>
 <div class="ulist">
 <ul>
@@ -160,7 +160,7 @@ fellow developers to build their UI components on.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Added diagrams to the implementation of settings in Developer&#8217;s Guide: <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/pull/134">#134</a></p>
 </li>
 </ul>
 </div>
@@ -170,13 +170,14 @@ fellow developers to build their UI components on.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Some parts of the modular display feature I added was adopted by several other class mates (<a href="https://github.com/AY1920S1-CS2103T-T12-1/main/pull/51">1</a>)</p>
+<p>The label highlighting feature that I used for my settings page was also used by other classmates(<a href="https://github.com/AY1920S1-CS2103T-T12-1/main/pull/87">1</a>).</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -220,7 +221,7 @@ Changes the UI theme to dark.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/darktheme.png" alt="darktheme">
+<img src="../images/darktheme.png" alt="darktheme" width="350">
 </div>
 <div class="title">Figure 1. Dark Theme</div>
 </div>
@@ -234,7 +235,7 @@ Changes the UI theme to light.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/lighttheme.png" alt="lighttheme">
+<img src="../images/lighttheme.png" alt="lighttheme" width="350">
 </div>
 <div class="title">Figure 2. Light Theme</div>
 </div>
@@ -345,16 +346,6 @@ Format: <code>avatar [0 - 151]</code><br>
 <p><code>avatar 0</code><br>
 Changes the avatar to a random one everytime a new command is called.</p>
 </li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/avatarrandom.png" alt="avatarrandom">
-</div>
-<div class="title">Figure 8. Random avatar, in this case, Porygon.</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><code>avatar 1</code><br>
 Changes the avatar to 001 in the original Pokedex, which is Bulbasaur.</p>
@@ -363,9 +354,9 @@ Changes the avatar to 001 in the original Pokedex, which is Bulbasaur.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/avatar1.png" alt="avatar1">
+<img src="../images/avatar1.png" alt="avatar1" width="250">
 </div>
-<div class="title">Figure 9. Avatar number 1, in this case, Bulbasaur.</div>
+<div class="title">Figure 8. Avatar number 1, in this case, Bulbasaur.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -377,9 +368,9 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/avatar151.png" alt="avatar151">
+<img src="../images/avatar151.png" alt="avatar151" width="250">
 </div>
-<div class="title">Figure 10. Avatar number 151, in this case, Mew.</div>
+<div class="title">Figure 9. Avatar number 151, in this case, Mew.</div>
 </div>
 </div>
 </div>
@@ -398,46 +389,6 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
-</div>
-<div class="title">Figure 11. Structure of the UI Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="{repoURL}/blob/master/src/main/java/seedu/address/ui/UiManager.java"><code>Ui.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ModularDisplay</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ModularDisplayClassDiagram.png" alt="ModularDisplayClassDiagram">
-</div>
-<div class="title">Figure 12. Structure of the ModularDisplay items.</div>
-</div>
-<div class="paragraph">
-<p>As our application also comprises a dynamically changing UI in replacement of the <code>PersonListPanel</code>, <code>ModularDisplay</code> contains multiple other <code>Panel</code> classes in itself in order to render the proper screens during runtime. This rendering is controlled by <code>UpdateUi</code> in <code>MainWindow</code>.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Executes user commands using the <code>AppManager</code> component.</p>
-</li>
-<li>
-<p>Listens for changes to <code>Model</code> data and <code>Timer</code> through the <code>AppManager</code> so that the UI can be updated correspondingly.</p>
-</li>
-</ul>
-</div>
-</div>
 <div class="sect2">
 <h3 id="span-class-underline-settings-feature-span"><a class="link" href="#span-class-underline-settings-feature-span"><span class="underline">Settings Feature</span></a></h3>
 <div class="sect3">
@@ -466,9 +417,9 @@ Changes the avatar to 151 in the original Pokedex, which is Mew.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
+<img src="../images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="200">
 </div>
-<div class="title">Figure 13. Activity diagram of the execution of a settings command.</div>
+<div class="title">Figure 10. Activity diagram of the execution of a settings command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -487,9 +438,9 @@ Take note that "mode" as defined in our project is the state in which the applic
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StateDiagramBefore.png" alt="StateDiagramBefore">
+<img src="../images/StateDiagramBefore.png" alt="StateDiagramBefore" width="250">
 </div>
-<div class="title">Figure 14. Before state of application.</div>
+<div class="title">Figure 11. Before state of application.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1:</strong><br>
@@ -497,9 +448,9 @@ Let us assume that the current difficulty of the application is "EASY". The obje
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DifficultySequenceDiagram1.png" alt="DifficultySequenceDiagram1">
+<img src="../images/DifficultySequenceDiagram1.png" alt="DifficultySequenceDiagram1" width="400">
 </div>
-<div class="title">Figure 15. Sequence diagram of Step 2.</div>
+<div class="title">Figure 12. Sequence diagram of Step 2.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2:</strong><br>
@@ -509,7 +460,7 @@ When the user enters <code>difficulty hard</code>, the command gets passed into 
 <div class="content">
 <img src="../images/DifficultySequenceDiagram2.png" alt="DifficultySequenceDiagram2">
 </div>
-<div class="title">Figure 16. Sequence diagram of Step 3.</div>
+<div class="title">Figure 13. Sequence diagram of Step 3.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 3:</strong><br>
@@ -519,7 +470,7 @@ At <code>LogicManager#execute()</code> however, the command gets passed into a p
 <div class="content">
 <img src="../images/DifficultySequenceDiagram3.png" alt="DifficultySequenceDiagram3">
 </div>
-<div class="title">Figure 17. Sequence diagram of Step 4.</div>
+<div class="title">Figure 14. Sequence diagram of Step 4.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 4:</strong><br>
@@ -529,7 +480,7 @@ Upon execution of the <code>DifficultyCommand</code>, the state of the model is 
 <div class="content">
 <img src="../images/DifficultySequenceDiagram4.png" alt="DifficultySequenceDiagram4">
 </div>
-<div class="title">Figure 18. Sequence diagram of Step 5.</div>
+<div class="title">Figure 15. Sequence diagram of Step 5.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 5:</strong><br>
@@ -537,9 +488,9 @@ Since the main function of the <code>difficulty</code> command is accomplished a
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DifficultySequenceDiagram5.png" alt="DifficultySequenceDiagram5">
+<img src="../images/DifficultySequenceDiagram5.png" alt="DifficultySequenceDiagram5" width="250">
 </div>
-<div class="title">Figure 19. Sequence diagram of Step 6.</div>
+<div class="title">Figure 16. Sequence diagram of Step 6.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 6:</strong><br>
@@ -550,10 +501,11 @@ Assuming that there were no errors thrown during the execution of the <code>diff
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StateDiagramAfter.png" alt="StateDiagramAfter">
+<img src="../images/StateDiagramAfter.png" alt="StateDiagramAfter" width="250">
 </div>
-<div class="title">Figure 20. After state of application</div>
+<div class="title">Figure 17. After state of application</div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -622,4 +574,4 @@ in this one, we do not think the added functionality of allowing the user to ext
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:46:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 20:27:05 UTC</div></div></div></body></html>
