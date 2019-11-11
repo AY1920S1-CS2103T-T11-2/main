@@ -168,6 +168,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
@@ -208,6 +209,7 @@ Reads data from, and writes data to, the local hard disk.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-AppManager"><a class="link" href="#Design-AppManager">2.3. AppManager component</a></h3>
@@ -241,6 +243,7 @@ and the <code>UI</code>.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Timer"><a class="link" href="#Design-Timer">2.4. Timer component</a></h3>
@@ -275,6 +278,7 @@ and notify the <code>AppManager</code>, who will notify the <code>UI</code> comp
 <p><em>Due to the fact that the <code>Timer</code> has to work closely with the <code>UI</code> and <code>AppManager</code> (without being
 coupled directly), it is separated from the <code>Logic</code>, <code>Model</code> and <code>Game</code> components.</em></p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.5. Logic component</a></h3>
@@ -357,6 +361,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="interaction-through-uilogichelper-interface"><a class="link" href="#interaction-through-uilogichelper-interface">2.5.4. Interaction through UiLogicHelper Interface</a></h4>
@@ -390,6 +395,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>
 <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/logic/UiLogicHelper.java"><code>UiLogicHelper.java</code></a></p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
@@ -400,6 +406,7 @@ coupled directly), it is separated from the <code>Logic</code>, <code>Model</cod
 </div>
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-2/main/blob/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
@@ -424,6 +431,7 @@ the UI automatically updates when the data in the list change.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Game"><a class="link" href="#Design-Game">2.7. Game component</a></h3>
@@ -452,6 +460,7 @@ the UI automatically updates when the data in the list change.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.8. Storage component</a></h3>
@@ -483,6 +492,7 @@ the UI automatically updates when the data in the list change.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="Design-Statistics"><a class="link" href="#Design-Statistics">2.9. Statistics component</a></h3>
@@ -515,6 +525,7 @@ current week.</p>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.Dukemon.commons</code> package.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -866,6 +877,7 @@ in this one, we do not think the added functionality of allowing the user to ext
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
@@ -907,6 +919,7 @@ synchronization issues, all
 </tr>
 </table>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TimerClassDiagramCallbacks.png" alt="TimerClassDiagramCallbacks">
@@ -934,6 +947,7 @@ and display</strong> accordingly on the <code>UI</code>.</p>
 <p>The <em>callbacks</em> for each of these events are implemented as nested <em>Functional Interfaces</em>
 within the  <code>GameTimer</code> interface, which is implemented by the <code>GameTimerManager</code>.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="implementation-overview-hints"><a class="link" href="#implementation-overview-hints">3.3.2. Implementation Overview - Hints</a></h4>
@@ -969,6 +983,7 @@ within the  <code>GameTimer</code> interface, which is implemented by the <code>
 <p>The <code>Timer</code> component <strong>triggers a request to update <code>Hints</code></strong> to the <code>AppManager</code>, who then updates and retrieves the updated <code>FormattedHint</code> from
 the current <code>Game</code> via the <code>Logic</code> component.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="flow-of-events-code-hints-code-disabled"><a class="link" href="#flow-of-events-code-hints-code-disabled">3.3.3. Flow of Events - <code>Hints</code> Disabled</a></h4>
@@ -1030,6 +1045,7 @@ The <code>AppManager</code> provides information regarding the duration in which
 <div class="paragraph">
 <p>Using this approach of <em>callbacks</em> provides <strong>better abstraction</strong> between the <code>UI</code> and <code>Timer</code>.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="flow-of-events-code-hints-code-enabled"><a class="link" href="#flow-of-events-code-hints-code-enabled">3.3.4. Flow of Events - <code>Hints</code> Enabled</a></h4>
@@ -1041,7 +1057,7 @@ The <code>AppManager</code> provides information regarding the duration in which
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TimerActivityDiagramWithHints.png" alt="TimerActivityDiagramWithHints">
+<img src="images/TimerActivityDiagramWithHints.png" alt="TimerActivityDiagramWithHints" width="400">
 </div>
 <div class="title">Figure 26. Activity diagram of the <code>run()</code> method of an instance of <code>GameTimerManager</code> when <code>Hints</code> are enabled.</div>
 </div>
@@ -1064,6 +1080,7 @@ these polled <em>timestamps</em> to update the <code>Hints</code> provided perio
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.5. Design Considerations</a></h4>
@@ -1101,9 +1118,18 @@ implemented as different call-backs separately. Possible overhead in performing 
 <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we chose Alternative 2:</strong><br>
 To ensure better extendability of our code for future expansion, we felt it was important to maintain as much
 abstraction between components. This is also to make life easier when there comes a need to
-debug and resolve problems in the code.
-<br></p></td>
+debug and resolve problems in the code.</p></td>
 </tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
@@ -1135,6 +1161,7 @@ elements can potentially affect all other components, it was safer to modify mor
 <div class="paragraph">
 <p>&#160;<br></p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
@@ -1206,6 +1233,7 @@ They describe and explain <em>WordBank</em>'s data structure and its storage sys
 </table>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="next-the-second-level-code-em-wordbank-em-code"><a class="link" href="#next-the-second-level-code-em-wordbank-em-code">Next, the second level - <code><em>WordBank</em></code>.</a></h5>
@@ -1238,6 +1266,7 @@ change.
 </table>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="now-the-third-level-code-wordbanklist-code"><a class="link" href="#now-the-third-level-code-wordbanklist-code">Now the third level - <code>WordBankList</code></a></h5>
@@ -1272,6 +1301,7 @@ change.
 <code>Model</code> holds a reference to that specific <code>WordBankList</code>.</p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="architecture-overview-code-wordbanklist-code"><a class="link" href="#architecture-overview-code-wordbanklist-code">Architecture overview - <code>WordBankList</code></a></h5>
@@ -1282,6 +1312,7 @@ change.
 <div class="title">Figure 30. Overview of <code>WordBankList</code>.</div>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="em-wordbank-em-s-storage-system-integration"><a class="link" href="#em-wordbank-em-s-storage-system-integration"><em>WordBank</em>'s storage system integration.</a></h5>
@@ -1344,6 +1375,7 @@ To segregate <code>Cards</code> according to their function, we distinguished th
 <p><code>WordBankCommands</code> work on <code>WordBanks</code>.</p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="walkthrough-code-importcommand-code-br"><a class="link" href="#walkthrough-code-importcommand-code-br">Walkthrough - <code>ImportCommand</code>.<br></a></h5>
 <div class="imageblock">
@@ -1369,6 +1401,7 @@ The emphasis here is to show how these commands utilise <em>WordBank</em>'s data
 <p>We will see the case where an <code>ImportCommand</code> is valid.<br>
 A valid input could be: "import w/bank1, f/~/downloads"</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1421,6 +1454,7 @@ then to the <code>UI</code> to notify the user.</p>
 <p>&#160;</p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect3">
@@ -1468,6 +1502,7 @@ Simply drag and drop a <em>WordBank</em> json file from your computer into the <
 your desktop, or chat applications.<br></p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="walkthrough-drag-in"><a class="link" href="#walkthrough-drag-in">Walkthrough - Drag in.</a></h5>
 <div class="imageblock">
@@ -1518,6 +1553,7 @@ This is possible with careful exceptions handling within the <code>ImportCommand
 <p>&#160;</p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect3">
@@ -1553,6 +1589,7 @@ You can refer to it to enhance your understanding of this implementation.
 <p>Revision <em>WordBank</em> was one of the essential and dominant features we wanted to implement since early development, however
 it had to be implemented last because it required multiple components working together.<br></p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>These components include:</p>
 </div>
@@ -1599,6 +1636,7 @@ The activity diagram above is able to detail the thought process and implementat
 <p>&#160;</p>
 </div>
 <hr>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.5. Design Considerations</a></h4>
@@ -1640,6 +1678,7 @@ Commands that depend on it becomes much easier to implement. (This can be seen i
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1675,6 +1714,7 @@ aspect in our app, and cannot be compromised.</p></td>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1713,6 +1753,7 @@ drop feature is now a few function calls away, as all data structure and functio
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1750,6 +1791,7 @@ feedback messages.</p></td>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
@@ -1814,6 +1856,7 @@ the main title page.</p></td>
 <div class="paragraph">
 <p>We will discuss each step with its implementation details primarily on the statistics work.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="1-span-class-underline-user-opens-the-app-span-br"><a class="link" href="#1-span-class-underline-user-opens-the-app-span-br">1. <span class="underline">User opens the app</span><br></a></h5>
 <div class="paragraph">
@@ -1849,6 +1892,7 @@ into Model.<br></p>
 <div class="paragraph">
 <p>In open mode, the user is shown the <code>WordBankStatistics</code> of the opened word bank, which is set in <code>Model</code> at step 2.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="4-span-class-underline-user-plays-the-game-span-br"><a class="link" href="#4-span-class-underline-user-plays-the-game-span-br">4. <span class="underline">User plays the game</span><br></a></h5>
@@ -1866,6 +1910,7 @@ It receives the timestamp from the <code>GameTimer</code> which also resides in 
 </div>
 <div class="title">Figure 38. Sequence diagram when user makes a guess.</div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="span-class-underline-5-user-finishes-the-game-span-br"><a class="link" href="#span-class-underline-5-user-finishes-the-game-span-br"><span class="underline">5. User finishes the game</span><br></a></h5>
@@ -1893,6 +1938,7 @@ the same method <code>updateGameStatisticsBuilder(CommandResult)</code>.</p>
 </div>
 <div class="title">Figure 40. Activity diagram when <code>AppManager</code> receives a <code>CommandResult</code> (Details unrelated to statistics are omitted).</div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect3">
@@ -1936,6 +1982,7 @@ for the word bank statistics freely.</p></td>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
@@ -1981,6 +2028,7 @@ for the word bank statistics freely.</p></td>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -2012,6 +2060,7 @@ for the word bank statistics freely.</p></td>
 <div class="paragraph">
 <p><strong>Value proposition</strong>: Making Learning and Memorization Game-like, Fun and Engaging.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -2188,6 +2237,7 @@ for the word bank statistics freely.</p></td>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -2263,6 +2313,7 @@ for the word bank statistics freely.</p></td>
 <div class="paragraph">
 <p>Use case resumes from step 3.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -2284,9 +2335,7 @@ for the word bank statistics freely.</p></td>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -2330,6 +2379,7 @@ code that is expected to <em>callback</em> (execute) the argument at a given tim
 </dd>
 </dl>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -2400,6 +2450,7 @@ The below instruction are only intended as starting points for testers to work o
 </li>
 </ol>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="starting-and-terminating-a-em-game-em-session-without-em-hints-em"><a class="link" href="#starting-and-terminating-a-em-game-em-session-without-em-hints-em">F.2. Starting and Terminating a <em>Game</em> session without <em>Hints</em>.</a></h3>
@@ -2456,6 +2507,7 @@ respectively for each <em>Card</em>. Other invalid commands will yield similar r
 </tr>
 </table>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="importing-and-exporting-a-em-wordbank-em-using-drag-and-drop"><a class="link" href="#importing-and-exporting-a-em-wordbank-em-using-drag-and-drop">F.3. Importing and Exporting a <em>WordBank</em> using Drag-and-Drop.</a></h3>
@@ -2526,4 +2578,4 @@ respectively for each <em>Card</em>. Other invalid commands will yield similar r
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:56:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:19:36 UTC</div></div></div></body></html>
