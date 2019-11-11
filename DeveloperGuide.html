@@ -2196,57 +2196,72 @@ for the word bank statistics freely.</p></td>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>Dukemon</code> and the <strong>Actor</strong> is the <code>User</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-a-card" class="discrete">Use case: Add a Card</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User selects and opens a WordBank.</p>
 </li>
 <li>
-<p>Dukemon shows a list of persons</p>
+<p>Dukemon shows a list of Cards.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User adds Word and Meaning pair.</p>
 </li>
 <li>
-<p>Dukemon deletes the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>Dukemon adds a Card into WordBank.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p>Use case ends.</p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<h3 id="use-case-play-a-game" class="discrete">Use case: Play a game</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>2a. The list is empty.</p>
+<p>User selects and opens a WordBank.</p>
+</li>
+<li>
+<p>Dukemon shows a list of Cards.</p>
+</li>
+<li>
+<p>User starts a game.</p>
+</li>
+<li>
+<p>Dukemon shows the Meaning of a Card.</p>
+</li>
+<li>
+<p>User guesses Word of the corresponding Card.</p>
+<div class="paragraph">
+<p>Steps 4-5 are repeated till all Cards are played.</p>
+</div>
+</li>
+<li>
+<p>Game ends. Dukemon shows statistics of game.</p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. Dukemon shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p><strong>Extentions</strong></p>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p>2a. User opens settings</p>
+</div>
+<div class="paragraph">
+<p>2a1.  User changes hints to off.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 3.</p>
 </div>
 </div>
 </div>
@@ -2511,4 +2526,4 @@ respectively for each <em>Card</em>. Other invalid commands will yield similar r
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:25:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:43:32 UTC</div></div></div></body></html>
