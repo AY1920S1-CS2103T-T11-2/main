@@ -35,9 +35,6 @@
 <li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -46,9 +43,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#initial-start-up-and-editing-of-a-em-wordbank-em">F.1. Initial Start-up and Editing of a <em>WordBank</em></a></li>
-<li><a href="#starting-and-force-stopping-a-em-game-em-session-without-code-hints-code">F.2. Starting and Force-Stopping a <em>Game</em> session without <code>Hints</code>.</a></li>
+<li><a href="#starting-and-terminating-a-em-game-em-session-without-em-hints-em">F.2. Starting and Terminating a <em>Game</em> session without <em>Hints</em>.</a></li>
 <li><a href="#importing-and-exporting-a-em-wordbank-em-using-drag-and-drop">F.3. Importing and Exporting a <em>WordBank</em> using Drag-and-Drop.</a></li>
-<li><a href="#saving-data">F.4. Saving data</a></li>
+<li><a href="#changing-and-saving-em-dukemon-em-settings">F.4. Changing and Saving <em>Dukemon</em> Settings</a></li>
 </ul>
 </li>
 </ul>
@@ -1990,30 +1987,6 @@ for the word bank statistics freely.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -2338,6 +2311,10 @@ for the word bank statistics freely.</p></td>
 code that is expected to <em>callback</em> (execute) the argument at a given time.
 (Adapted from <a href="https://en.wikipedia.org/wiki/Callback_(computer_programming)">Wikipedia</a>)</p>
 </dd>
+<dt class="hdlist1"><a id="gui"></a> GUI</dt>
+<dd>
+<p><em>Graphical User Interface</em>, the primary interface of which <em>Dukemon</em>'s feedback to the user can be seen.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -2412,7 +2389,7 @@ The below instruction are only intended as starting points for testers to work o
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-and-force-stopping-a-em-game-em-session-without-code-hints-code"><a class="link" href="#starting-and-force-stopping-a-em-game-em-session-without-code-hints-code">F.2. Starting and Force-Stopping a <em>Game</em> session without <code>Hints</code>.</a></h3>
+<h3 id="starting-and-terminating-a-em-game-em-session-without-em-hints-em"><a class="link" href="#starting-and-terminating-a-em-game-em-session-without-em-hints-em">F.2. Starting and Terminating a <em>Game</em> session without <em>Hints</em>.</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2472,52 +2449,68 @@ respectively for each <em>Card</em>. Other invalid commands will yield similar r
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Starting a <em>Game</em> after a target <em>WordBank</em> has been selected.</p>
+<p>Exporting a <em>WordBank</em> using Drag-and-Drop</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><span class="underline">Prerequisite</span>: A <em>WordBank</em> with <strong>3 or more <em>Cards</em></strong> has been selected using the <code>select</code> command.</p>
+<p><span class="underline">Prerequisite</span>: There exists <strong>at least one</strong> <em>WordBank</em> in <em>Dukemon</em>'s data storage. Let <strong>W</strong> be any <em>WordBank</em> that currently exists in <em>Dukemon</em>'s storage.</p>
 </li>
 <li>
-<p>Enter <code>settings</code>
-<span class="underline">Expected</span>: GUI switches to <em>Settings</em> mode, and various configurable parameters are listed. (ie. <em>Theme</em>, <em>Hints</em> etc)</p>
+<p>(Single) Click on Panel on the right half of the GUI that indicates <em>WordBank</em> <strong>W</strong><br>
+<span class="underline">Expected</span>: <em>WordBank</em> <strong>W</strong>'s panel on the GUI becomes highlighted.</p>
 </li>
 <li>
-<p>Enter <code>hints off</code><br>
-<span class="underline">Expected</span>: GUI feedback indicates that <em>Hints</em> are turned OFF</p>
+<p>Use mouse cursor to click-and-drag highlighted panel <strong>outside</strong> of <em>Dukemon</em> into an <strong>empty</strong> folder. <br>
+<span class="underline">Expected</span>: A file with name <strong>W.json</strong> appears in the folder where it was dragged into.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Importing a <em>WordBank</em> using Drag-and-Drop</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><span class="underline">Prerequisite</span>: <em>WordBank</em> to be imported is in <strong>valid .json format</strong>, and all of its <code>Cards</code> are <strong>valid within constraints.</strong> Let <strong>V</strong> be the <em>WordBank</em> to be imported.</p>
+</li>
+<li>
+<p>(Single) Click on <strong>V.json</strong> in your file directory. Start <em>Dukemon</em> and drag <strong>V.json</strong> into the panel on the right side (where the list of <em>WordBanks</em> is shown.) <br>
+<span class="underline">Expected</span>: <em>WordBank</em> <strong>V</strong> is successfully added into the list of <em>WordBanks</em>, feedback indicates location where file was imported from.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
+<h3 id="changing-and-saving-em-dukemon-em-settings"><a class="link" href="#changing-and-saving-em-dukemon-em-settings">F.4. Changing and Saving <em>Dukemon</em> Settings</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with <strong>missing/corrupted</strong> data and configuration files</p>
+<p>Changing Color Theme of <em>Dukemon</em></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p><span class="underline">Prerequisite</span>: A <em>WordBank</em> has <strong>already been selected</strong> from the <em>Home</em> mode, and no <em>Game</em> session is in progress.</p>
+</li>
+<li>
+<p>Enter <code>settings</code><br>
+<span class="underline">Expected</span>: GUI switches to the <em>Settings</em> screen.</p>
+</li>
+<li>
+<p>Enter <code>theme light</code><br>
+<span class="underline">Expected</span>: GUI&#8217;s overall color theme switches to a lighter color.</p>
+</li>
+<li>
+<p>Enter <code>exit</code>, then restart <em>Dukemon</em> (do not change any configuration or data files)<br>
+<span class="underline">Expected</span>: GUI&#8217;s color theme remains light after restarting.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:30:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:58:56 UTC</div></div></div></body></html>
